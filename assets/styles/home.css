@@ -1,0 +1,11 @@
+.homeimg{
+    position: relative;
+    display: flex;
+    top: 9.5vh;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10vh;
+}
+.homeimgscr{
+    width: 40%;
+}

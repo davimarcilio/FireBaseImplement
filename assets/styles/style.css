@@ -61,18 +61,6 @@ a{
 .linked{
     float: right;
 }
-/* Home */
-.homeimg{
-    position: relative;
-    display: flex;
-    top: 9.5vh;
-    justify-content: center;
-    align-items: center;
-    padding-top: 10vh;
-}
-.homeimgscr{
-    width: 40%;
-}
 /* bottom */
 .bottomnav{
 bottom: 0;
@@ -92,51 +80,4 @@ bottom: 0;
     color:rgb(255, 112, 112) ;
     transition: all;
     transition-duration: 300ms;
-}
-.sobre{
-    position: absolute;
-    top: 10vh;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 60%;
-    align-items: center;
-    justify-content: center;
-}
-.sobreparag{
-    max-width: 80%;
-    text-align: center;
-    line-height: 30px;
-}
-.formLoginCadastro{
-    display: flex;
-    position:absolute;
-    width: 100%;
-    height: 80%;
-    top: 10vh;
-    flex-direction: row;
-    justify-content: space-around; 
-    align-items: center;
-}
-.login{
-width: 30vw;
-}
-.email, .password{
-    box-sizing: border-box;
-    margin-top: 10px;
-    width: 100%;
-  padding: 10px;
-  border: 1px solid black;
-  border-radius: 5px;
-  text-align: center;
-  /* margin-left: 10vh; */
-}
-.bttlogin{
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    /* margin-left: 10vh; */
-}
-.siginup{
-    width: 30vw;
 }

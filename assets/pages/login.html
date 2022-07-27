@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/style.css">
     <link rel="stylesheet" href="../styles/templatebuttonlogin.css">
+    <link rel="stylesheet" href="../styles/login.css">
     <title>éusguri</title>
 </head>
 
@@ -23,6 +24,8 @@
         <div class="formLoginCadastro">
             <div class="login">
                 <div>
+                    <h5>Já sou cliente</h5>
+                    <br>
                     <input class="email" type="email" id="loginemail" name="loginemail" placeholder="email"><br>
                     <input class="password" type="password" id="loginpassword" name="loginpassword"
                         placeholder="senha"><br>
@@ -37,6 +40,8 @@
             </div>
             <div class="siginup">
                 <div>
+                    <h5>Não sou cliente</h5>
+                    <br>
                     <input class="email" type="email" id="siginemail" name="siginemail" placeholder="email"><br>
                     <input class="password" type="password" id="siginpassword" name="siginpassword"
                         placeholder="senha"><br>
@@ -60,6 +65,10 @@
             </div>
         </div>
     </footer>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="../scripts/firebase.js"></script>
     <script src="../scripts/login.js"></script>
 </body>
 
