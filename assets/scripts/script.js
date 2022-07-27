@@ -1,4 +1,16 @@
-function load() {
+function load(pagina) {
+    console.log(pagina);
+    switch (pagina) {
+        case 'home':
+            window.location.href='assets/pages/home.html';
+            break;
+    case 'login':
+        window.location.href='/../assets/pages/login.html';
+        break;
+        default:
+            'home';
+            break;
+    }
     window.location.href ='assets/pages/home.html';
 }
 function logged() {
@@ -15,3 +27,8 @@ function logged() {
         }
     })
 }
+auth.signOut().then(()=>{
+    console.log('usuario deslogado');
+}).catch((err)=>{
+    console.log(err);
+})
