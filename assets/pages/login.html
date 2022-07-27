@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/style.css">
-    <link rel="stylesheet" href="../styles/templatebuttonlogin.css">
     <link rel="stylesheet" href="../styles/login.css">
     <title>éusguri</title>
 </head>
@@ -32,6 +31,7 @@
                     <div class="bttlogin">
                         <button class="button bttlogar" onclick="logar()">
                             <span class="text">Logar</span>
+                            <img id="incorrect" class="incorrect" src="../images/wrong-svgrepo-com.svg" alt="incorrect">
                             <img id="correct" class="correct" src="../images/correct-svgrepo-com.svg" alt="Correct">
                             <i class="ri-check-line icon"></i>
                         </button>
@@ -48,6 +48,7 @@
                     <div class="bttlogin">
                         <button class="button bttlogar" onclick="cadastro()">
                             <span class="text">Cadastro</span>
+                            <img id="incorrect" class="incorrect" src="../images/wrong-svgrepo-com.svg" alt="incorrect">
                             <img id="correct" class="correct" src="../images/correct-svgrepo-com.svg" alt="Correct">
                             <i class="ri-check-line icon"></i>
                         </button>
@@ -65,9 +66,11 @@
             </div>
         </div>
     </footer>
+    <div id="erro">
+    </div>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
     <script src="../scripts/firebase.js"></script>
     <script src="../scripts/login.js"></script>
 </body>
