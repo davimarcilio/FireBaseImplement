@@ -1,14 +1,18 @@
+/* body e reset */
 *{
     margin: 0;
     padding: 0;
 }
-.top{
+body{
+    font-family: 'Press Start 2P', sans-serif;
+}
+/* Navegation Bar da pagina */
+.top, .bottomnav{
     display: flex;
     position: absolute;
-  width: 100%;
+  width: calc(100% - 2vw);
   align-items: center;
-  justify-content: flex-start;
-  padding-left: 10vw;
+  padding-left: 2vw;
   height: 10%;
   background-color: rgb(97, 97, 97);
 }
@@ -17,4 +21,69 @@
 }
 .texttop{
     color: rgb(255, 112, 112);
+    font-size: 5vh;
+    padding-left: 0.5vw;
+transition: all;
+transition-duration: 300ms;
+}
+.texttop:hover, .linkedsobre:hover, .linkedcontat:hover{
+    color: rgb(255, 50, 50);
+    cursor: pointer;
+}
+.texttop:hover{
+    font-size: 5.1vh;
+}
+ul{
+    right: 5vh;
+    position: absolute;
+}
+li{
+    margin: 5px;
+    padding: 10px;
+    float: right;
+    list-style: none;
+    border: 2px solid rgb(56, 56, 56);
+    border-radius: 15px;
+    color: rgb(255, 112, 112);
+    transition: all;
+    transition-duration: 300ms;
+}
+li:hover{
+  color: rgb(255, 50, 50);
+  cursor: pointer;
+  border: 3px solid rgb(36, 36, 36);
+}
+a{
+    text-decoration: none;
+}
+.linked{
+    float: right;
+}
+/* Home */
+.homeimg{
+    position: relative;
+    display: flex;
+    top: 9.5vh;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10vh;
+}
+.homeimgscr{
+    width: 40%;
+}
+/* bottom */
+.bottomnav{
+bottom: 0;
+}
+.linkedcontat{
+    position: absolute;
+    display: flex;
+    height: 100%;
+    top: 0;
+    align-items: center;
+    right: 5vh;
+    color:rgb(255, 112, 112) ;
+}
+.linkedsobre{
+    color:rgb(255, 112, 112) ;
 }
