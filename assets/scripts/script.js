@@ -30,4 +30,23 @@ function logged() {
             userNotLogged.style.display = 'inline';
         }
     })
+<<<<<<< Updated upstream
 }
+=======
+}
+<<<<<<< HEAD
+// setTimeout(() => {
+//     auth.signOut().then(()=>{
+//     console.log('deslogado');
+// }).catch((err)=>{
+//     console.log(err);
+// })
+// }, 10000);
+=======
+auth.signOut().then(()=>{
+    console.log('usuario deslogado');
+}).catch((err)=>{
+    console.log(err);
+})
+>>>>>>> 17cbb44 (TEstes)
+>>>>>>> Stashed changes
