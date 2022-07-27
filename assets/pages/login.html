@@ -25,9 +25,9 @@
                 <div>
                     <h5>Já sou cliente</h5>
                     <br>
-                    <input class="email" type="email" id="loginemail" name="loginemail" placeholder="email"><br>
-                    <input class="password" type="password" id="loginpassword" name="loginpassword"
-                        placeholder="senha"><br>
+                    <input class="inputLogin" type="email" id="loginemail" name="loginemail" placeholder="Email:"><br>
+                    <input class="inputLogin" type="password" id="loginpassword" name="loginpassword"
+                        placeholder="Senha:"><br>
                     <div class="bttlogin">
                         <button class="button bttlogar" onclick="logar()">
                             <span class="text">Logar</span>
@@ -42,9 +42,28 @@
                 <div>
                     <h5>Não sou cliente</h5>
                     <br>
-                    <input class="email" type="email" id="siginemail" name="siginemail" placeholder="email"><br>
-                    <input class="password" type="password" id="siginpassword" name="siginpassword"
-                        placeholder="senha"><br>
+                    <input class="inputLogin" type="text" id="nomeuser" name="nomeuser" placeholder="Nome:"><br>
+                    <input class="inputLogin" type="text" id="sobrenomeuser" name="sobrenomeuser"
+                        placeholder="Sobrenome:"><br>
+                    <div class="sexo">
+                        <h6 id="sexoh6">Sexo:</h6>
+                        <input type="radio" name="sexo" id="sexof" value="F"><label class="labelsexo"
+                            for="sexof">Feminino</label><br>
+                        <input type="radio" name="sexo" id="sexom" value="M"><label class="labelsexo"
+                            for="sexom">Masculino</label><br>
+                    </div>
+                    <div class="sexo">
+                        <h6 id="sexoh6">Nascimento:</h6>
+                    <input class="inputLogin" type="date" id="datanasc" name="datanasc">
+                </div>
+                    <input class="inputLogin" type="email" id="siginemail" name="siginemail" placeholder="Email:"><br>
+                    <input class="inputLogin" type="email" id="confcreateemail" name="confcreateemail"
+                        placeholder="Confirme Email:"><br>
+                    <input class="inputLogin" type="password" id="siginpassword" name="siginpassword"
+                        placeholder="Senha:"><br>
+                    <input class="inputLogin" type="password" id="confsiginpassword" name="confsiginpassword"
+                        placeholder="Confirme Senha:"><br>
+
                     <div class="bttlogin">
                         <button class="button bttlogar" onclick="cadastro()">
                             <span class="text">Cadastro</span>
@@ -66,6 +85,7 @@
             </div>
         </div>
     </footer>
+    <div id="erroremail"></div>
     <div id="erro">
     </div>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>

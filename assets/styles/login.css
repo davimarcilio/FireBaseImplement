@@ -11,7 +11,10 @@
 .login{
 width: 30vw;
 }
-.email, .password{
+input::placeholder{
+    color: gray;
+}
+.inputLogin, .sexo{
     box-sizing: border-box;
     margin-top: 10px;
     width: 100%;
@@ -27,6 +30,18 @@ width: 30vw;
 }
 .siginup{
     width: 30vw;
+}
+#sexof, #sexom, .labelsexo{
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.sexo{
+  background-color: white;
+  text-align: start;
+}
+#sexoh6{
+    color: gray;
+    font-weight: 100;
 }
 /* erro */
 #erro{
@@ -72,7 +87,7 @@ width: 30vw;
 }
 .button:focus{
     width: 30px;
-    background-color: #44c98a;
+    background-color: #282231;
     border-radius: 50%;
 }
 .button:focus .text{
@@ -84,4 +99,16 @@ width: 30vw;
 }
 .correct, .incorrect{
     opacity: 0;
+}
+#erroremail{
+    background-color: tomato;
+    border-radius: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 20vh;
+    height: 10vh;
+    width: 50%;
+    display: none;
 }
