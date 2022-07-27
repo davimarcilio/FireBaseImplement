@@ -1,0 +1,42 @@
+.button{
+    position: relative;
+    width: 70px;
+    height: 30px;
+    font-size: 10px;
+    background-color: #282231;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 900;
+    margin-top: 10px;
+    padding: 10px;
+    transition: width .5s,
+    border-radius .5s;
+
+}
+.button *{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: opacity .25s;
+}
+.icon{
+    opacity:0;
+}
+.button:focus{
+    width: 30px;
+    background-color: #44c98a;
+    border-radius: 50%;
+}
+.button:focus .text{
+    opacity: 0;
+}
+.button:focus .icon{
+    opacity: 1;
+    transition-delay: .5s;
+}
+.correct, .correct{
+    opacity: 0;
+}
