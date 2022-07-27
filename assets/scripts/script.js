@@ -1,5 +1,18 @@
-function load() {
-    window.location.href ='assets/pages/home.html';
+function load(page) {
+    switch (page) {
+        case 'home':
+            window.location.href ='/assets/pages/home.html';
+            break;
+            case 'login':
+                window.location.href ='/assets/pages/login.html';
+                break;
+                case 'sobre':
+                    window.location.href ='/assets/pages/sobre.html';
+                    break;
+        default:
+             window.location.href ='assets/pages/home.html';
+            break;
+    }
 }
 function logged() {
     auth.onAuthStateChanged((user)=>{

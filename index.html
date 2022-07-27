@@ -9,20 +9,24 @@
     <title>éusguri</title>
 </head>
 
-<body onload="load()">
+<body onload="load('home')">
     <header>
         <div class="top">
-            <img class="icontop" src="../images/PngItem_868090.png" alt="Hang Loose Red">
-            <a href="index.html">
+            <img class="icontop" src="assets/images/PngItem_868090.png" alt="Hang Loose Red">
+            <a onclick="load('home')">
                 <h1 class="texttop">éusguri</h1>
             </a>
-            <ul>
+            <ul> 
+                <a class="linked" onclick="load('login')">
+                    <li>Entrar</li>
+                </a>
+                <a id="onlylogged" href="">
+                    <li>User</li>
+                </a>
                 <a class="linked" href="">
                     <li>Carrinho</li>
                 </a>
-                <a class="linked" href="login.html">
-                    <li>Entrar</li>
-                </a>
+               
                 <a class="linked" href="">
                     <li>Produtos</li>
                 </a>
@@ -31,7 +35,7 @@
     </header>
     <footer>
         <div class="bottomnav">
-            <a class="linkedsobre" href="sobre.html">
+            <a class="linkedsobre" onclick="load('sobre')">
                 <h1>Sobre Nós</h1>
             </a>
             <div>

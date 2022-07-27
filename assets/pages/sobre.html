@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,25 +9,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>éusguri</title>
 </head>
+
 <body>
     <header>
         <div class="top">
             <img class="icontop" src="../images/PngItem_868090.png" alt="Hang Loose Red">
-            <a href="/../index.html"><h1 class="texttop">éusguri</h1></a>
-                <ul>
-                    <a class="linked" href=""><li>Carrinho</li></a>
-                    <a class="linked" href="login.html"><li>Entrar</li></a>
-                    <a class="linked" href=""><li>Produtos</li></a>
-                </ul>
+            <a onclick="load('home')">
+                <h1 class="texttop">éusguri</h1>
+            </a>
+            <ul> 
+                <a class="linked" onclick="load('login')">
+                    <li>Entrar</li>
+                </a>
+                <a id="onlylogged" href="">
+                    <li>User</li>
+                </a>
+                <a class="linked" href="">
+                    <li>Carrinho</li>
+                </a>
+               
+                <a class="linked" href="">
+                    <li>Produtos</li>
+                </a>
+            </ul>
         </div>
     </header>
     <section>
         <div class="sobre">
-        <h1>Como começamos</h1><br>
-        <p class="sobreparag">Começamos vendendo drogas on-line, após um ex-sócio dessa empresa ser preso, decidimos parar
-            de vender drogas, e começamos a vender roupas, calçados, artigos esportivos on-line, hoje temos uma 
-            grande empresa renomada.</p>
-    </div>
+            <h1>Como começamos</h1><br>
+            <p class="sobreparag">Começamos vendendo drogas on-line, após um ex-sócio dessa empresa ser preso, decidimos
+                parar
+                de vender drogas, e começamos a vender roupas, calçados, artigos esportivos on-line, hoje temos uma
+                grande empresa renomada.</p>
+        </div>
     </section>
     <footer>
         <div class="bottomnav">
@@ -37,5 +52,7 @@
             </div>
         </div>
     </footer>
+    <script src="../scripts/script.js"></script>
 </body>
+
 </html>
