@@ -3,8 +3,18 @@
     padding: 0;
 }
 .top{
+    display: flex;
     position: absolute;
   width: 100%;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 10vw;
   height: 10%;
   background-color: rgb(97, 97, 97);
+}
+.icontop{
+    height: calc(100% - 20%);
+}
+.texttop{
+    color: rgb(255, 112, 112);
 }
