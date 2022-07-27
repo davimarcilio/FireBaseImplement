@@ -32,6 +32,7 @@ function logged() {
     })
 <<<<<<< Updated upstream
 }
+<<<<<<< HEAD
 =======
 }
 <<<<<<< HEAD
@@ -50,3 +51,5 @@ auth.signOut().then(()=>{
 })
 >>>>>>> 17cbb44 (TEstes)
 >>>>>>> Stashed changes
+=======
+>>>>>>> 341d13c (Testes)
