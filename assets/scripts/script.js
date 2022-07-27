@@ -25,7 +25,7 @@ function logged() {
             let userLogged = document.getElementById('onlylogged');
             userLogged.style.display = 'inline';
         } else {
-            // tira a opção de logar
+            // aparece a opção de logar
             let userNotLogged = document.getElementById('login');
             userNotLogged.style.display = 'inline';
         }
