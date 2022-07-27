@@ -9,18 +9,18 @@
     <title>éusguri</title>
 </head>
 
-<body onload="load()">
+<body onload="load('home')">
     <header>
         <div class="top">
             <img class="icontop" src="../images/PngItem_868090.png" alt="Hang Loose Red">
-            <a href="index.html">
+            <a onclick="load('login')">
                 <h1 class="texttop">éusguri</h1>
             </a>
             <ul>
                 <a class="linked" href="">
                     <li>Carrinho</li>
                 </a>
-                <a class="linked" href="login.html">
+                <a class="linked" onclick="load('login')">
                     <li>Entrar</li>
                 </a>
                 <a class="linked" href="">
@@ -31,7 +31,7 @@
     </header>
     <footer>
         <div class="bottomnav">
-            <a class="linkedsobre" href="sobre.html">
+            <a class="linkedsobre" onclick="load('sobre')">
                 <h1>Sobre Nós</h1>
             </a>
             <div>
@@ -41,6 +41,10 @@
             </div>
         </div>
     </footer>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="assets/scripts/firebase.js"></script>
     <script src="assets/scripts/script.js"></script>
 </body>
 
