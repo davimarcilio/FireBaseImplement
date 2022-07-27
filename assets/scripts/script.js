@@ -15,3 +15,10 @@ function logged() {
         }
     })
 }
+// setTimeout(() => {
+//     auth.signOut().then(()=>{
+//     console.log('deslogado');
+// }).catch((err)=>{
+//     console.log(err);
+// })
+// }, 10000);
