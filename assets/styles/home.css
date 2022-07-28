@@ -1,5 +1,5 @@
 .homeimg{
-    position: relative;
+    position: static;     
     display: flex;
     top: 9.5vh;
     justify-content: center;
@@ -8,4 +8,15 @@
 }
 .homeimgscr{
     width: 40%;
+    /* position: absolute; */
+}
+@media only screen and (max-width: 600px) {
+    .homeimgscr{
+        width: 99%;
+    }
+    .homeimg{
+        /* margin-top: 15vh; */
+        top: 20vh;
+        padding-top: 20vh;
+    }
 }

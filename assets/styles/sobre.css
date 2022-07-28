@@ -1,5 +1,5 @@
 .sobre{
-    position: absolute;
+    position: relative;
     top: 10vh;
     display: flex;
     flex-direction: column;
@@ -12,4 +12,13 @@
     max-width: 80%;
     text-align: center;
     line-height: 30px;
+}
+@media only screen and (max-width: 775px) {
+    .sobreparag{
+        top: unset;
+        margin-top: 0vh;
+    }
+    #texth1{
+        margin-top: 15vh;
+    }
 }

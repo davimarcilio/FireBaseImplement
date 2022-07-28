@@ -10,7 +10,8 @@
     <title>éusguri</title>
 </head>
 <!-- Padrão de toda página -->
-<body onload="logged()" onresize="logged()">
+
+<body onload="logged(), Admin()" onresize="logged()">
     <header>
         <div class="top">
             <img class="icontop" src="../images/PngItem_868090.png" alt="Hang Loose Red">
@@ -18,12 +19,12 @@
                 <h1 class="texttop">éusguri</h1>
             </a>
             <ul class="ulH">
-            <button type="button" class="hamburguer" onclick="ResponsiveHamMenu()">
-                <span class="line"></span>
-                <span class="line"></span>
-                <span class="line"></span>
-            </button>
-        </ul>
+                <button type="button" class="hamburguer" onclick="ResponsiveHamMenu()">
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                </button>
+            </ul>
             <ul class="ulH">
                 <a id="login" class="responsivity" onclick="load('login')">
                     <li>Entrar</li>
@@ -42,6 +43,7 @@
         </div>
         <div class="responsivityHamburguerMenu">
             <ul class="uul">
+               
                 <a id="login" class="linked responsivity" onclick="load('login')">
                     <li>Entrar</li>
                 </a>
@@ -54,6 +56,9 @@
 
                 <a id="produtos" class="linked responsivity" href="">
                     <li>Produtos</li>
+                </a> 
+                <a id="admin" class="linked responsivity" onclick="load('admin')">
+                    <li>Admin</li>
                 </a>
             </ul>
         </div>

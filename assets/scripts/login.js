@@ -54,7 +54,7 @@ function ErrorCode(errCode, errMsg) {
 function greenErrorCode(errCode, errMsg) {
     let errorMessageHTML = document.getElementById('erro');
     errorMessageHTML.style.display = 'flex';
-    errorMessageHTML.style.backgroundColor= 'rgba(118, 248, 106, 0.8)'
+    errorMessageHTML.style.backgroundColor = 'rgba(118, 248, 106, 0.8)'
     errorMessageHTML.innerHTML = `
             <h1 id="errorCode">${errCode}</h1>
             <p id="errorMessage">${errMsg}</p>`;
@@ -63,10 +63,9 @@ function greenErrorCode(errCode, errMsg) {
 // CADASTRO
 
 function cadastro() {
-   
     let emailcorrect = false;
     emailcorrect = confereCadastro();
-     let incorrectX = document.querySelectorAll('.incorrect')[0];
+    let incorrectX = document.querySelectorAll('.incorrect')[0];
     let buttonLogin = document.querySelectorAll('.button')[0];
     let correctImg = document.querySelectorAll('.correct')[0];
     let email = document.getElementById('siginemail').value;
@@ -203,8 +202,17 @@ function deleteUser() {
     })
 }
 function togglePassword() {
-    let eye = document.getElementById('eye');
     let password = document.getElementById('loginpassword');
+    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+    password.setAttribute('type', type);
+}
+function togglePasswordCadas() {
+    let password = document.getElementById('siginpassword');
+    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+    password.setAttribute('type', type);
+}
+function togglePasswordCadasConf() {
+    let password = document.getElementById('confsiginpassword');
     const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
     password.setAttribute('type', type);
 }
