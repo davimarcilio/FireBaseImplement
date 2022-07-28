@@ -203,3 +203,16 @@ function deleteUser() {
         console.log('deu algo de errado');
     })
 }
+// const togglePassword = document.querySelector('#togglePassword');
+// const password1 = document.querySelector('#password');
+// togglePassword.addEventListener('click', ()=>{
+//     const type = password1.getAttribute('type') === 'password' ? 'text' : 'password';
+//     password1.setAttribute('type', type);
+//     this.classList.toggle('fa-eye-slash');
+// });
+function togglePassword() {
+    let eye = document.getElementById('eye');
+    let password = document.getElementById('loginpassword');
+    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+    password.setAttribute('type', type);
+}

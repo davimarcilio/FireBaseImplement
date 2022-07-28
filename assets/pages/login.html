@@ -26,8 +26,11 @@
                     <h5>Já sou cliente</h5>
                     <br>
                     <input class="inputLogin" type="email" id="loginemail" name="loginemail" placeholder="Email:"><br>
+                    <div class="divpassword">
                     <input class="inputLogin" type="password" id="loginpassword" name="loginpassword"
-                        placeholder="Senha:"><br>
+                        placeholder="Senha:">
+                        <img class="eye" onclick="togglePassword()" id="eye" src="../images/eye-svgrepo-com.svg" alt="Ver Senha">
+                        <br></div>
                     <div class="bttlogin">
                         <button class="button bttlogar" onclick="logar()">
                             <span class="text">Logar</span>

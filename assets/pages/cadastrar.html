@@ -44,10 +44,18 @@
                             placeholder="Email:"><br>
                         <input class="inputLogin" type="email" id="confcreateemail" name="confcreateemail"
                             placeholder="Confirme Email:"><br>
-                        <input class="inputLogin" type="password" id="siginpassword" name="siginpassword"
-                            placeholder="Senha:" required><br>
-                        <input class="inputLogin" type="password" id="confsiginpassword" name="confsiginpassword"
-                            placeholder="Confirme Senha:" required><br>
+                        <div class="divpassword">
+                            <input class="inputLogin" type="password" id="siginpassword" name="siginpassword"
+                                placeholder="Senha:" required><br>
+                            <img class="eye" onclick="togglePassword()" id="eye" src="../images/eye-svgrepo-com.svg"
+                                alt="Ver Senha">
+                        </div>
+                        <div class="divpassword">
+                            <input class="inputLogin" type="password" id="confsiginpassword" name="confsiginpassword"
+                                placeholder="Confirme Senha:" required><br>
+                            <img class="eye" onclick="togglePassword()" id="eye" src="../images/eye-svgrepo-com.svg"
+                                alt="Ver Senha">
+                        </div>
                     </form>
                 </div>
             </div>

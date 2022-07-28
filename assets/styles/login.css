@@ -137,3 +137,58 @@ input::placeholder{
     background-color: #49464e;
     border: 2px solid black;
 }
+.eye{
+    position: absolute;
+    height: 60%;
+    top: 50%;
+    right: 2%;
+    transform: translateY(-65%);
+    cursor: pointer;
+}
+.divpassword{
+    position: relative;
+}
+/* Layout botão mostrar senha */
+/* .i{
+    position: absolute;
+    color: rgb(0, 0, 0);
+    left: 15px;
+    top: 14px;
+}
+i:nth-child(4){
+    left: 200px;
+    cursor: pointer;
+} */
+/* .login-container{
+    position: relative;
+    height: 150px;
+    border-radius: 20px;
+    padding: 20px;
+    width: 230px;
+    background-color: #313741;
+}
+.input{
+    border-radius:15px;
+    border: none;
+}
+input[type="email"], input[type="password"], input[type="text"]{
+    width: 85%;
+    height: 35px;
+    padding: 0 0 0 30px;
+    background: #2a2f39;
+    margin: 5px;
+    color: #fff;
+}
+.input-field{
+    position: relative;
+}
+i{
+    position: absolute;
+    color: #fff;
+    left: 15px;
+    top: 14px;
+}
+i:nth-child(4){
+    left: 200px;
+    cursor: pointer;
+} */

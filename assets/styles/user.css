@@ -1,3 +1,23 @@
 .loggout{
     position: absolute;
 }
+.UserData{
+    display: flex;
+    position: absolute;
+    width: 40%;
+    top: 30vh;
+    flex-direction: column;
+    height: 50%;
+    justify-content: center;
+    align-items: flex-end;
+}
+.UserInfo{
+    margin-top: 5vh;
+    text-align: end;
+}
+.UserFoto{
+    background-color: aqua;
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+}
