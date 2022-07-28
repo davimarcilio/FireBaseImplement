@@ -16,8 +16,19 @@
     text-align: end;
 }
 .UserFoto{
-    background-color: aqua;
-    width: 200px;
-    height: 200px;
+    background-color: rgb(138, 138, 138);
+    width: 150px;
+    height: 150px;
     border-radius: 100px;
+    position: relative;
+}
+.Foto{
+    top: 1vh;
+    width: 40%;
+}
+.fotoUser{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
 }
