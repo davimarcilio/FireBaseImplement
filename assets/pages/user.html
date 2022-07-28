@@ -10,7 +10,7 @@
     <title>éusguri</title>
 </head>
 
-<body onload="logged()">
+<body onload="SetUser()">
     <header>
         <div class="top">
             <img class="icontop" src="../images/PngItem_868090.png" alt="Hang Loose Red">
@@ -20,9 +20,6 @@
             <ul>
                 <a id="login" class="linked" onclick="load('login')">
                     <li>Entrar</li>
-                </a>
-                <a id="onlylogged" onclick="load('user')">
-                    <li>User</li>
                 </a>
                 <a class="linked" href="">
                     <li>Carrinho</li>
@@ -35,7 +32,8 @@
         </div>
     </header>
     <section>
-     <img class="fotousuario" onload="fotopessoa()" src="" alt="Sua Foto">
+     <!-- <img class="fotousuario" onload="fotopessoa()" src="" alt="Sua Foto"> -->
+   <button class="loggout" onclick="logOut()">Sair</button>
     </section>
     <footer>
         <div class="bottomnav">
@@ -54,6 +52,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
     <script src="../scripts/firebase.js"></script>
     <script src="../scripts/login.js"></script>
+    <script src="../scripts/user.js"></script>
     <script src="../scripts/script.js"></script>
 </body>
 
