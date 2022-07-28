@@ -16,7 +16,7 @@ input::placeholder{
 }
 .inputLogin, .sexo{
     box-sizing: border-box;
-    margin-top: 10px;
+    margin-bottom: 1.5vh;
     width: 100%;
   padding: 10px;
   border: 1px solid black;

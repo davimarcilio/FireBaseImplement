@@ -55,6 +55,7 @@ function ErrorCode(errCode, errMsg) {
 // CADASTRO
 
 function cadastro() {
+    let incorrectX = document.querySelectorAll('.incorrect')[0];
     let emailcorrect = false;
     emailcorrect = confereCadastro();
     let buttonLogin = document.querySelectorAll('.button')[0];
@@ -71,34 +72,53 @@ function cadastro() {
                 let sobrenome = document.getElementById('sobrenomeuser').value.toUpperCase().trim();
                 let sexo = document.querySelector('input[name="sexo"]:checked').value;
                 let nasc = document.getElementById('datanasc').value;
-                firebase.auth().onAuthStateChanged((user) => {
-                    var uiduser = user.uid;
-                    if (user) {
-                        db.collection('Usuários').add({
-                            uid_user: uiduser,
-                            email: email,
-                            nome: nome,
-                            sobrenome: sobrenome,
-                            sexo: sexo,
-                            nascimento: nasc,
-                        }).then(() => {
-                            setTimeout(() => {
-                                load('home');
-                            }, 1000);
-                        }).catch((err) => {
-                            deleteUser();
-                            ErrorCode('Não foi possivel inserir os dados', '...');
-                            console.log(err);
-                        })
-                    } else {
-                        console.log('error');
-                    }
-                });
+                if (nasc.length != 10) {
+                    setTimeout(() => {
+                        ErrorCode('Data de nascimento', 'Incorreta');
+                        buttonLogin.style.backgroundColor = 'red';
+                        correctImg.style.display = 'none';
+                        correctImg.style.opacity = '0';
+                        incorrectX.style.display = 'inline';
+                        incorrectX.style.opacity = '1';
+                    }, 200);
+                    setTimeout(() => {
+                        ResetErrorCode();
+                        deleteUser();
+                        let inputEmail = document.getElementById('siginemail');
+                        inputEmail.focus();
+                        incorrectX.style.display = 'none';
+                        incorrectX.style.opacity = '0';
+                        buttonLogin.style.backgroundColor = '#282231';
+                    }, 3000);
+                } else {
+                    firebase.auth().onAuthStateChanged((user) => {
+                        var uiduser = user.uid;
+                        if (user) {
+                            db.collection('Usuários').add({
+                                uid_user: uiduser,
+                                email: email,
+                                nome: nome,
+                                sobrenome: sobrenome,
+                                sexo: sexo,
+                                nascimento: nasc,
+                            }).then(() => {
+                                setTimeout(() => {
+                                    load('home');
+                                }, 1000);
+                            }).catch((err) => {
+                                deleteUser();
+                                ErrorCode('Não foi possivel inserir os dados', '...');
+                                console.log(err);
+                            })
+                        } else {
+                            console.log('error');
+                        }
+                    });
+                }
             }).catch((err) => {
                 //botão
                 correctImg.style.display = 'none';
                 correctImg.style.opacity = '0';
-                let incorrectX = document.querySelectorAll('.incorrect')[0];
                 buttonLogin.style.backgroundColor = 'red';
                 incorrectX.style.display = 'inline';
                 incorrectX.style.opacity = '1';
@@ -129,7 +149,6 @@ function cadastro() {
             correctImg.style.opacity = '0';
             correctImg.style.display = 'none';
             buttonLogin.style.backgroundColor = 'red';
-            let incorrectX = document.querySelectorAll('.incorrect')[0];
             setTimeout(() => {
                 incorrectX.style.opacity = '1';
                 incorrectX.style.display = 'inline';
