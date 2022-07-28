@@ -12,6 +12,9 @@ function load(page) {
         case 'user':
             window.location.href = '/assets/pages/user.html';
             break;
+            case 'cadastrar':
+                window.location.href = '/assets/pages/cadastrar.html';
+                break;
         default:
             window.location.href = 'assets/pages/home.html';
             break;

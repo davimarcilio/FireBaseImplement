@@ -39,41 +39,9 @@
                 </div>
             </div>
             <div class="siginup">
-                <div>
-                    <h5>Não sou cliente</h5>
-                    <br>
-                    <input class="inputLogin" type="text" id="nomeuser" name="nomeuser" placeholder="Nome:"><br>
-                    <input class="inputLogin" type="text" id="sobrenomeuser" name="sobrenomeuser"
-                        placeholder="Sobrenome:"><br>
-                    <div class="sexo">
-                        <h6 id="sexoh6">Sexo:</h6>
-                        <input type="radio" name="sexo" id="sexof" value="F"><label class="labelsexo"
-                            for="sexof">Feminino</label><br>
-                        <input type="radio" name="sexo" id="sexom" value="M"><label class="labelsexo"
-                            for="sexom">Masculino</label><br>
-                    </div>
-                    <div class="sexo">
-                        <h6 id="sexoh6">Nascimento:</h6>
-                    <input class="inputLogin" type="date" id="datanasc" name="datanasc">
-                </div>
-                    <input class="inputLogin" type="email" id="siginemail" name="siginemail" placeholder="Email:"><br>
-                    <input class="inputLogin" type="email" id="confcreateemail" name="confcreateemail"
-                        placeholder="Confirme Email:"><br>
-                    <input class="inputLogin" type="password" id="siginpassword" name="siginpassword"
-                        placeholder="Senha:"><br>
-                    <input class="inputLogin" type="password" id="confsiginpassword" name="confsiginpassword"
-                        placeholder="Confirme Senha:"><br>
-
-                    <div class="bttlogin">
-                        <button class="button bttlogar" onclick="cadastro()">
-                            <span class="text">Cadastro</span>
-                            <img id="incorrect" class="incorrect" src="../images/wrong-svgrepo-com.svg" alt="incorrect">
-                            <img id="correct" class="correct" src="../images/correct-svgrepo-com.svg" alt="Correct">
-                            <i class="ri-check-line icon"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
+                <h5>Ainda não sou cliente</h5>
+                <br>
+               <button class="bttCadas" onclick="load('cadastrar')">Cadastrar</button>
         </div>
     </section>
     <footer>
