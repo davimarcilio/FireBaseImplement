@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/login.css">
     <link rel="stylesheet" href="../styles/user.css">
     <title>éusguri</title>
 </head>
@@ -18,9 +19,6 @@
                 <h1 class="texttop">éusguri</h1>
             </a>
             <ul>
-                <a id="login" class="linked" onclick="load('login')">
-                    <li>Entrar</li>
-                </a>
                 <a class="linked" href="">
                     <li>Carrinho</li>
                 </a>
@@ -32,14 +30,32 @@
         </div>
     </header>
     <section>
-        <!-- <img class="fotousuario" onload="fotopessoa()" src="" alt="Sua Foto"> -->
-        <button class="loggout" onclick="logOut()">Sair</button>
-        <div class="UserData Foto"><div class="UserFoto"><img class="fotoUser" src="../images/Screenshot_34.png" alt="Foto de usuario"></div></div>
+        <div class="bttons">
+            <div class="bttlogin">
+                <button class="button bttlogar" onclick="logOut()">
+                    <span class="text">Sair</span>
+                    <img id="incorrect" class="incorrect" src="../images/wrong-svgrepo-com.svg" alt="incorrect">
+                    <img id="correct" class="correct" src="../images/correct-svgrepo-com.svg" alt="Correct">
+                    <i class="ri-check-line icon"></i>
+                </button>
+            </div>
+            <!-- <div class="bttlogin">
+                <button class="button bttlogar" onclick="deleteUserLogged()">
+                    <span class="text">Apagar Conta</span>
+                    <img id="incorrect" class="incorrect" src="../images/wrong-svgrepo-com.svg" alt="incorrect">
+                    <img id="correct" class="correct" src="../images/correct-svgrepo-com.svg" alt="Correct">
+                    <i class="ri-check-line icon"></i>
+                </button>
+            </div> -->
+        </div>
         <div class="UserData">
-          <h1 id="UserName" class="UserInfo">Nome:</h1>
-          <h1 id="UserNasc" class="UserInfo">Nascimento:</h1>
-          <h1 id="UserSex" class="UserInfo">Sexo:</h1>
-          <h1 id="UserEmail" class="UserInfo">Email:</h1>
+            <div class="flexend">
+                <div class="UserFoto"><img class="fotoUser" src="../images/Screenshot_34.png" alt="Foto de usuario"></div>
+            </div>
+           <h1 id="UserName" class="UserInfo">Nome:</h1>
+            <h1 id="UserNasc" class="UserInfo">Nascimento:</h1>
+            <h1 id="UserSex" class="UserInfo">Sexo:</h1>
+            <h1 id="UserEmail" class="UserInfo">Email:</h1>
         </div>
     </section>
     <footer>
@@ -54,6 +70,7 @@
             </div>
         </div>
     </footer>
+    <div id="erro"></div>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>

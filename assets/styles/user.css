@@ -4,16 +4,18 @@
 .UserData{
     display: flex;
     position: absolute;
-    width: 40%;
-    top: 30vh;
+    /* width: 80%; */
+    top: 10vw;
     flex-direction: column;
     height: 50%;
     justify-content: center;
-    align-items: flex-end;
+    align-items: flex-start;
 }
 .UserInfo{
     margin-top: 5vh;
     text-align: end;
+    font-size: 2vw;
+    margin-left: 4vw;
 }
 .UserFoto{
     background-color: rgb(138, 138, 138);
@@ -21,14 +23,29 @@
     height: 150px;
     border-radius: 100px;
     position: relative;
-}
-.Foto{
-    top: 1vh;
-    width: 40%;
+    margin-left: 20vw;
 }
 .fotoUser{
     position: absolute;
     width: 100%;
     height: 100%;
     border-radius: 100%;
+}
+.loggout{
+    padding: 10px;
+}
+.bttons{
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    margin-top: 10vh;
+    width: 20%;
+    height: 35%;
+    /* justify-content: flex-end; */
+    justify-content: center;
+    align-items: center;
+    right: 10vw;
+}
+.button{
+    width: 50%;
 }

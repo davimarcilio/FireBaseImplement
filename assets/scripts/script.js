@@ -25,16 +25,29 @@ function logged() {
     let userNotLogged = document.getElementById('login');
     auth.onAuthStateChanged((user) => {
         if (user) {
-            // aparece a aba usuario
+            if (window.matchMedia("(min-width: 775px)").matches) {
             userNotLogged.style.display = 'none';
             userLogged.style.display = 'inline';
+              } else {
+                userNotLogged.style.display = 'none';
+                userLogged.style.display = 'none';
+              }
+            
         } else {
-            // add opção logar
-
-            userLogged.style.display = 'none';
+            if (window.matchMedia("(min-width: 775px)").matches) {
+               userLogged.style.display = 'none';
             userNotLogged.style.display = 'inline';
+              } else {
+                userLogged.style.display = 'none';
+            userNotLogged.style.display = 'none';
+              }
+            
         }
     })
+}
+function ResponsiveHamMenu() {
+    const hamburguerMenu = document.querySelector('.hamburguer');
+    hamburguerMenu.classList.toggle('active');
 }
 // setTimeout(() => {
 //     auth.signOut().then(()=>{

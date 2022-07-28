@@ -10,25 +10,30 @@
     <title>éusguri</title>
 </head>
 
-<body onload="logged()">
-    <header>
+<body onload="logged()" onresize="logged()">
+    <header> 
         <div class="top">
             <img class="icontop" src="../images/PngItem_868090.png" alt="Hang Loose Red">
             <a href="/../index.html">
                 <h1 class="texttop">éusguri</h1>
             </a>
             <ul>
-                <a id="login" class="linked" onclick="load('login')">
+                <button type="button" class="hamburguer" onclick="ResponsiveHamMenu()">
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                </button>
+                <a id="login" class="linked responsivity" onclick="load('login')">
                     <li>Entrar</li>
                 </a>
-                <a id="onlylogged" onclick="load('user')">
+                <a id="onlylogged" class="responsivity" onclick="load('user')">
                     <li>User</li>
                 </a>
-                <a class="linked" href="">
+                <a class="linked responsivity" href="">
                     <li>Carrinho</li>
                 </a>
                 
-                <a class="linked" href="">
+                <a class="linked responsivity" href="">
                     <li>Produtos</li>
                 </a>
             </ul>
@@ -36,6 +41,7 @@
     </header>
 
     <section>
+       
         <div class="homeimg">
             <img class="homeimgscr" src="../images/PngItem_868090.png" alt="Hang Loose Red">
         </div>

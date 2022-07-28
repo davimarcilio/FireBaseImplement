@@ -51,13 +51,22 @@ function ErrorCode(errCode, errMsg) {
             <h1 id="errorCode">${errCode}</h1>
             <p id="errorMessage">${errMsg}</p>`;
 }
+function greenErrorCode(errCode, errMsg) {
+    let errorMessageHTML = document.getElementById('erro');
+    errorMessageHTML.style.display = 'flex';
+    errorMessageHTML.style.backgroundColor= 'rgba(118, 248, 106, 0.8)'
+    errorMessageHTML.innerHTML = `
+            <h1 id="errorCode">${errCode}</h1>
+            <p id="errorMessage">${errMsg}</p>`;
+}
 
 // CADASTRO
 
 function cadastro() {
-    let incorrectX = document.querySelectorAll('.incorrect')[0];
+   
     let emailcorrect = false;
     emailcorrect = confereCadastro();
+     let incorrectX = document.querySelectorAll('.incorrect')[0];
     let buttonLogin = document.querySelectorAll('.button')[0];
     let correctImg = document.querySelectorAll('.correct')[0];
     let email = document.getElementById('siginemail').value;
@@ -167,15 +176,6 @@ function cadastro() {
         }, 200);
 
     }
-
-
-}
-function logOut() {
-    auth.signOut().then(() => {
-        console.log('deslogado');
-    }).catch((err) => {
-        console.log(err);
-    });
 }
 function confereCadastro() {
     let campos = [document.getElementById('siginemail').value,
@@ -194,7 +194,6 @@ function confereCadastro() {
     } else { return false; }
 
 };
-// logOut();
 function deleteUser() {
     auth.currentUser.delete().then(() => {
         console.log('tente cadastrar-se novamente')
@@ -203,13 +202,6 @@ function deleteUser() {
         console.log('deu algo de errado');
     })
 }
-// const togglePassword = document.querySelector('#togglePassword');
-// const password1 = document.querySelector('#password');
-// togglePassword.addEventListener('click', ()=>{
-//     const type = password1.getAttribute('type') === 'password' ? 'text' : 'password';
-//     password1.setAttribute('type', type);
-//     this.classList.toggle('fa-eye-slash');
-// });
 function togglePassword() {
     let eye = document.getElementById('eye');
     let password = document.getElementById('loginpassword');

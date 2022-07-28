@@ -35,7 +35,7 @@ transition-duration: 300ms;
 .texttop:hover{
     font-size: 5.1vh;
 }
-ul{
+ul, .hamburgmenu{
     right: 5vh;
     position: absolute;
 }
@@ -87,3 +87,60 @@ bottom: 0;
 #login{
     display: none;
 }
+/* hamburg menu */
+.hamburguer{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    display: none;
+}
+.hamburguer .line{
+    display: block;
+    width: 40px;
+    height: 3px;
+    background-color: #000000;
+    margin-block: 10px;
+    border-radius: 4px;
+    transition: transform .5s,
+    opacity .25s;
+}
+.hamburguer.active .line:nth-child(1){
+    transform: translateY(13px)
+    rotate(45deg);
+}
+.hamburguer.active .line:nth-child(2){
+    opacity: 0;
+}
+.hamburguer.active .line:nth-child(3){
+    transform: translateY(-13px)
+    rotate(-45deg);
+}
+.hamburgmenu{
+    width: 100px;
+    height: 100px;
+}
+@media only screen and (max-width: 775px) {
+
+   .hamburguer{
+    display: inline;
+   }
+   .responsivity{
+    display: none;
+   }
+   .texttop{
+    font-size: 7vw;
+   }
+   .icontop{
+    height: calc(100% - 40%);
+}
+.linkedsobre{
+    font-size: 2.5vw;
+}
+#onlylogged{
+    display: none;
+}
+#login{
+    display: none;
+}
+  }
