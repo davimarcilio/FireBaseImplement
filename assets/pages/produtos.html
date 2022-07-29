@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="../styles/style.css">
-    <link rel="stylesheet" href="../styles/sobre.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/style.css">
     <title>éusguri</title>
 </head>
 <!-- Padrão de toda página -->
+
 <body onload="logged()" onresize="logged()">
     <header>
         <div class="top">
@@ -34,6 +34,7 @@
                 <a id="carrinho" class="responsivity" href="">
                     <li>Carrinho</li>
                 </a>
+
                 <a id="produtos" class="responsivity" onclick="load('produtos')">
                     <li>Produtos</li>
                 </a>
@@ -43,7 +44,8 @@
             </ul>
         </div>
         <div class="responsivityHamburguerMenu">
-            <ul class="uul">           
+            <ul class="uul">
+               
                 <a id="login" class="linked responsivity" onclick="load('login')">
                     <li>Entrar</li>
                 </a>
@@ -53,6 +55,7 @@
                 <a id="carrinho" class="linked responsivity" href="">
                     <li>Carrinho</li>
                 </a>
+
                 <a id="produtos" class="linked responsivity" onclick="load('produtos')">
                     <li>Produtos</li>
                 </a> 
@@ -64,16 +67,12 @@
     </header>
     <!-- fim padrão -->
     <section>
-        <div class="sobre">
-            <h1 id="texth1">Como começamos</h1><br>
-            <p class="sobreparag">Começamos vendendo drogas on-line, após um ex-sócio dessa empresa ser preso, decidimos
-                parar
-                de vender drogas, e começamos a vender roupas, calçados, artigos esportivos on-line, hoje temos uma
-                grande empresa renomada.</p>
-        </div>
     </section>
     <footer>
         <div class="bottomnav">
+            <a class="linkedsobre" onclick="load('sobre')">
+                <h1>Sobre Nós</h1>
+            </a>
             <div>
                 <a class="linkedcontat" href="mailto:davimarcilio.js@gmail.com">
                     <h5>Contate-Nos</h5>

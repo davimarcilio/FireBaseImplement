@@ -25,6 +25,9 @@ function load(page) {
         case 'produtoAdmin':
             window.location.href = `${pagename}/assets/pages/produtoAdmin.html`;
             break;
+            case 'produtos':
+            window.location.href = `${pagename}/assets/pages/produtos.html`;
+            break;
         default:
             window.location.href = `${pagename}/assets/pages/home.html`;
             break;
