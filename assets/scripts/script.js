@@ -18,6 +18,12 @@ function load(page) {
         case 'admin':
             window.location.href = '/assets/pages/admin.html';
             break;
+            case 'categoriaAdmin':
+            window.location.href = '/assets/pages/categoriaAdmin.html';
+            break;
+            case 'produtoAdmin':
+            window.location.href = '/assets/pages/produtoAdmin.html';
+            break;
         default:
             window.location.href = 'assets/pages/home.html';
             break;
@@ -39,20 +45,20 @@ function logged() {
         console.log(error);
     }
     auth.onAuthStateChanged((user) => {
+        let admin = document.getElementById('admin');
         let meniu = document.querySelectorAll('.responsivity');
         const hamburguerMenu = document.querySelector('.hamburguer');
         let responsivityHamburguerMenu = document.querySelector('.responsivityHamburguerMenu');
         if (user) {
             try {
                 if (user.uid == 'g3FXmjoYUbgyeNg2y0l7x00PPsv2') {
+                    
                     meniu[8].style.display = 'inline';
-
-
-                    // console.log(user.uid);
                     if (window.matchMedia("(min-width: 775px)").matches) {
                         userNotLogged.style.display = 'none';
                         userLogged.style.display = 'inline';
-                        hamburgmenuopen.style.display = 'none'
+                        hamburgmenuopen.style.display = 'none';
+                        admin.style.display = 'inline';
                         meniu[4].style.display = 'none';
                         meniu[5].style.display = 'none';
                         meniu[6].style.display = 'none';
@@ -96,6 +102,7 @@ function logged() {
                             meniu[7].style.display = 'none';
                             meniu[8].style.display = 'none';
                         }
+                        admin.style.display = 'none';
                         userNotLogged.style.display = 'none';
                         userLogged.style.display = 'none';
 
@@ -103,6 +110,7 @@ function logged() {
                 } else {
                     if (window.matchMedia("(min-width: 775px)").matches) {
                         userNotLogged.style.display = 'none';
+                        admin.style.display = 'none';
                         userLogged.style.display = 'inline';
                         hamburgmenuopen.style.display = 'none'
                         meniu[4].style.display = 'none';
@@ -148,6 +156,7 @@ function logged() {
                             meniu[7].style.display = 'none';
                             meniu[8].style.display = 'none';
                         }
+                        admin.style.display = 'none';
                         userNotLogged.style.display = 'none';
                         userLogged.style.display = 'none';
 
@@ -162,6 +171,7 @@ function logged() {
             if (window.matchMedia("(min-width: 775px)").matches) {
                 userLogged.style.display = 'none';
                 userNotLogged.style.display = 'inline';
+                admin.style.display = 'none';
                 meniu[4].style.display = 'none';
                 meniu[5].style.display = 'none';
                 meniu[6].style.display = 'none';
@@ -197,6 +207,7 @@ function logged() {
                     meniu[6].style.display = 'inline';
                     meniu[7].style.display = 'inline';
                 }
+                admin.style.display = 'none';
                 userLogged.style.display = 'none';
                 userNotLogged.style.display = 'none';
             }
@@ -220,13 +231,6 @@ function ResponsiveHamMenu() {
     }
 
 }
-// setTimeout(() => {
-//     auth.signOut().then(()=>{
-//     console.log('deslogado');
-// }).catch((err)=>{
-//     console.log(err);
-// })
-// }, 10000);
 function Admin() {
     auth.onAuthStateChanged((user) => {
 

@@ -4,175 +4,98 @@
 function logar() {
     let email = document.getElementById('loginemail').value;
     let password = document.getElementById('loginpassword').value;
-    let buttonLogin = document.querySelectorAll('.button')[0];
-    buttonLogin.style.backgroundColor = '#44c08a'
     auth.signInWithEmailAndPassword(email, password).then(() => {
-        let correctImg = document.querySelectorAll('.correct')[0];
-        buttonLogin.style.backgroundColor = '#44c08a'
-        correctImg.style.display = 'inline';
-        correctImg.style.opacity = '1';
+        toggleButtonCorrect(0);
         setTimeout(() => {
             load('home');
         }, 1000);
     }).catch((err => {
-        //botão
-        let incorrectX = document.querySelectorAll('.incorrect')[0];
-        buttonLogin.style.backgroundColor = 'red';
-        incorrectX.style.display = 'inline'
-        incorrectX.style.opacity = '1'
-        // error message
+        toggleButtonError(0);
         setTimeout(() => {
             let errCode = err.code;
             let errMsg = err.message;
-            ErrorCode(errCode, errMsg);
-        }, 400);
+            ErrorCode(errCode, errMsg, 'Red');
+        }, 300);
         setTimeout(() => {
             let inputEmail = document.getElementById('loginemail');
             inputEmail.focus();
-            buttonLogin.style.backgroundColor = '#282231';
-            incorrectX.style.display = 'none';
-            incorrectX.style.opacity = '0';
-            ResetErrorCode();
         }, 3000);
     }));
-}
-
-
-function ResetErrorCode() {
-    let errorMessageHTML = document.getElementById('erro');
-    errorMessageHTML.style.display = 'none';
-    errorMessageHTML.innerHTML = '';
-}
-
-function ErrorCode(errCode, errMsg) {
-    let errorMessageHTML = document.getElementById('erro');
-    errorMessageHTML.style.display = 'flex';
-    errorMessageHTML.innerHTML = `
-            <h1 id="errorCode">${errCode}</h1>
-            <p id="errorMessage">${errMsg}</p>`;
-}
-function greenErrorCode(errCode, errMsg) {
-    let errorMessageHTML = document.getElementById('erro');
-    errorMessageHTML.style.display = 'flex';
-    errorMessageHTML.style.backgroundColor = 'rgba(118, 248, 106, 0.8)'
-    errorMessageHTML.innerHTML = `
-            <h1 id="errorCode">${errCode}</h1>
-            <p id="errorMessage">${errMsg}</p>`;
 }
 
 // CADASTRO
 
 function cadastro() {
-    let emailcorrect = false;
-    emailcorrect = confereCadastro();
-    let incorrectX = document.querySelectorAll('.incorrect')[0];
-    let buttonLogin = document.querySelectorAll('.button')[0];
-    let correctImg = document.querySelectorAll('.correct')[0];
     let email = document.getElementById('siginemail').value;
     let password = document.getElementById('siginpassword').value;
-    if (emailcorrect == true) {
-        setTimeout(() => {
-            correctImg.style.display = 'inline'
-            correctImg.style.opacity = '1';
-            buttonLogin.style.backgroundColor = '#44c98a';
-            auth.createUserWithEmailAndPassword(email, password).then(() => {
-                let nome = document.getElementById('nomeuser').value.toUpperCase().trim();
-                let sobrenome = document.getElementById('sobrenomeuser').value.toUpperCase().trim();
-                let sexo = document.querySelector('input[name="sexo"]:checked').value;
-                let nasc = document.getElementById('datanasc').value;
-                if (nasc.length != 10) {
-                    setTimeout(() => {
-                        ErrorCode('Data de nascimento', 'Incorreta');
-                        buttonLogin.style.backgroundColor = 'red';
-                        correctImg.style.display = 'none';
-                        correctImg.style.opacity = '0';
-                        incorrectX.style.display = 'inline';
-                        incorrectX.style.opacity = '1';
-                    }, 200);
-                    setTimeout(() => {
-                        ResetErrorCode();
-                        deleteUser();
-                        let inputEmail = document.getElementById('siginemail');
-                        inputEmail.focus();
-                        incorrectX.style.display = 'none';
-                        incorrectX.style.opacity = '0';
-                        buttonLogin.style.backgroundColor = '#282231';
-                    }, 3000);
-                } else {
-                    firebase.auth().onAuthStateChanged((user) => {
-                        var uiduser = user.uid;
-                        if (user) {
-                            db.collection('Usuários').add({
-                                uid_user: uiduser,
-                                email: email,
-                                nome: nome,
-                                sobrenome: sobrenome,
-                                sexo: sexo,
-                                nascimento: nasc,
-                            }).then(() => {
-                                setTimeout(() => {
-                                    load('home');
-                                }, 1000);
-                            }).catch((err) => {
-                                deleteUser();
-                                ErrorCode('Não foi possivel inserir os dados', '...');
-                                console.log(err);
-                            })
-                        } else {
-                            console.log('error');
-                        }
-                    });
-                }
-            }).catch((err) => {
-                //botão
-                correctImg.style.display = 'none';
-                correctImg.style.opacity = '0';
-                buttonLogin.style.backgroundColor = 'red';
-                incorrectX.style.display = 'inline';
-                incorrectX.style.opacity = '1';
-                // error message
+    toggleButtonCorrect(0);
+    if (confereCadastro() == true) {
+        auth.createUserWithEmailAndPassword(email, password).then(() => {
+            let nome = document.getElementById('nomeuser').value.toUpperCase().trim();
+            let sobrenome = document.getElementById('sobrenomeuser').value.toUpperCase().trim();
+            let sexo = document.querySelector('input[name="sexo"]:checked').value;
+            let nasc = document.getElementById('datanasc').value;
+            toggleButtonCorrect(0);
+            if (nasc.length != 10) {
+                toggleButtonError(0)
                 setTimeout(() => {
-                    let errCode = err.code;
-                    let errMsg = err.message;
-                    ErrorCode(errCode, errMsg);
-                    try {
-                        deleteUser();
-                    } catch (error) {
-                        console.log(error);
-                    }
-                }, 400);
+                    ErrorCode('Data de nascimento', 'Incorreta', 'Red');
+                }, 300);
                 setTimeout(() => {
+                    deleteUser();
                     let inputEmail = document.getElementById('siginemail');
                     inputEmail.focus();
-                    buttonLogin.style.backgroundColor = '#282231';
-                    incorrectX.style.opacity = '0';
-                    incorrectX.style.display = 'none';
-                    ResetErrorCode();
                 }, 3000);
-            })
-        }, 200);
-
+            } else {
+                firebase.auth().onAuthStateChanged((user) => {
+                    var uiduser = user.uid;
+                    if (user) {
+                        db.collection('Usuários').add({
+                            uid_user: uiduser,
+                            email: email,
+                            nome: nome,
+                            sobrenome: sobrenome,
+                            sexo: sexo,
+                            nascimento: nasc,
+                        }).then(() => {
+                            toggleButtonCorrect(0);
+                            setTimeout(() => {
+                                load('home');
+                            }, 3000);
+                        }).catch((err) => {
+                            toggleButtonError(0);
+                            deleteUser();
+                            ErrorCode('Não foi possivel inserir os dados', err, 'Red');
+                        })
+                    } else {
+                        ErrorCode('Erro', 'Desconhecido', 'Red');
+                    }
+                });
+            }
+        }).catch((err) => {
+            toggleButtonError(0);
+            setTimeout(() => {
+                ErrorCode(err.code, err.message, 'Red');
+                try {
+                    deleteUser();
+                } catch (error) {
+                    console.log(error);
+                }
+            }, 300);
+            setTimeout(() => {
+                let inputEmail = document.getElementById('siginemail');
+                inputEmail.focus();
+            }, 3000);
+        })
     } else {
+        toggleButtonError(0);
         setTimeout(() => {
-            correctImg.style.opacity = '0';
-            correctImg.style.display = 'none';
-            buttonLogin.style.backgroundColor = 'red';
-            setTimeout(() => {
-                incorrectX.style.opacity = '1';
-                incorrectX.style.display = 'inline';
-                ErrorCode('Email/Senha ou Preencha todos os dados', 'Não conside');
-            }, 200);
-            setTimeout(() => {
-                correctImg.style.opacity = '0';
-                correctImg.style.display = 'none';
-                let email1 = document.getElementById('siginemail');
-                email1.focus();
-                buttonLogin.style.backgroundColor = '#282231';
-                incorrectX.style.opacity = '0';
-                incorrectX.style.display = 'none';
-                ResetErrorCode();
-            }, 2000);
+            ErrorCode('Email/Senha ou Preencha todos os dados', 'Não conside', 'Red');
         }, 200);
+        setTimeout(() => {
+            let email1 = document.getElementById('siginemail');
+            email1.focus();
+        }, 3000);
 
     }
 }
@@ -195,24 +118,71 @@ function confereCadastro() {
 };
 function deleteUser() {
     auth.currentUser.delete().then(() => {
-        console.log('tente cadastrar-se novamente')
+        ErrorCode('Tente se cadastrar novamente', '...', 'Red');
     }).catch((err) => {
-        console.log(err);
-        console.log('deu algo de errado');
+        ErrorCode('Erro', err, 'Red');
     })
 }
-function togglePassword() {
-    let password = document.getElementById('loginpassword');
-    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
-    password.setAttribute('type', type);
+function togglePassword(number) {
+    let passwordLogin = document.getElementById('loginpassword');
+    let passwordCadas = document.getElementById('siginpassword');
+    let passwordConfCadas = document.getElementById('confsiginpassword');
+    if (number == '1') {
+        let type = passwordLogin.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordLogin.setAttribute('type', type);
+    }
+    if (number == '2') {
+        let type = passwordCadas.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordCadas.setAttribute('type', type);
+    }
+    if (number == '3') {
+        let type = passwordConfCadas.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordConfCadas.setAttribute('type', type);
+    }
 }
-function togglePasswordCadas() {
-    let password = document.getElementById('siginpassword');
-    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
-    password.setAttribute('type', type);
+function toggleButtonCorrect(i) {
+    let incorrectX = document.querySelectorAll('.incorrect')[i];
+    let buttonLogin = document.querySelectorAll('.button')[i];
+    let correctImg = document.querySelectorAll('.correct')[i];
+    incorrectX.style.display = 'none';
+    incorrectX.style.opacity = '0';
+    buttonLogin.style.backgroundColor = '#44c98a';
+    correctImg.style.display = 'inline';
+    correctImg.style.opacity = '1';
+    setTimeout(() => {
+        buttonLogin.style.backgroundColor = '#282231';
+        correctImg.style.display = 'none';
+        correctImg.style.opacity = '0';
+    }, 3000);
 }
-function togglePasswordCadasConf() {
-    let password = document.getElementById('confsiginpassword');
-    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
-    password.setAttribute('type', type);
+function toggleButtonError(i) {
+    let incorrectX = document.querySelectorAll('.incorrect')[i];
+    let buttonLogin = document.querySelectorAll('.button')[i];
+    let correctImg = document.querySelectorAll('.correct')[i];
+    correctImg.style.opacity = '0';
+    correctImg.style.display = 'none';
+    buttonLogin.style.backgroundColor = 'red';
+    incorrectX.style.display = 'inline';
+    incorrectX.style.opacity = '1';
+    setTimeout(() => {
+        buttonLogin.style.backgroundColor = '#282231';
+        incorrectX.style.display = 'none';
+        incorrectX.style.opacity = '0';
+    }, 3000);
+}
+function ErrorCode(errCode, errMsg, errCor) {
+    let errorMessageHTML = document.getElementById('erro');
+    if (errCor == 'Red') {
+        errorMessageHTML.style.backgroundColor = 'rgba(255, 0, 0, 0.8)'
+    } else {
+        errorMessageHTML.style.backgroundColor = 'rgba(118, 248, 106, 0.8)';
+    }
+    errorMessageHTML.style.display = 'flex';
+    errorMessageHTML.innerHTML =
+        `<h1 id="errorCode">${errCode}</h1>
+            <p id="errorMessage">${errMsg}</p>`;
+    setTimeout(() => {
+        errorMessageHTML.style.display = 'none';
+        errorMessageHTML.innerHTML = '';
+    }, 3000);
 }

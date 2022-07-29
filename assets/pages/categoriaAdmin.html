@@ -21,31 +21,26 @@
     </header>
     <section>
         <div class="formLoginCadastro">
-            <div class="login">
+            <div class="siginup">
                 <div>
-                    <h5>Já sou cliente</h5>
                     <br>
-                    <input class="inputLogin" type="email" id="loginemail" name="loginemail" placeholder="Email:"><br>
-                    <div class="divpassword">
-                    <input class="inputLogin" type="password" id="loginpassword" name="loginpassword"
-                        placeholder="Senha:">
-                        <img class="eye" onclick="togglePassword('1')" id="eye" src="../images/eye-svgrepo-com.svg" alt="Ver Senha">
-                        <br></div>
-                    <div class="bttlogin">
-                        <button class="button bttlogar" onclick="logar()">
-                            <span class="text">Logar</span>
-                            <img id="incorrect" class="incorrect" src="../images/wrong-svgrepo-com.svg" alt="incorrect">
-                            <img id="correct" class="correct" src="../images/correct-svgrepo-com.svg" alt="Correct">
-                            <i class="ri-check-line icon"></i>
-                        </button>
-                    </div>
+                    <form>
+                        <input class="inputLogin" type="text" id="nomeCat" name="nomeCat" placeholder="Nome da categoria:"><br>
+                        <input class="inputLogin" type="text" id="descCat" name="descCat" placeholder="Descrição:"><br>
+                    </form>
+                </div>
+                <div class="bttlogin">
+                    <button class="button bttlogar" onclick="cadastrarCateg()">
+                        <span class="text">Cadastrar</span>
+                        <img id="incorrect" class="incorrect" src="../images/wrong-svgrepo-com.svg" alt="incorrect">
+                        <img id="correct" class="correct" src="../images/correct-svgrepo-com.svg" alt="Correct">
+                        <i class="ri-check-line icon"></i>
+                    </button>
                 </div>
             </div>
-            <div class="siginup">
-                <h5>Ainda não sou cliente</h5>
-                <br>
-               <button class="bttCadas" onclick="load('cadastrar')">Cadastrar</button>
+
         </div>
+
     </section>
     <footer>
         <div class="bottomnav">
@@ -56,13 +51,13 @@
             </div>
         </div>
     </footer>
-    <div id="erroremail"></div>
     <div id="erro">
     </div>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
     <script src="../scripts/firebase.js"></script>
+    <script src="../scripts/admin.js"></script>
     <script src="../scripts/login.js"></script>
     <script src="../scripts/script.js"></script>
 </body>

@@ -93,7 +93,7 @@ input::placeholder{
 }
 .button:focus{
     width: 50px;
-    background-color: #282231;
+    background-color: #44c98a;
     border-radius: 50%;
 }
 .button:focus .text{

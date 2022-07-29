@@ -10,7 +10,7 @@
     <title>éusguri</title>
 </head>
 
-<body>
+<body onload="confereadm()">
     <header>
         <div class="top">
             <img class="icontop" src="../images/PngItem_868090.png" alt="Hang Loose Red">
@@ -23,9 +23,25 @@
         <div class="formLoginCadastro">
             <div class="siginup">
                 <div>
-
+                    <h1 class="lnh1">Oque deseja cadastrar?</h1>
                     <br>
-                    <form>
+                    <div class="bttlogin">
+                        <button class="button bttlogar" onclick="load('categoriaAdmin')">
+                            <span class="text">Categoria</span>
+                            <img id="incorrect" class="incorrect" src="../images/wrong-svgrepo-com.svg" alt="incorrect">
+                            <img id="correct" class="correct" src="../images/correct-svgrepo-com.svg" alt="Correct">
+                            <i class="ri-check-line icon"></i>
+                        </button>
+                    </div>
+                    <div class="bttlogin">
+                        <button class="button bttlogar" onclick="load('produtoAdmin')">
+                            <span class="text">Produto</span>
+                            <img id="incorrect" class="incorrect" src="../images/wrong-svgrepo-com.svg" alt="incorrect">
+                            <img id="correct" class="correct" src="../images/correct-svgrepo-com.svg" alt="Correct">
+                            <i class="ri-check-line icon"></i>
+                        </button>
+                    </div>
+                    <!-- <form>
                         <input class="inputLogin" type="text" id="nomeuser" name="nomeuser" placeholder="Nome:"><br>
                         <input class="inputLogin" type="text" id="sobrenomeuser" name="sobrenomeuser"
                             placeholder="Sobrenome:"><br>
@@ -56,10 +72,10 @@
                             <img class="eye" onclick="togglePasswordCadasConf()" id="eye" src="../images/eye-svgrepo-com.svg"
                                 alt="Ver Senha">
                         </div>
-                    </form>
+                    </form> -->
                 </div>
             </div>
-            <div class="sigin2">
+            <!-- <div class="sigin2">
                 <div class="bttlogin">
                     <button class="button bttlogar" onclick="cadastro()">
                         <span class="text">Cadastro</span>
@@ -68,7 +84,7 @@
                         <i class="ri-check-line icon"></i>
                     </button>
                 </div>
-            </div>
+            </div> -->
         </div>
 
     </section>
@@ -87,6 +103,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
     <script src="../scripts/firebase.js"></script>
+    <script src="../scripts/admin.js"></script>
     <script src="../scripts/login.js"></script>
     <script src="../scripts/script.js"></script>
 </body>
