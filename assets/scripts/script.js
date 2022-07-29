@@ -232,8 +232,3 @@ function ResponsiveHamMenu() {
     }
 
 }
-function Admin() {
-    auth.onAuthStateChanged((user) => {
-
-    })
-}
