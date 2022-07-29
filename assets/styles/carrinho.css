@@ -1,0 +1,41 @@
+body{
+    background-color: white;
+}
+#produtosGrid{
+    display: grid;
+    position: absolute;
+    grid-template-columns: 1fr 1fr;
+    width: 70%;
+    margin-top: 15vh;
+    text-align: center;
+    justify-items: center;
+    align-items: center;
+    gap: 5vw;
+    padding-bottom: 20px;
+}
+.produto{
+    max-width: 25vw;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+}
+.imgProd{
+    width: 25vw;
+    height: 20vw;
+    background-color: gray;
+}
+.imgIcons{
+    width: 50px;
+    transition: all .2s;
+}
+.buttonClass{
+    border: none;
+    background-color: white;
+}
+.imgIcons:hover{
+    width: 52px;
+    cursor: pointer;
+}
+.prodItem{
+    padding: 10px;
+}

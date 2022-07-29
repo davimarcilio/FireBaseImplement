@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/carrinho.css">
+    <title>éusguri</title>
+</head>
+<!-- Padrão de toda página -->
+
+<body onload="logged(), SetCarrinho()" onresize="logged()">
+    <header>
+        <div class="top">
+            <img class="icontop" src="../images/PngItem_868090.png" alt="Hang Loose Red">
+            <a href="/../index.html">
+                <h1 class="texttop">éusguri</h1>
+            </a>
+            <ul class="ulH">
+                <button type="button" class="hamburguer" onclick="ResponsiveHamMenu()">
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                </button>
+            </ul>
+            <ul class="ulH">
+                <a id="login" class="responsivity" onclick="load('login')">
+                    <li>Entrar</li>
+                </a>
+                <a id="onlylogged" class="responsivity" onclick="load('user')">
+                    <li>User</li>
+                </a>
+                <a id="carrinho" class="responsivity" onclick="load('carrinho')">
+                    <li>Carrinho</li>
+                </a>
+
+                <a id="produtos" class="responsivity" onclick="load('produtos')">
+                    <li>Produtos</li>
+                </a>
+                <a id="admin" class="linked responsivity1" onclick="load('admin')">
+                    <li>Admin</li>
+                </a>
+            </ul>
+        </div>
+        <div class="responsivityHamburguerMenu">
+            <ul class="uul">
+
+                <a id="login" class="linked responsivity" onclick="load('login')">
+                    <li>Entrar</li>
+                </a>
+                <a id="onlylogged" class="responsivity" onclick="load('user')">
+                    <li>User</li>
+                </a>
+                <a id="carrinho" class="linked responsivity" onclick="load('carrinho')">
+                    <li>Carrinho</li>
+                </a>
+
+                <a id="produtos" class="linked responsivity" onclick="load('produtos')">
+                    <li>Produtos</li>
+                </a>
+                <a id="admin" class="linked responsivity" onclick="load('admin')">
+                    <li>Admin</li>
+                </a>
+            </ul>
+        </div>
+    </header>
+    <!-- fim padrão -->
+    <section>
+        <div id="produtosGrid" class="produtos">
+            <div class="produto" id="produto">
+                <img class="imgProd prodItem" src="" alt="Foto do produto">
+                <h3 class="nomeProd prodItem" id="nomeProd">Camisa balenciaga</h3>
+                <p class="quantidade prodItem" id="qtdProd">1</p>
+                <h4 class="precoProd prodItem" id="precoProd">R$10000.00</h4>
+                <div class="buttons prodItem">
+                    <button onclick="moreItems()" class="buttonClass" name="moreItems" id="moreItems">
+                        <img class="imgIcons" src="../images/addictionicon.svg" alt="More">
+                    </button>
+                    <Button onclick="lessItems()" class="buttonClass" name="lessItems" id="lessItems">
+                        <img class="imgIcons" src="../images/subtractionicon.svg" alt="Less">
+                    </Button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div id="erro">
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="../scripts/firebase.js"></script>
+    <script src="../scripts/login.js"></script>
+    <script src="../scripts/carrinho.js"></script>
+    <script src="../scripts/script.js"></script>
+</body>
+
+</html>
