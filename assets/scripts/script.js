@@ -25,7 +25,7 @@ function load(page) {
         case 'produtoAdmin':
             window.location.href = `${pagename}/assets/pages/produtoAdmin.html`;
             break;
-            case 'produtos':
+        case 'produtos':
             window.location.href = `${pagename}/assets/pages/produtos.html`;
             break;
         default:
@@ -33,21 +33,58 @@ function load(page) {
             break;
     }
 }
-function logged() {
-    let userLogged = document.getElementById('onlylogged');
-    let userNotLogged = document.getElementById('login');
+function TrySobreHome(argumentnum) {
+    // Pagina Sobre
     try {
         var sobre = document.querySelector('.sobre');
     } catch (error) {
         console.log(error);
     }
+    //Pagina Home
     try {
         var homeimg = document.querySelector('.homeimg');
-        var hamburgmenuopen = document.querySelector('.responsivityHamburguerMenu');
-
     } catch (error) {
         console.log(error);
     }
+    //Pagina Sobre
+    if (argumentnum == '1') {
+        try {
+            sobre.style.position = 'absolute';
+        } catch (error) {
+            console.log(error);
+        }
+        try {
+            homeimg.style.position = 'relative';
+
+        } catch (error) {
+            console.log(error);
+        }
+        try {
+            userImg.style.display = 'flex';
+            
+        } catch (error) {
+            console.log(error);
+        }
+        //Pagina Home
+    } if(argumentnum == '2') {
+        try {
+            sobre.style.position = 'static';
+        } catch (error) {
+            console.log(error);
+        }
+        try {
+            homeimg.style.position = 'static';
+
+        } catch (error) {
+            console.log(error);
+        }
+       
+    }
+}
+function logged() {
+    let userLogged = document.getElementById('onlylogged');
+    var hamburgmenuopen = document.querySelector('.responsivityHamburguerMenu');
+    let userNotLogged = document.getElementById('login');
     auth.onAuthStateChanged((user) => {
         let admin = document.getElementById('admin');
         let meniu = document.querySelectorAll('.responsivity');
@@ -69,29 +106,9 @@ function logged() {
                         meniu[7].style.display = 'none';
                         meniu[8].style.display = 'none';
                         responsivityHamburguerMenu.style.display = 'none';
-                        try {
-                            sobre.style.position = 'absolute';
-                        } catch (error) {
-                            console.log(error);
-                        }
-                        try {
-                            homeimg.style.position = 'relative';
-
-                        } catch (error) {
-                            console.log(error);
-                        }
+                        TrySobreHome('1');
                     } else {
-                        try {
-                            sobre.style.position = 'static';
-                        } catch (error) {
-                            console.log(error);
-                        }
-                        try {
-                            homeimg.style.position = 'static';
-
-                        } catch (error) {
-                            console.log(error);
-                        }
+                        TrySobreHome('2');
                         responsivityHamburguerMenu.style.display = 'flex';
                         if (hamburguerMenu.classList.contains("active")) {
                             meniu[4].style.display = 'none';
@@ -123,29 +140,9 @@ function logged() {
                         meniu[7].style.display = 'none';
                         meniu[8].style.display = 'none';
                         responsivityHamburguerMenu.style.display = 'none';
-                        try {
-                            sobre.style.position = 'absolute';
-                        } catch (error) {
-                            console.log(error);
-                        }
-                        try {
-                            homeimg.style.position = 'relative';
-
-                        } catch (error) {
-                            console.log(error);
-                        }
+                        TrySobreHome('1');
                     } else {
-                        try {
-                            sobre.style.position = 'static';
-                        } catch (error) {
-                            console.log(error);
-                        }
-                        try {
-                            homeimg.style.position = 'static';
-
-                        } catch (error) {
-                            console.log(error);
-                        }
+                        TrySobreHome('2');
                         responsivityHamburguerMenu.style.display = 'flex';
                         if (hamburguerMenu.classList.contains("active")) {
                             meniu[4].style.display = 'none';
@@ -180,36 +177,18 @@ function logged() {
                 meniu[5].style.display = 'none';
                 meniu[6].style.display = 'none';
                 meniu[7].style.display = 'none';
+                meniu[8].style.display = 'none';
                 responsivityHamburguerMenu.style.display = 'none';
-                try {
-                    sobre.style.position = 'absolute';
-                } catch (error) {
-                    console.log(error);
-                }
-                try {
-                    homeimg.style.position = 'relative';
-
-                } catch (error) {
-                    console.log(error);
-                }
+                TrySobreHome('1');
             } else {
-                try {
-                    sobre.style.position = 'static';
-                } catch (error) {
-                    console.log(error);
-                }
-                try {
-                    homeimg.style.position = 'static';
-
-                } catch (error) {
-                    console.log(error);
-                }
+                TrySobreHome('2');
                 // ResponsiveHamMenu();
                 if (hamburguerMenu.classList.contains("active")) {
                     meniu[4].style.display = 'inline';
                     meniu[5].style.display = 'none';
                     meniu[6].style.display = 'inline';
                     meniu[7].style.display = 'inline';
+                    meniu[8].style.display = 'inline';
                 }
                 admin.style.display = 'none';
                 userLogged.style.display = 'none';

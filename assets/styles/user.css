@@ -4,7 +4,6 @@
 .UserData{
     display: flex;
     position: absolute;
-    /* width: 80%; */
     top: 10vw;
     flex-direction: column;
     height: 50%;
@@ -48,4 +47,12 @@
 }
 .button{
     width: 50%;
+}
+@media only screen and (max-width: 775px) {
+    .UserData{
+       margin-top: 30vh;
+    }
+    .bttons{
+        margin-top: 30vh;
+    }
 }
