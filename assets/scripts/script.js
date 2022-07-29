@@ -1,31 +1,32 @@
 function load(page) {
+    let pagename = '';
     switch (page) {
         case 'home':
-            window.location.href = '/assets/pages/home.html';
+            window.location.href = `${pagename}/assets/pages/home.html`;
             break;
         case 'login':
-            window.location.href = '/assets/pages/login.html';
+            window.location.href = `${pagename}/assets/pages/login.html`;
             break;
         case 'sobre':
-            window.location.href = '/assets/pages/sobre.html';
+            window.location.href = `${pagename}/assets/pages/sobre.html`;
             break;
         case 'user':
-            window.location.href = '/assets/pages/user.html';
+            window.location.href = `${pagename}/assets/pages/user.html`;
             break;
         case 'cadastrar':
-            window.location.href = '/assets/pages/cadastrar.html';
+            window.location.href = `${pagename}/assets/pages/cadastrar.html`;
             break;
         case 'admin':
-            window.location.href = '/assets/pages/admin.html';
+            window.location.href = `${pagename}/assets/pages/admin.html`;
             break;
-            case 'categoriaAdmin':
-            window.location.href = '/assets/pages/categoriaAdmin.html';
+        case 'categoriaAdmin':
+            window.location.href = `${pagename}/assets/pages/categoriaAdmin.html`;
             break;
-            case 'produtoAdmin':
-            window.location.href = '/assets/pages/produtoAdmin.html';
+        case 'produtoAdmin':
+            window.location.href = `${pagename}/assets/pages/produtoAdmin.html`;
             break;
         default:
-            window.location.href = 'assets/pages/home.html';
+            window.location.href = `${pagename}/assets/pages/home.html`;
             break;
     }
 }
@@ -52,7 +53,7 @@ function logged() {
         if (user) {
             try {
                 if (user.uid == 'g3FXmjoYUbgyeNg2y0l7x00PPsv2') {
-                    
+
                     meniu[8].style.display = 'inline';
                     if (window.matchMedia("(min-width: 775px)").matches) {
                         userNotLogged.style.display = 'none';

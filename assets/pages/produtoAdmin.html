@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../styles/login.css">
     <title>éusguri</title>
 </head>
+
 <body>
     <header>
         <div class="top">
@@ -24,14 +25,22 @@
                 <div>
                     <br>
                     <form>
-                        <h1>Cadastre a categoria</h1>
+                        <h1>Cadastre o produto</h1>
                         <br>
-                        <input class="inputLogin" type="text" id="nomeCat" name="nomeCat" placeholder="Nome da categoria:"><br>
-                        <input class="inputLogin" type="text" id="descCat" name="descCat" placeholder="Descrição:"><br>
+                        <input class="inputLogin" type="text" id="nomeProd" name="nomeProd" placeholder="Nome do produto:"><br>
+                        <input class="inputLogin" type="text" id="descProd" name="descProd" placeholder="Descrição:"><br>
+                        <input class="inputLogin" type="text" id="precoProd" name="precoProd" placeholder="Valor:" oninput="numbers(this)"><br>
+                        <input class="inputLogin" type="text" id="genProd" name="genProd" placeholder="Genêro:"><br>
+                        <input class="inputLogin" type="text" id="marcaProd" name="marcaProd" placeholder="Marca:"><br>
+                        <input class="inputLogin" type="number" id="qtdProd" name="qtdProd" placeholder="Quantidade:"><br>
+                        <input class="inputLogin" type="number" id="tamProd" name="tamProd" placeholder="Tamanho:"><br>
+                        <select class="inputLogin" name="Categoria" id="Categoria">
+
+                        </select>
                     </form>
                 </div>
                 <div class="bttlogin">
-                    <button class="button bttlogar" onclick="cadastrarCateg()">
+                    <button class="button bttlogar" onclick="cadastrarProd()">
                         <span class="text">Cadastrar</span>
                         <img id="incorrect" class="incorrect" src="../images/wrong-svgrepo-com.svg" alt="incorrect">
                         <img id="correct" class="correct" src="../images/correct-svgrepo-com.svg" alt="Correct">
