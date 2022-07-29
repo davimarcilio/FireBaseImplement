@@ -1,0 +1,51 @@
+body{
+    background-color: white;
+}
+.filtrar{
+    position: absolute;
+    margin-top: 10vh;
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    height: calc(100%);
+background-color: white;
+justify-content: center;
+}
+.filter{
+    text-align: center;
+    font-size: 1.2vw;
+    padding: 10px;
+    border: none;
+    margin-left: 5px;
+}
+.produtos{
+    display: grid;
+    position: absolute;
+    grid-template-columns: 1fr 1fr;
+    right: 2vw;
+    width: calc(100% - 25%);
+    margin-top: 10vh;
+    height: 250px;
+    justify-items: center;
+    align-items: center;
+    gap: 5vw;
+    margin-bottom: 100px;
+}
+.produto{
+    max-width: 25vw;
+    margin-top: 2vh;
+    display: flex;
+    text-align: center;
+    /* margin-top: 30px; */
+    gap: 10px;
+    flex-direction: column;
+}
+.imgProd{
+    width: 25vw;
+    height: 20vw;
+    background-color: gray;
+}
+.pesquisar{
+    border: 1px solid gray;
+    margin-bottom: 5px;
+}
