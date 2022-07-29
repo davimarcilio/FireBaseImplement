@@ -102,7 +102,7 @@ justify-content: center;
         text-align: center;
         font-size: 3vw;
         padding: 10px;
-        border: none;
+        border: 1px solid black;
         margin-left: 0;
     }
 }

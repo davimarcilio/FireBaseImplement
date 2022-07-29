@@ -28,6 +28,9 @@ function load(page) {
         case 'produtos':
             window.location.href = `${pagename}/assets/pages/produtos.html`;
             break;
+            case 'carrinho':
+                window.location.href = `${pagename}/assets/pages/carrinho.html`;
+                break;
         default:
             window.location.href = `${pagename}/assets/pages/home.html`;
             break;
