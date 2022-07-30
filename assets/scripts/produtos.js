@@ -18,7 +18,7 @@ function SetProds() {
         produtos.innerHTML = '';
         db.collection('Produtos').where('id_categ', '==', Filterid).get().then((Snapshot) => {
             Snapshot.forEach((docProd) => {
-                docProdData = docProd.data();
+               let docProdData = docProd.data();
                 produtos.innerHTML +=
                     `<div class="produto" id="produto">
                    <img class="imgProd" src="" alt="Foto do produto">
@@ -37,7 +37,7 @@ function SetProds() {
         db.collection('Produtos').get().then((Snapshot) => {
             Snapshot.forEach((docProd) => {
                 let produtos = document.getElementById('produtosGrid');
-                docProdData = docProd.data();
+              let docProdData = docProd.data();
                 produtos.innerHTML +=
                     `<div class="produto" id="produto">
                    <img class="imgProd" src="" alt="Foto do produto">
@@ -60,7 +60,10 @@ function SetCar(element) {
                 .then((Snapshot) => {
                     Snapshot.forEach((doc) => {
                         db.collection('Usuários').doc(doc.id).update({
-                            carrinho: firebase.firestore.FieldValue.arrayUnion(element.id),
+                            carrinho: firebase.firestore.FieldValue.arrayUnion({
+                              prod_id_car:  element.id,
+                              prod_qtd_car: 1,
+                            }),
                         })
                         ErrorCode('Produto Adicionado', 'Com Sucesso', 'Green');
                         setTimeout(() => {

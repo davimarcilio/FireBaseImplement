@@ -34,7 +34,7 @@ function cadastrarCateg() {
 function cadastrarProd() {
     let nomeProd = document.getElementById('nomeProd').value.trim();
     let descProd = document.getElementById('descProd').value.trim();
-    let precoProd = parseInt(document.getElementById('precoProd').value);
+    let precoProd = parseFloat(document.getElementById('precoProd').value);
     let genProd = document.getElementById('genProd').value.trim();
     let marcaProd = document.getElementById('marcaProd').value.trim();
     let qtdProd = parseInt(document.getElementById('qtdProd').value);
@@ -51,6 +51,13 @@ function cadastrarProd() {
             tam_prod: tamProd,
             id_categ: categProd,
         }).then((doc) => {
+            db.collection('Produtos').doc(doc.id).update({
+                doc_ID: doc.id,
+            }).then(()=>{
+
+            }).catch((error)=>{
+                ErrorCode('Deu Erro', error, 'Red');
+            })
             toggleButtonCorrect(0);
             setTimeout(() => {
                 ErrorCode('Produto Criado', 'Com Sucesso', 'Green');
