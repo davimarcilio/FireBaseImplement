@@ -18,7 +18,7 @@ function SetProds() {
         produtos.innerHTML = '';
         db.collection('Produtos').where('id_categ', '==', Filterid).get().then((Snapshot) => {
             Snapshot.forEach((docProd) => {
-               let docProdData = docProd.data();
+                let docProdData = docProd.data();
                 produtos.innerHTML +=
                     `<div class="produto" id="produto">
                    <img class="imgProd" src="" alt="Foto do produto">
@@ -37,7 +37,7 @@ function SetProds() {
         db.collection('Produtos').get().then((Snapshot) => {
             Snapshot.forEach((docProd) => {
                 let produtos = document.getElementById('produtosGrid');
-              let docProdData = docProd.data();
+                let docProdData = docProd.data();
                 produtos.innerHTML +=
                     `<div class="produto" id="produto">
                    <img class="imgProd" src="" alt="Foto do produto">
@@ -59,12 +59,26 @@ function SetCar(element) {
             db.collection('Usuários').where('uid_user', '==', user.uid).get()
                 .then((Snapshot) => {
                     Snapshot.forEach((doc) => {
-                        db.collection('Usuários').doc(doc.id).update({
-                            carrinho: firebase.firestore.FieldValue.arrayUnion({
-                              prod_id_car:  element.id,
-                              prod_qtd_car: 1,
-                            }),
-                        })
+                        db.collection('Produtos').where('doc_ID', '==', element.id).get()
+                            .then((SnapShotProd) => {
+                                SnapShotProd.forEach((docProd) => {
+
+
+
+                                    db.collection('Usuários').doc(doc.id).update({
+                                        carrinho: firebase.firestore.FieldValue.arrayUnion({
+                                            prod_id_car: element.id,
+                                            prod_qtd_car: 1,
+                                            prod_nome_car: docProd.data().nome_prod,
+                                            prod_preco_car: docProd.data().preco_prod,
+                                            prod_tamanho_car: docProd.data().tam_prod,
+                                            prod_desc_car: docProd.data().desc_prod,
+
+                                        }),
+
+                                    })
+                                })
+                            })
                         ErrorCode('Produto Adicionado', 'Com Sucesso', 'Green');
                         setTimeout(() => {
                             load('carrinho');
@@ -81,8 +95,8 @@ function SetCar(element) {
 function pesquisar() {
     let produtos = document.getElementById('produtosGrid');
     let pesqInput = document.getElementById('pesquisar').value;
-    db.collection('Produtos').orderBy('nome_prod').startAt(pesqInput).endAt(pesqInput+'\uf8ff').get().then((Snapshot) => {
-        produtos.innerHTML='';
+    db.collection('Produtos').orderBy('nome_prod').startAt(pesqInput).endAt(pesqInput + '\uf8ff').get().then((Snapshot) => {
+        produtos.innerHTML = '';
         Snapshot.forEach((docProd) => {
             docProdData = docProd.data();
             produtos.innerHTML +=
