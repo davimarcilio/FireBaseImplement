@@ -1,45 +1,58 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 /* body e reset */
-*{
+* {
     margin: 0;
     padding: 0;
 }
-body{
+
+body {
     font-family: 'Press Start 2P', sans-serif;
     background-color: rgb(197, 197, 197);
 }
+
 /* Navegation Bar da pagina */
-.top, .bottomnav{
+.top,
+.bottomnav {
     display: flex;
-    position: absolute;
-  width: calc(100% - 2vw);
-  align-items: center;
-  padding-left: 2vw;
-  height: 10%;
-  background-color: rgb(97, 97, 97);
+    position: relative;
+    width: calc(100% - 2vw);
+    align-items: center;
+    padding-left: 2vw;
+    height: 10vh;
+    background-color: rgb(97, 97, 97);
 }
-.icontop{
-    height: calc(100% - 20%);
+
+.icontop {
+    position: relative;
+    height: 80%;
 }
-.texttop{
+
+.texttop {
     color: rgb(255, 112, 112);
     font-size: 5vh;
     padding-left: 0.5vw;
-transition: all;
-transition-duration: 300ms;
+    transition: all;
+    transition-duration: 300ms;
 }
-.texttop:hover, .linkedsobre:hover, .linkedcontat:hover{
+
+.texttop:hover,
+.linkedsobre:hover,
+.linkedcontat:hover {
     color: rgb(255, 50, 50);
     cursor: pointer;
 }
-.texttop:hover{
+
+.texttop:hover {
     font-size: 5.1vh;
 }
-.ulH{
+
+.ulH {
     right: 5vh;
     position: absolute;
 }
-li{
+
+li {
     margin: 5px;
     padding: 10px;
     float: right;
@@ -50,35 +63,46 @@ li{
     transition: all;
     transition-duration: 300ms;
 }
-li:hover{
-  color: rgb(255, 50, 50);
-  cursor: pointer;
-  border: 3px solid rgb(36, 36, 36);
+
+li:hover {
+    color: rgb(255, 50, 50);
+    cursor: pointer;
+    border: 3px solid rgb(36, 36, 36);
 }
-a{
+
+a {
     text-decoration: none;
 }
+
 /* bottom */
-.bottomnav{
-bottom: 0;
+.bottomnav {
+    position: absolute;
+    bottom: 0;
 }
-.linkedcontat{
+
+.linkedcontat {
     position: absolute;
     display: flex;
     height: 100%;
     top: 0;
     align-items: center;
     right: 5vh;
-    color:rgb(255, 112, 112) ;
+    color: rgb(255, 112, 112);
     transition: all;
     transition-duration: 300ms;
 }
-.linkedsobre{
-    color:rgb(255, 112, 112) ;
+
+.linkedsobre {
+    color: rgb(255, 112, 112);
     transition: all;
     transition-duration: 300ms;
 }
-#onlylogged{
+
+#UserOrNot {
+    display: inline;
+}
+
+/* #onlylogged{
     display: none;
 }
 #login{
@@ -86,16 +110,17 @@ bottom: 0;
 }
 #admin{
     display: none;
-}
+} */
 /* hamburg menu */
-.hamburguer{
+.hamburguer {
     background-color: transparent;
     border: none;
     outline: none;
     cursor: pointer;
     display: none;
 }
-.hamburguer .line{
+
+.hamburguer .line {
     display: block;
     width: 40px;
     height: 3px;
@@ -103,75 +128,95 @@ bottom: 0;
     margin-block: 10px;
     border-radius: 4px;
     transition: transform .5s,
-    opacity .25s;
+        opacity .25s;
 }
-.hamburguer.active .line:nth-child(1){
-    transform: translateY(13px)
-    rotate(45deg);
+
+.hamburguer.active .line:nth-child(1) {
+    transform: translateY(13px) rotate(45deg);
 }
-.hamburguer.active .line:nth-child(2){
+
+.hamburguer.active .line:nth-child(2) {
     opacity: 0;
 }
-.hamburguer.active .line:nth-child(3){
-    transform: translateY(-13px)
-    rotate(-45deg);
+
+.hamburguer.active .line:nth-child(3) {
+    transform: translateY(-13px) rotate(-45deg);
 }
-.hamburgmenu{
+
+.hamburgmenu {
     width: 100px;
     height: 100px;
     position: absolute;
     right: 5vh;
 }
-.responsivityHamburguerMenu{
+
+.responsivityHamburguerMenu {
     width: 100%;
     /* height: 20%; */
     height: calc(100% - 89);
-    display:none;
+    display: none;
     margin-top: 10vh;
     justify-content: center;
     /* position: absolute; */
-    position:fixed;
+    position: fixed;
     background-color: rgba(255, 255, 255, 0);
 }
+
 @media only screen and (max-width: 775px) {
 
-   .hamburguer{
+    .hamburguer {
+        display: inline;
+    }
+
+    .responsivity {
+        display: none;
+    }
+
+    .texttop {
+        font-size: 7vw;
+    }
+
+    .texttop:hover {
+        font-size: 7.1vw;
+    }
+
+    .icontop {
+        height: calc(100% - 40%);
+    }
+
+    .linkedsobre {
+        font-size: 2.5vw;
+    }
+
+    #onlylogged {
+        display: none;
+    }
+
+    #login {
+        display: none;
+    }
+
+    #carrinho {
+        display: none;
+    }
+
+    #produtos {
+        display: none;
+    }
+
+    li {
+        float: none;
+    }
+
+    .uul {
+        width: 100%;
+        font-size: 3vw;
+        margin-top: 1vw;
+        text-align: center;
+    }
+}
+
+/* Menu tela grande */
+#UserOrNot {
     display: inline;
-   }
-   .responsivity{
-    display: none;
-   }
-   .texttop{
-    font-size: 7vw;
-   }
-   .texttop:hover{
-    font-size: 7.1vw;
 }
-   .icontop{
-    height: calc(100% - 40%);
-}
-.linkedsobre{
-    font-size: 2.5vw;
-}
-#onlylogged{
-    display: none;
-}
-#login{
-    display: none;
-}
-#carrinho{
-    display: none;
-}
-#produtos{
-    display: none;
-}
-li{
-    float: none;
-}
-.uul{
-    width: 100%;
-    font-size: 3vw;
-    margin-top: 1vw;
-    text-align: center;
-}
-  }
