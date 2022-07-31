@@ -30,7 +30,7 @@ justify-content: center;
     justify-items: center;
     align-items: center;
     gap: 5vw;
-    margin-bottom: 100px;
+    padding-bottom: 10px;
 }
 .produto{
     max-width: 25vw;
