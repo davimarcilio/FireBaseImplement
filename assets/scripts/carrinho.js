@@ -4,24 +4,34 @@ function SetCarrinho() {
         if (user) {
             db.collection('Usuários').where('uid_user', '==', user.uid).get()
                 .then((SnapShotUser) => {
-                    SnapShotUser.forEach(docUser => {
-                        let docUserData = docUser.data();
-                        docUserData.carrinho.forEach(carrinhoId_Prod => {
-                            if (carrinhoId_Prod.prod_qtd_car < 1) {
-                                db.collection('Usuários').doc(docUser.id).update({
-                                    carrinho: firebase.firestore.FieldValue.arrayRemove({
-                                        prod_id_car: carrinhoId_Prod.prod_id_car,
-                                        prod_qtd_car: carrinhoId_Prod.prod_qtd_car,
-                                        prod_nome_car: carrinhoId_Prod.prod_nome_car,
-                                        prod_preco_car: carrinhoId_Prod.prod_preco_car,
-                                        prod_tamanho_car: carrinhoId_Prod.prod_tamanho_car,
-                                        prod_desc_car: carrinhoId_Prod.prod_desc_car,
-                                    }),
-                                }).catch((err) => {
-                                    console.log(err);
-                                })
-                            } else {
-                                produtos.innerHTML += `
+                    console.log(SnapShotUser.docs);
+                    if (SnapShotUser.empty == true) {
+                        TemProduto();
+                    } else {
+                        SnapShotUser.forEach(docUser => {
+                            if (docUser.data().carrinho == '') {
+                               TemProduto();
+                            }
+                            let docUserData = docUser.data();
+                            docUserData.carrinho.forEach(carrinhoId_Prod => {
+                                if (carrinhoId_Prod.prod_qtd_car < 1) {
+                                    TemProduto()
+                                    db.collection('Usuários').doc(docUser.id).update({
+                                        carrinho: firebase.firestore.FieldValue.arrayRemove({
+                                            prod_id_car: carrinhoId_Prod.prod_id_car,
+                                            prod_qtd_car: carrinhoId_Prod.prod_qtd_car,
+                                            prod_nome_car: carrinhoId_Prod.prod_nome_car,
+                                            prod_preco_car: carrinhoId_Prod.prod_preco_car,
+                                            prod_tamanho_car: carrinhoId_Prod.prod_tamanho_car,
+                                            prod_desc_car: carrinhoId_Prod.prod_desc_car,
+                                        }),
+                                    }).then(() => {
+                                    }).catch((err) => {
+                                        console.log(err);
+                                    });
+
+                                } else {
+                                    produtos.innerHTML += `
                                      <div class="produto" id="produto">
                                       <img class="imgProd prodItem" src="" alt="Foto do produto">
                                       <h3 class="nomeProd prodItem" id="nomeProd">${carrinhoId_Prod.prod_nome_car}</h3>
@@ -37,18 +47,24 @@ function SetCarrinho() {
                                  </div>
                                   </div>
                                  `;
-                            }
+                                }
+                            });
                         });
-                    });
+                    }
 
                 }).catch((err) => {
                     console.log(err);
 
                 })
         } else {
-            load('home');
+            let NotUserApparently = document.getElementById('NotUserApparently');
+            NotUserApparently.style.display = 'flex';
         }
     });
+}
+function TemProduto() {
+    let CarrinhoVazio = document.getElementById('CarrinhoVazio');
+    CarrinhoVazio.style.display = 'flex';
 }
 function moreItems(element) {
     auth.onAuthStateChanged((user) => {
@@ -153,6 +169,7 @@ function lessItems(element) {
 
                 })
         } else {
+
             load('home');
         }
     });

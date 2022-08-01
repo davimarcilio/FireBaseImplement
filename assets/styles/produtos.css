@@ -27,6 +27,7 @@ justify-content: center;
     border-radius: 10px;
     width: 80%;
     cursor: pointer;
+    
 }
 #produtosGrid{
     display: grid;
@@ -40,10 +41,12 @@ justify-content: center;
     padding-bottom: 10px;
 }
 .produto{
-    max-width: 25vw;
+    width: 25vw;
     display: flex;
     text-align: center;
     gap: 10px;
+    justify-content: space-between;
+    height: 60vh;
     flex-direction: column;
 }
 .imgProd{
@@ -61,10 +64,10 @@ justify-content: center;
     right: 0;
     height: calc(100% - 20px);
     background-color: black;
-    padding-top: 1.19vh;
+    padding-top: 0.5rem;
     padding-right: 5%;
     padding-left: 5%;
-    padding-bottom: 1.19vh;
+    padding-bottom: 0.4rem;
     cursor: pointer;
 }
 .searchCamp{
@@ -113,8 +116,9 @@ justify-content: center;
             max-width: 80%;
         }
         .imgProd{
-            width: 100%;
-            height: 70vw;
+            align-self: center;
+            width: 40vh;
+            height: 40vh;
             background-color: gray;
         }
 }

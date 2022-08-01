@@ -39,3 +39,40 @@ body{
 .prodItem{
     padding: 10px;
 }
+#NotUserApparently, #CarrinhoVazio{
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    background-color: brown;
+    color: white;
+    font-weight: 900;
+    font-size: large;
+    align-items: center;
+    width: 100%;
+    height: calc(100% - 10vh);
+}
+#bttNotUserApparently, #bttCarrinhoVazio{
+    padding: 15px;
+    margin-top: 5vh;
+    color: white;
+    background-color: black;
+    font-weight: 900;
+    border-radius: 10px;
+    width: 50%;
+    box-shadow: unset;
+    text-shadow: none;
+    transition: all;
+    transition-duration: 500ms;
+}
+#bttNotUserApparently:hover, #bttCarrinhoVazio:hover{
+   background-color: rgb(29, 29, 29);
+   border-color: rgb(29, 29, 29);
+}
+#bttCarrinhoVazio{
+    width: 60%;
+}
+#CarrinhoVazio{
+    background-color: whitesmoke;
+    color: black;
+}
