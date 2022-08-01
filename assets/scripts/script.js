@@ -218,14 +218,27 @@ function ResponsiveHamMenu() {
 }
 function UserOrNot() {
     let UserOrNotDiv = document.getElementById('UserOrNot');
+    let HamUserOrNot = document.getElementById('HamUserOrNot');
     auth.onAuthStateChanged((user) => {
         if (user) {
-            UserOrNotDiv.innerHTML = `<a id="onlylogged" class="responsivity" onclick="load('user')"><li>User</li></a>`;
+            HamUserOrNot.innerHTML =  `<a id="logged" class="HamMenu" onclick="load('user')"><li>User</li></a>`;
+            UserOrNotDiv.innerHTML = `<a id="logged" class="responsivity" onclick="load('user')"><li>User</li></a>`;
             if (user.uid == 'g3FXmjoYUbgyeNg2y0l7x00PPsv2') {
-               UserOrNotDiv.innerHTML += `<a id="admin" class="responsivity" onclick="load('admin')"><li>Admin</li></a>`
+               UserOrNotDiv.innerHTML += `<a id="admin" class="responsivity" onclick="load('admin')"><li>Admin</li></a>`;
+               HamUserOrNot.innerHTML +=  `<a id="admin" class="HamMenu" onclick="load('admin')"><li>Admin</li></a>`;
             }
         }else{
-           UserOrNotDiv.innerHTML = `<a id="login" class="responsivity" onclick="load('login')"><li>Entrar</li></a>`
+           UserOrNotDiv.innerHTML = `<a id="login" class="responsivity" onclick="load('login')"><li>Entrar</li></a>`;
+           HamUserOrNot.innerHTML +=  `<a id="login" class="HamMenu" onclick="load('login')"><li>Entrar</li></a>`;
         }
     })
+}
+function HamMenuActive() {
+    const HamMenuButtons = document.querySelector('.HamMenuActive');
+    const hamburguerMenu = document.querySelector('.hamburguer');
+    if (hamburguerMenu.classList.toggle('active')) {
+        HamMenuButtons.style.display = 'block';
+    } else {
+        HamMenuButtons.style.display = 'none';
+    }
 }

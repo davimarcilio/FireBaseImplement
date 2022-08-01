@@ -44,7 +44,7 @@ function SetProds() {
                    <h3 class="nomeProd" id="nomeProd">${docProdData.nome_prod}</h3>
                    <p class="descProd" id="descProd">${docProdData.desc_prod}</p>
                    <h4 class="precoProd" id="precoProd">R$${docProdData.preco_prod}</h4>
-                   <button onclick="SetCar(this)" id="${docProd.id}" name="bttcomprar" type="button">Comprar</button>
+                   <button onclick="SetCar(this)" class="bttcomprar" id="${docProd.id}" name="bttcomprar" type="button">Comprar</button>
                    </div>
                    `
             });

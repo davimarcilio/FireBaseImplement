@@ -2,107 +2,100 @@ body{
     background-color: white;
 }
 .filtrar{
-    position: absolute;
-    margin-top: 10vh;
+    position:fixed;
+    float: left;
     display: flex;
     flex-direction: column;
-    width: 20%;
-    height: 100%;
-background-color: white;
+     width: 30%; 
+    height: 80%;
 justify-content: center;
 }
 .filter{
     text-align: center;
-    font-size: 1.2vw;
+    font-size: 2vw;
     padding: 10px;
     border: none;
     margin-left: 5px;
 }
-.produtos{
+.bttcomprar{
+    padding: 15px;
+    align-self: center;
+    border: none;
+    background-color: rgb(71, 5, 5);
+    color: whitesmoke;
+    font-weight: 900;
+    border-radius: 10px;
+    width: 80%;
+}
+#produtosGrid{
     display: grid;
-    position: absolute;
+    position: static;
     grid-template-columns: 1fr 1fr;
-    right: 2vw;
-    width: calc(100% - 25%);
-    margin-top: 10vh;
-    height: 250px;
-    text-align: center;
+    width: 70%;
+    margin-top: 5vh;
     justify-items: center;
-    align-items: center;
+    float: right;
     gap: 5vw;
     padding-bottom: 10px;
 }
 .produto{
     max-width: 25vw;
-    margin-top: 2vh;
     display: flex;
     text-align: center;
-    /* margin-top: 30px; */
     gap: 10px;
     flex-direction: column;
 }
 .imgProd{
     width: 25vw;
-    height: 20vw;
+    height: 25vw;
     background-color: gray;
 }
 .pesquisar{
     border: 1px solid gray;
     margin-bottom: 5px;
+    width: 100%;
+}
+.searchIcon{
+    position: absolute;
+    right: 0;
+    height: calc(100% - 20px);
+    background-color: black;
+    padding-top: 1.19vh;
+    padding-right: 5%;
+    padding-left: 5%;
+    padding-bottom: 1.19vh;
+    cursor: pointer;
+}
+.searchCamp{
+    position: relative;
+    display:flex;
 }
 @media only screen and (max-width: 775px) {
     .filtrar{
-        position: static;
-        margin-top: 0;
-        top: 200px;
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        padding-top: 15vh;
-        height: 10%;
-    background-color: white;
-    justify-content: center;
-    }
-    .produtos{
-        display: grid;
-        position: absolute;
-        grid-template-columns: 1fr;
-        right: 0;
-        width: 100%;
-        margin-top: 3vh;
-        height: 250px;
-        justify-items: center;
-        align-items: center;
-        gap: 10vw;
-        margin-bottom: 100px;
-    }
-    .produto{
-        max-width: 80vw;
-        margin-top: 2vh;
-        display: flex;
-        text-align: center;
-        /* margin-top: 30px; */
-        gap: 10px;
-        flex-direction: column;
-    }
-    .imgProd{
-        align-self: center;
-        width: 80%;
-        height: 250px;
-        background-color: gray;
-    }
-    .pesquisar{
-        border: 2px solid black;
+        padding-top: 20px;
+        position:static;
+         width: 80%; 
+        height: 80%;
+        float: none;
+    margin: auto;
     }
     .filter{
-        width: 60%;
-        box-sizing: border-box;
-        /* align-items: center; */
-        align-self: center;
-        text-align: center;
-        font-size: 3vw;
         padding: 10px;
-        border: 1px solid black;
+        border: 2px solid gray;
         margin-left: 0;
+        font-size: 5vw;
     }
+    #produtosGrid{
+        float: none;
+        width: 100%;
+        grid-template-columns: auto;
+        }
+        .produto{
+            max-width: 80%;
+        }
+        .imgProd{
+            width: 100%;
+            height: 70vw;
+            background-color: gray;
+        }
 }

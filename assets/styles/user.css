@@ -1,58 +1,72 @@
-.loggout{
-    position: absolute;
-}
-.UserData{
+.UserData {
     display: flex;
-    position: absolute;
-    top: 10vw;
+    position: static;
     flex-direction: column;
-    height: 50%;
-    justify-content: center;
     align-items: flex-start;
+    margin-top: 10vh;
+    width: 70%;
 }
-.UserInfo{
+
+.UserInfo {
     margin-top: 5vh;
-    text-align: end;
+    /* text-align: end; */
     font-size: 2vw;
     margin-left: 4vw;
 }
-.UserFoto{
+
+.UserFoto {
     background-color: rgb(138, 138, 138);
     width: 150px;
     height: 150px;
     border-radius: 100px;
-    position: relative;
+    position: static;
     margin-left: 20vw;
 }
-.fotoUser{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 100%;
-}
-.loggout{
-    padding: 10px;
-}
-.bttons{
-    display: flex;
-    position: absolute;
-    flex-direction: column;
-    margin-top: 10vh;
-    width: 20%;
-    height: 35%;
-    /* justify-content: flex-end; */
+
+
+.bttonsUser {
+    display:flex;
+    position: static;
+    flex-direction: row;
+    margin-top: 0;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    padding-bottom: 5vh;
+    padding-top: 5vh;
+    background-color: gray;
+    width: 29%;
+    float: right;
     justify-content: center;
-    align-items: center;
-    right: 10vw;
 }
-.button{
-    width: 50%;
+
+.button {
+    width: 70%;
+    margin-top: 0;
 }
+
 @media only screen and (max-width: 775px) {
-    .UserData{
-       margin-top: 30vh;
+    .UserData {
+        display: flex;
+        position: static;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10vh;
+        width: auto;
     }
-    .bttons{
-        margin-top: 30vh;
+    .UserInfo {
+        margin-left: 0;
+        font-size: 3vw;
+    }
+    .UserFoto {
+        margin-left: 0;
+    }
+    .bttonsUser{
+        float: none;
+        padding: 0;
+        padding-top: 10px;
+        border-radius: 0;
+        background-color: transparent;
+        width: auto;
+       
     }
 }
