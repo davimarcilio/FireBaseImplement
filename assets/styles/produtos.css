@@ -26,6 +26,7 @@ justify-content: center;
     font-weight: 900;
     border-radius: 10px;
     width: 80%;
+    cursor: pointer;
 }
 #produtosGrid{
     display: grid;
@@ -69,6 +70,24 @@ justify-content: center;
 .searchCamp{
     position: relative;
     display:flex;
+}
+.search0{
+    display: none;
+    position: static;
+    grid-template-columns: auto;
+    width: 70%;
+    height: 100%;
+    margin-top: 30vh;
+    justify-content: center;
+    float: right;
+    gap: 5vw;
+}
+.HamMenuActive{
+    display: none;
+    position:relative;
+    width: calc(100% - 20px);
+    background-color: #a7a7a7;
+    padding: 10px;
 }
 @media only screen and (max-width: 775px) {
     .filtrar{

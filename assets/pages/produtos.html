@@ -11,7 +11,7 @@
     <title>éusguri</title>
 </head>
 <!-- Padrão de toda página -->
-<body  onload="UserOrNot()">
+<body  onload="UserOrNot(), SetPageProdutos()">
     <header>
         <div class="top">
             <img class="icontop" src="../images/PngItem_868090.png" alt="Hang Loose Red">
@@ -51,22 +51,16 @@
     <section>
         <div class="filtrar">
             <div class="searchCamp">
-            <input oninput="pesquisar()" type="text" id="pesquisar" class="filter pesquisar" name="pesquisar" placeholder="Pesquise">
+            <input type="text" id="pesquisar" class="filter pesquisar" name="pesquisar" placeholder="Pesquise">
             <img class="searchIcon" src="../images/search.svg" alt="Procurar" onclick="search()">
             </div>
-                <select class="filter" name="filtrar" id="filtrarid">
+                <select onchange="PesqFilter()" class="filter" name="filtrar" id="filtrarid">
                     <option value="0">Todos os produtos</option>
                 </select>
         </div>
-        <div id="produtosGrid" class="produtos">
-            <div class="produto" id="produto">
-                <img class="imgProd" src="" alt="Foto do produto">
-                <h3 class="nomeProd" id="nomeProd">Nome</h3>
-                <p class="descProd" id="descProd">Descrição</p>
-                <h4 class="precoProd" id="precoProd">R$100</h4>
-                <button onclick="SetCar(this)" class="bttcomprar" id="${docProd.id}" name="bttcomprar" type="button">Comprar</button>
-                </div>
+        <div id="produtosGrid" class="produtos">   
         </div>
+         <div class="search0">Nada foi encontrado</div>
     </section>
     <div id="erro">
     </div>

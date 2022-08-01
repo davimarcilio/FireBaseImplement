@@ -140,7 +140,7 @@ a {
 }
 .HamMenuActive{
     display: none;
-    position: absolute;
+    position:absolute;
     width: calc(100% - 20px);
     background-color: #a7a7a7;
     padding: 10px;

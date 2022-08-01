@@ -32,11 +32,11 @@ function cadastrarCateg() {
     })
 }
 function cadastrarProd() {
-    let nomeProd = document.getElementById('nomeProd').value.trim();
+    let nomeProd = document.getElementById('nomeProd').value.trim().toUpperCase();
     let descProd = document.getElementById('descProd').value.trim();
     let precoProd = parseFloat(document.getElementById('precoProd').value);
     let genProd = document.getElementById('genProd').value.trim();
-    let marcaProd = document.getElementById('marcaProd').value.trim();
+    let marcaProd = document.getElementById('marcaProd').value.trim().toUpperCase();
     let qtdProd = parseInt(document.getElementById('qtdProd').value);
     let tamProd = parseInt(document.getElementById('tamProd').value);
     let categProd = document.getElementById('Categoria').value;
