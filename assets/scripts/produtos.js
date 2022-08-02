@@ -4,7 +4,6 @@ function VisualizeProds(docProdData) {
         `<div class="produto" id="produto">
    <img class="imgProd" src="" alt="Foto do produto">
    <h3 class="nomeProd" id="nomeProd">${docProdData.nome_prod} ${docProdData.marca_prod}</h3>
-   <p class="descProd" id="descProd">${docProdData.desc_prod}</p>
    <h4 class="precoProd" id="precoProd">R$${docProdData.preco_prod}</h4>
    <button onclick="SetCar(this)" class="bttcomprar" id="${docProdData.doc_ID}" name="bttcomprar" type="button">Comprar</button>
    </div>
@@ -72,10 +71,14 @@ function SetCar(element) {
                                     })
                                 })
                             })
-                        ErrorCode('Produto Adicionado', 'Com Sucesso', 'Green');
+                        let Notification = document.getElementById('Notification');
+                        Notification.style.display = 'flex';
+                        timerNotiH5.innerHTML = `${timerNoti} S`;
+                        setInterval(IntervalTimer, 1000);
                         setTimeout(() => {
-                            load('carrinho');
-                        }, 3000);
+                            clearInterval(IntervalTimer);
+                            Notification.style.display = 'none';
+                        }, 11000);
                     });
                 }).catch((err) => {
                     ErrorCode('Erro', err, 'Red');
@@ -85,20 +88,26 @@ function SetCar(element) {
         }
     })
 }
+function IntervalTimer() {
+    let timerNoti = 10;
+    let timerNotiH5 = document.getElementById('timerNoti');
+    timerNotiH5.innerHTML = `${timerNoti} S`;
+    timerNoti--;
+}
 function search() {
     let produtos = document.getElementById('produtosGrid');
-    let pesqInput = document.getElementById('pesquisar').value.toUpperCase(); 
+    let pesqInput = document.getElementById('pesquisar').value.toUpperCase();
     let searchError = document.querySelector('.search0');
     let marcapesq = 0;
     let nomepesq = 0;
     db.collection('Produtos').orderBy('nome_prod').startAt(pesqInput).endAt(pesqInput + '\uf8ff').get()
         .then((Snapshot) => {
             produtos.innerHTML = '';
-            if (Snapshot.docs.length <= 0 && marcapesq <=0) {
+            if (Snapshot.docs.length <= 0 && marcapesq <= 0) {
                 searchError.style.display = 'flex';
             } else {
                 nomepesq = 1;
-                 searchError.style.display = 'none';
+                searchError.style.display = 'none';
                 Snapshot.forEach((docProd) => {
                     docProdData = docProd.data();
                     VisualizeProds(docProdData);
@@ -107,11 +116,11 @@ function search() {
         }).catch((err) => {
             console.log(err);
         })
-        db.collection('Produtos').orderBy('marca_prod').startAt(pesqInput).endAt(pesqInput + '\uf8ff').get()
+    db.collection('Produtos').orderBy('marca_prod').startAt(pesqInput).endAt(pesqInput + '\uf8ff').get()
         .then((Snapshot) => {
             if (Snapshot.docs.length <= 0 && nomepesq <= 0) {
                 searchError.style.display = 'flex';
-                
+
             } else {
                 marcapesq = 1;
                 searchError.style.display = 'none';
@@ -123,4 +132,9 @@ function search() {
         }).catch((err) => {
             console.log(err);
         })
+}
+function ContinuarProd() {
+    let Notification = document.getElementById('Notification');
+    clearInterval(IntervalTimer);
+    Notification.style.display = 'none';
 }

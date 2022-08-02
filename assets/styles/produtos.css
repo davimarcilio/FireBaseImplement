@@ -7,7 +7,8 @@ body{
     display: flex;
     flex-direction: column;
      width: 30%; 
-    height: 80%;
+    height: 90%;
+    border-right: solid 1px rgb(119, 119, 119);
 justify-content: center;
 }
 .filter{
@@ -15,7 +16,38 @@ justify-content: center;
     font-size: 2vw;
     padding: 10px;
     border: none;
+    margin-right: 5px;
     margin-left: 5px;
+}
+#Notification{
+    display: none;
+    background-color: rgb(56, 4, 4);
+    padding: 20px;
+    border-top-left-radius: 13px;
+    border-bottom-left-radius: 13px;
+    border: solid 1px black;
+    flex-direction: column;
+    color: white;
+    position: absolute;
+    right: 0;
+    width: 40%;
+    top: 11vh;
+}
+#timerNoti{
+position: absolute;
+right: 4vh;
+}
+.bttNoti{
+    padding: 5px;
+    margin-top: 10px;
+    border-radius: 5px;
+    background-color: aliceblue;
+    font-weight: 900;
+    transition: all .5s;
+    cursor: pointer;
+}
+.bttNoti:hover{
+background-color: rgb(255, 223, 223);
 }
 .bttcomprar{
     padding: 15px;
@@ -61,13 +93,13 @@ justify-content: center;
 }
 .searchIcon{
     position: absolute;
-    right: 0;
+    right: 0.31rem;
     height: calc(100% - 20px);
     background-color: black;
     padding-top: 0.5rem;
     padding-right: 5%;
     padding-left: 5%;
-    padding-bottom: 0.4rem;
+    padding-bottom: 0.42rem;
     cursor: pointer;
 }
 .searchCamp{
@@ -100,6 +132,7 @@ justify-content: center;
         height: 80%;
         float: none;
     margin: auto;
+    border-right: none;
     }
     .filter{
         padding: 10px;
@@ -113,12 +146,25 @@ justify-content: center;
         grid-template-columns: auto;
         }
         .produto{
-            max-width: 80%;
+            width:max-content;
         }
         .imgProd{
             align-self: center;
             width: 40vh;
             height: 40vh;
             background-color: gray;
+        }
+        #Notification{
+            position: fixed;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            width: 90%;
+            top: 1vh;
+        }
+        #timerNoti{
+        right: 0.5vh;
+        }
+        .bttcomprar{
+            width: 100%;
         }
 }
