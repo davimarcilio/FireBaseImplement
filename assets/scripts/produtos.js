@@ -1,3 +1,6 @@
+var timerNoti = 10;
+var IntervalTimerLet;
+var TimeoutTimerVar;
 function VisualizeProds(docProdData) {
     let produtos = document.getElementById('produtosGrid');
     produtos.innerHTML +=
@@ -51,6 +54,9 @@ function PesqFilter() {
     }
 }
 function SetCar(element) {
+    timerNoti = 10;
+    clearInterval(IntervalTimerLet);
+    clearTimeout(TimeoutTimerVar);
     auth.onAuthStateChanged((user) => {
         if (user) {
             db.collection('Usuários').where('uid_user', '==', user.uid).get()
@@ -73,10 +79,11 @@ function SetCar(element) {
                             })
                         let Notification = document.getElementById('Notification');
                         Notification.style.display = 'flex';
+                        let timerNotiH5 = document.getElementById('timerNoti');
                         timerNotiH5.innerHTML = `${timerNoti} S`;
-                        setInterval(IntervalTimer, 1000);
-                        setTimeout(() => {
-                            clearInterval(IntervalTimer);
+                       IntervalTimerLet = setInterval(IntervalTimer, 1000);
+                       TimeoutTimerVar = setTimeout(() => {
+                            clearInterval(IntervalTimerLet);
                             Notification.style.display = 'none';
                         }, 11000);
                     });
@@ -89,7 +96,6 @@ function SetCar(element) {
     })
 }
 function IntervalTimer() {
-    let timerNoti = 10;
     let timerNotiH5 = document.getElementById('timerNoti');
     timerNotiH5.innerHTML = `${timerNoti} S`;
     timerNoti--;
@@ -135,6 +141,7 @@ function search() {
 }
 function ContinuarProd() {
     let Notification = document.getElementById('Notification');
-    clearInterval(IntervalTimer);
+    clearInterval(IntervalTimerLet);
+    clearTimeout(TimeoutTimerVar);
     Notification.style.display = 'none';
 }
