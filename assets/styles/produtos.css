@@ -73,17 +73,17 @@ background-color: rgb(255, 223, 223);
     padding-bottom: 10px;
 }
 .produto{
-    width: 25vw;
+    width: 200px;
     display: flex;
     text-align: center;
     gap: 10px;
     justify-content: space-between;
-    height: 60vh;
+    height: 350px;
     flex-direction: column;
 }
 .imgProd{
-    width: 25vw;
-    height: 25vw;
+    width: 200px;
+    height: 200px;
     background-color: gray;
 }
 .pesquisar{
