@@ -80,6 +80,7 @@ body{
 }
 .bttCarrinho{
     margin-top: 10px;
+    cursor: pointer;
     margin-bottom: 10px;
     width: 100%;
     padding: 8px;
@@ -105,5 +106,30 @@ body{
     color: black;
 }
 @media only screen and (max-width: 775px) {
-
+    #produtosGrid{
+        float: none;
+        width: 100%;
+        grid-template-columns: auto;
+        }
+        .produto{
+            width:max-content;
+        }
+        .imgProd{
+            align-self: center;
+            width: 200px;
+            height: 200px;
+            background-color: gray;
+        }
+        #buttonsCarrinho{
+            float:none;
+            width: 100%;
+            margin-top: 0;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            padding-left: 0;
+            align-items: center;
+        }
+        .bttCarrinho{
+            width: 80%;
+        }
 }

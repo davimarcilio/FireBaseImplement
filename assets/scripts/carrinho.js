@@ -34,7 +34,7 @@ function SetCarrinho() {
                                         produtos.innerHTML += `
                                      <div class="produto" id="produto">
                                       <img class="imgProd prodItem" src="" alt="Foto do produto">
-                                      <h3 class="nomeProd prodItem" id="nomeProd">${carrinhoId_Prod.prod_nome_car}</h3>
+                                      <h3 class="nomeProd prodItem" id="nomeProd">${carrinhoId_Prod.prod_nome_car} ${carrinhoId_Prod.prod_marca_car}</h3>
                                       <p class="quantidade prodItem" id="qtdProd">Quantidade ${carrinhoId_Prod.prod_qtd_car} </p>
                                           <h4 class="precoProd prodItem" id="precoProd">R$ ${carrinhoId_Prod.prod_preco_car}</h4>
                                        <div class="buttons prodItem">
