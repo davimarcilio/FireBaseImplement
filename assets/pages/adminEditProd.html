@@ -51,6 +51,11 @@
     </header>
     <!-- fim padrão -->
     <section>
+        <div id="ConfExclude">
+            <h5>O produto será excluido em 15 S</h5>
+            <div class="container">
+            <div class="progress-bar"></div>
+        </div></div>
         <div class="ProdData">
             <img class="ProdFoto" src="" alt="Foto de usuario"><br>
             <h5>Nome:</h5><input type="text" id="nomeProdEdit" class="adminEditProdForm"><br>
@@ -66,6 +71,12 @@
             </select><br>
             <button class="button bttlogar" onclick="ChangeProd()">
                 <span class="text">Logar</span>
+                <img id="incorrect" class="incorrect" src="../images/wrong-svgrepo-com.svg" alt="incorrect">
+                <img id="correct" class="correct" src="../images/correct-svgrepo-com.svg" alt="Correct">
+                <i class="ri-check-line icon"></i>
+            </button>
+            <button class="button bttlogar" onclick="DeleteProd()">
+                <span class="text">Excluir</span>
                 <img id="incorrect" class="incorrect" src="../images/wrong-svgrepo-com.svg" alt="incorrect">
                 <img id="correct" class="correct" src="../images/correct-svgrepo-com.svg" alt="Correct">
                 <i class="ri-check-line icon"></i>

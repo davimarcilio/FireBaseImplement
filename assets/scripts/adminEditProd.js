@@ -84,3 +84,37 @@ function ChangeProd() {
 function numbers(element) {
     element.value = element.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');
 }
+function DeleteProd() {
+   let ConfExclude = document.getElementById('ConfExclude');
+   ConfExclude.style.display = 'flex';
+   ConfExclude.innerHTML = `<h5>Você tem certeza que deseja excluir este produto?</h5>
+   <button onclick="ConfExcludeyes()" class="bttConfExclude">Sim</button>
+   <button onclick="ConfExcludeno()" class="bttConfExclude">Não</button>`;
+}
+function ConfExcludeno(){
+    let ConfExclude = document.getElementById('ConfExclude');
+   ConfExclude.style.display = 'none';
+}
+function ConfExcludeyes() {
+    auth.onAuthStateChanged((user) => {
+        if (user.uid == 'g3FXmjoYUbgyeNg2y0l7x00PPsv2') {
+           db.collection('Usuários').where('uid_user', '==', user.uid).get()
+           .then((SnapShotUser)=>{
+                  SnapShotUser.forEach(docUser => {
+                    docUserData = docUser.data();
+                    db.collection('Produtos').doc(docUserData.currentEdit.prod_id_edit).delete()
+                    .then(()=>{
+                        load('produtos');
+                    }).catch((err)=>{
+                        console.log(err);
+                    })
+                  });
+           }).catch((err)=>{
+            console.log(err);
+           })
+        }else {
+            load('home');
+        }
+           
+    })
+}
