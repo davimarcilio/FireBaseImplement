@@ -3,25 +3,27 @@ body{
 }
 #produtosGrid{
     display: grid;
-    position: absolute;
+    position: static;
     grid-template-columns: 1fr 1fr;
     width: 70%;
-    margin-top: 15vh;
-    text-align: center;
+    margin-top: 5vh;
     justify-items: center;
-    align-items: center;
     gap: 5vw;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
+    float: left;
 }
 .produto{
-    max-width: 25vw;
+    max-width: 200px;
     display: flex;
     text-align: center;
+    gap: 10px;
+    justify-content: space-between;
+    height: 350px;
     flex-direction: column;
 }
 .imgProd{
-    width: 25vw;
-    height: 20vw;
+    width: 200px;
+    height: 200px;
     background-color: gray;
 }
 .imgIcons{
@@ -33,11 +35,8 @@ body{
     background-color: white;
 }
 .imgIcons:hover{
-    width: 52px;
+    width: 50px;
     cursor: pointer;
-}
-.prodItem{
-    padding: 10px;
 }
 #NotUserApparently, #CarrinhoVazio{
     position: absolute;
@@ -63,7 +62,34 @@ body{
     box-shadow: unset;
     text-shadow: none;
     transition: all;
+    align-items: center;
     transition-duration: 500ms;
+    cursor: pointer;
+}
+#buttonsCarrinho{
+    float: right;
+    display: flex;
+    flex-direction: column;
+    width: calc(30% - 60px);
+    padding: 20px;
+    margin-top: 10vh;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    padding-left: 40px;
+    background-color: gray;
+}
+.bttCarrinho{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 8px;
+    border-radius: 10px;
+    background-color: aliceblue;
+    transition: all .5s;
+    font-weight: 900;
+}
+.bttCarrinho:hover{
+    background-color: rgb(255, 223, 223);
 }
 #bttNotUserApparently:hover, #bttCarrinhoVazio:hover{
    background-color: rgb(29, 29, 29);
@@ -71,8 +97,13 @@ body{
 }
 #bttCarrinhoVazio{
     width: 60%;
+    display: flex;
+    flex-direction: column;
 }
 #CarrinhoVazio{
     background-color: whitesmoke;
     color: black;
+}
+@media only screen and (max-width: 775px) {
+
 }
