@@ -59,9 +59,13 @@ background-color: rgb(255, 223, 223);
     border-radius: 10px;
     width: 80%;
     cursor: pointer;
-    
+    transition: all .5s;
+}
+.bttcomprar:hover{
+    background-color: rgb(122, 9, 9);
 }
 #produtosGrid{
+    font-family: 'Roboto', sans-serif;
     display: grid;
     position: static;
     grid-template-columns: 1fr 1fr;

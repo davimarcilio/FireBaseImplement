@@ -38,6 +38,7 @@ input::placeholder{
 .sexo{
   background-color: white;
   text-align: start;
+  font-family: 'Roboto', sans-serif;
 }
 #sexoh6{
     color: gray;

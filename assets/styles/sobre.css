@@ -1,8 +1,10 @@
 .sobre{
     position: static;
+    font-family: 'Roboto', sans-serif;
     display: flex;
     flex-direction: column;
     width: 100%;
+    font-size: x-large;
     margin-top: 15vw;
     align-items: center;
     justify-content: center;

@@ -70,6 +70,7 @@ function SetCar(element) {
                                             prod_id_car: element.id,
                                             prod_qtd_car: 1,
                                             prod_nome_car: docProd.data().nome_prod,
+                                            prod_marca_car: docProd.data().marca_prod,
                                             prod_preco_car: docProd.data().preco_prod,
                                             prod_tamanho_car: docProd.data().tam_prod,
                                             prod_desc_car: docProd.data().desc_prod,
@@ -124,6 +125,7 @@ function search() {
         })
     db.collection('Produtos').orderBy('marca_prod').startAt(pesqInput).endAt(pesqInput + '\uf8ff').get()
         .then((Snapshot) => {
+            produtos.innerHTML = '';
             if (Snapshot.docs.length <= 0 && nomepesq <= 0) {
                 searchError.style.display = 'flex';
 

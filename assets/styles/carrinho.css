@@ -2,6 +2,7 @@ body{
     background-color: white;
 }
 #produtosGrid{
+    font-family: 'Roboto', sans-serif;
     display: grid;
     position: static;
     grid-template-columns: 1fr 1fr;
@@ -102,6 +103,7 @@ body{
     flex-direction: column;
 }
 #CarrinhoVazio{
+    font-family: 'Roboto', sans-serif;
     background-color: whitesmoke;
     color: black;
 }

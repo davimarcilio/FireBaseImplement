@@ -9,6 +9,9 @@ function SetCarrinho() {
                     } else {
                         SnapShotUser.forEach(docUser => {
                             let docUserData = docUser.data();
+                            if (docUserData.carrinho == undefined) {
+                                TemProduto();
+                            }
                             if (docUserData.carrinho == '') {
                                 TemProduto()
                             }
@@ -22,6 +25,7 @@ function SetCarrinho() {
                                             prod_id_car: carrinhoId_Prod.prod_id_car,
                                             prod_qtd_car: carrinhoId_Prod.prod_qtd_car,
                                             prod_nome_car: carrinhoId_Prod.prod_nome_car,
+                                            prod_marca_car: carrinhoId_Prod.prod_marca_car,
                                             prod_preco_car: carrinhoId_Prod.prod_preco_car,
                                             prod_tamanho_car: carrinhoId_Prod.prod_tamanho_car,
                                             prod_desc_car: carrinhoId_Prod.prod_desc_car,
@@ -31,22 +35,22 @@ function SetCarrinho() {
                                         console.log(err);
                                     });
                                 } else {
-                                        produtos.innerHTML += `
-                                     <div class="produto" id="produto">
+                                    produtos.innerHTML += `
+                                      <div class="produto" id="produto">
                                       <img class="imgProd prodItem" src="" alt="Foto do produto">
                                       <h3 class="nomeProd prodItem" id="nomeProd">${carrinhoId_Prod.prod_nome_car} ${carrinhoId_Prod.prod_marca_car}</h3>
                                       <p class="quantidade prodItem" id="qtdProd">Quantidade ${carrinhoId_Prod.prod_qtd_car} </p>
-                                          <h4 class="precoProd prodItem" id="precoProd">R$ ${carrinhoId_Prod.prod_preco_car}</h4>
+                                      <h4 class="precoProd prodItem" id="precoProd">R$ ${carrinhoId_Prod.prod_preco_car}</h4>
                                        <div class="buttons prodItem">
                                        <button id="${carrinhoId_Prod.prod_id_car}" onclick="moreItems(this)" class="buttonClass" name="moreItems">
-                                    <img class="imgIcons" src="../images/addictionicon.svg" alt="More">
-                                     </button>
-                                    <Button id="${carrinhoId_Prod.prod_id_car}" onclick="lessItems(this)" class="buttonClass" name="lessItems">
-                                    <img class="imgIcons" src="../images/subtractionicon.svg" alt="Less">
-                                     </Button>
-                                 </div>
-                                  </div>
-                                 `;
+                                       <img class="imgIcons" src="../images/addictionicon.svg" alt="More">
+                                       </button>
+                                       <Button id="${carrinhoId_Prod.prod_id_car}" onclick="lessItems(this)" class="buttonClass" name="lessItems">
+                                       <img class="imgIcons" src="../images/subtractionicon.svg" alt="Less">
+                                       </Button>
+                                       </div>
+                                       </div>
+                                    `;
                                 }
                             });
                         });
@@ -83,6 +87,7 @@ function moreItems(element) {
                                                     prod_id_car: carrinhoId_Prod.prod_id_car,
                                                     prod_qtd_car: carrinhoId_Prod.prod_qtd_car + 1,
                                                     prod_nome_car: docProd.data().nome_prod,
+                                                    prod_marca_car: docProd.data().marca_prod,
                                                     prod_preco_car: docProd.data().preco_prod,
                                                     prod_tamanho_car: docProd.data().tam_prod,
                                                     prod_desc_car: docProd.data().desc_prod,
@@ -95,6 +100,7 @@ function moreItems(element) {
                                                     prod_id_car: carrinhoId_Prod.prod_id_car,
                                                     prod_qtd_car: carrinhoId_Prod.prod_qtd_car,
                                                     prod_nome_car: docProd.data().nome_prod,
+                                                    prod_marca_car: docProd.data().marca_prod,
                                                     prod_preco_car: docProd.data().preco_prod,
                                                     prod_tamanho_car: docProd.data().tam_prod,
                                                     prod_desc_car: docProd.data().desc_prod,
@@ -137,6 +143,7 @@ function lessItems(element) {
                                                     prod_id_car: carrinhoId_Prod.prod_id_car,
                                                     prod_qtd_car: carrinhoId_Prod.prod_qtd_car - 1,
                                                     prod_nome_car: docProd.data().nome_prod,
+                                                    prod_marca_car: docProd.data().marca_prod,
                                                     prod_preco_car: docProd.data().preco_prod,
                                                     prod_tamanho_car: docProd.data().tam_prod,
                                                     prod_desc_car: docProd.data().desc_prod,
@@ -149,6 +156,7 @@ function lessItems(element) {
                                                     prod_id_car: carrinhoId_Prod.prod_id_car,
                                                     prod_qtd_car: carrinhoId_Prod.prod_qtd_car,
                                                     prod_nome_car: docProd.data().nome_prod,
+                                                    prod_marca_car: docProd.data().marca_prod,
                                                     prod_preco_car: docProd.data().preco_prod,
                                                     prod_tamanho_car: docProd.data().tam_prod,
                                                     prod_desc_car: docProd.data().desc_prod,

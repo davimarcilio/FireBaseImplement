@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 /* body e reset */
 * {
@@ -192,7 +193,7 @@ a {
 .correct, .incorrect{
     opacity: 0;
     display: none;
-    height: 60%;
+    height: 100%;
     width: 100%;
 }
 /* Mobile Responsivity */
