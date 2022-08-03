@@ -12,7 +12,7 @@
 
 <!-- Padrão de toda página -->
 
-<body onload="UserOrNot(), SetUser()">
+<body onload="UserOrNot(), SetEditProd()">
     <header>
         <div class="top">
             <img class="icontop" src="../images/PngItem_868090.png" alt="Hang Loose Red">
@@ -52,41 +52,34 @@
     <!-- fim padrão -->
     <section>
         <div class="ProdData">
-            <img class="ProdFoto" src="../images/Screenshot_34.png" alt="Foto de usuario"><br>
+            <img class="ProdFoto" src="" alt="Foto de usuario"><br>
             <h5>Nome:</h5><input type="text" id="nomeProdEdit" class="adminEditProdForm"><br>
             <h5>Descrição:</h5><input type="text" id="descProdEdit" class="adminEditProdForm"><br>
             <h5>Marca:</h5><input type="text" id="marcaProdEdit" class="adminEditProdForm"><br>
-            <h5>Preço:</h5><input type="text" id="precoProdEdit" class="adminEditProdForm"><br>
+            <h5>Preço:</h5><input oninput="numbers(this)" type="text" id="precoProdEdit" class="adminEditProdForm"><br>
             <h5>Genero:</h5><select name="SetGen" id="SetGen">
                 <option value="Masculino">Masculinho</option>
                 <option value="Feminino">Feminino</option></select><br>
             <h5>Tamanho:</h5><input type="text" id="tamProdEdit" class="adminEditProdForm"><br>
             <h5>Quantidade:</h5><input type="number" id="qtdProdEdit" class="adminEditProdForm"><br>
             <select class="SetCateg" name="SetCateg" id="SetCateg">
-                <option value="0">Todos os produtos</option>
             </select><br>
-            <button id="SaveProd" class="bttSaveProd" onclick="ChangeProd()">Salvar</button>
+            <button class="button bttlogar" onclick="ChangeProd()">
+                <span class="text">Logar</span>
+                <img id="incorrect" class="incorrect" src="../images/wrong-svgrepo-com.svg" alt="incorrect">
+                <img id="correct" class="correct" src="../images/correct-svgrepo-com.svg" alt="Correct">
+                <i class="ri-check-line icon"></i>
+            </button>
+            <!-- <button id="SaveProd" class="bttSaveProd" onclick="ChangeProd()">Salvar</button> -->
         </div>   
     </section>
-    <footer>
-        <div class="bottomnav">
-            <a class="linkedsobre" href="sobre.html">
-                <h1>Sobre Nós</h1>
-            </a>
-            <div>
-                <a class="linkedcontat" href="mailto:davimarcilio.js@gmail.com">
-                    <h5>Contate-Nos</h5>
-                </a>
-            </div>
-        </div>
-    </footer>
     <div id="erro"></div>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
     <script src="../scripts/firebase.js"></script>
     <script src="../scripts/login.js"></script>
-    <script src="../scripts/user.js"></script>
+    <script src="../scripts/adminEditProd.js"></script>
     <script src="../scripts/script.js"></script>
 </body>
 
