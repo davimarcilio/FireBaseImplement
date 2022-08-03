@@ -3,15 +3,40 @@ var IntervalTimerLet;
 var TimeoutTimerVar;
 function VisualizeProds(docProdData) {
     let produtos = document.getElementById('produtosGrid');
-    produtos.innerHTML +=
-        `<div class="produto" id="produto">
+    auth.onAuthStateChanged((user) => {
+        if (user) {
+            if (user.uid == 'g3FXmjoYUbgyeNg2y0l7x00PPsv2') {
+                produtos.innerHTML +=
+                    `<div class="produto" id="produto">
+           <img class="imgProd" src="" alt="Foto do produto">
+           <h3 class="nomeProd" id="nomeProd">${docProdData.nome_prod} ${docProdData.marca_prod}</h3>
+           <h4 class="precoProd" id="precoProd">R$${docProdData.preco_prod}</h4>
+           <button onclick="EditProd(this)" class="btteditprod" id="${docProdData.doc_ID}" name="btteditprod" type="button">
+           <img class="editProdIcon" src="../images/editProd.svg" alt="iconeditprod">
+           </button>
+           </div>
+           `;
+            } else {
+                produtos.innerHTML +=
+                    `<div class="produto" id="produto">
+           <img class="imgProd" src="" alt="Foto do produto">
+           <h3 class="nomeProd" id="nomeProd">${docProdData.nome_prod} ${docProdData.marca_prod}</h3>
+           <h4 class="precoProd" id="precoProd">R$${docProdData.preco_prod}</h4>
+           <button onclick="SetCar(this)" class="bttcomprar" id="${docProdData.doc_ID}" name="bttcomprar" type="button">Comprar</button>
+           </div>
+           `;
+            }
+        } else {
+            produtos.innerHTML +=
+                `<div class="produto" id="produto">
    <img class="imgProd" src="" alt="Foto do produto">
    <h3 class="nomeProd" id="nomeProd">${docProdData.nome_prod} ${docProdData.marca_prod}</h3>
    <h4 class="precoProd" id="precoProd">R$${docProdData.preco_prod}</h4>
    <button onclick="SetCar(this)" class="bttcomprar" id="${docProdData.doc_ID}" name="bttcomprar" type="button">Comprar</button>
    </div>
    `;
-
+        }
+    })
 }
 function SetPageProdutos() {
     db.collection('Categorias').get()
@@ -25,6 +50,47 @@ function SetPageProdutos() {
         }).catch((err) => {
             console.log(err);
         });
+}
+function EditProd(element) {
+    auth.onAuthStateChanged((user) => {
+        if (user) {
+            if (user.uid == 'g3FXmjoYUbgyeNg2y0l7x00PPsv2') {
+                db.collection('Usuários').where('uid_user', '==', user.uid).get()
+                    .then((SnapShotUser) => {
+                        SnapShotUser.forEach(docUser => {
+                            db.collection('Produtos').where('doc_ID', '==', element.id).get()
+                                .then((SnapShotProd) => {
+                                    SnapShotProd.forEach(docProd => {
+                                        db.collection('Usuários').doc(docUser.id).update({
+                                            currentEdit: {
+                                                prod_id_edit: docProd.data().doc_ID,
+                                                prod_nome_edit: docProd.data().nome_prod,
+                                                prod_desc_edit: docProd.data().desc_prod,
+                                                prod_marca_edit: docProd.data().marca_prod,
+                                                prod_preco_edit: docProd.data().preco_prod,
+                                                prod_tamanho_edit: docProd.data().tam_prod,
+                                                prod_gen_edit: docProd.data().gen_prod,
+                                                prod_id_categ_edit: docProd.data().id_categ,
+                                                prod_qtd_edit: docProd.data().qtd_prod,
+                                            },
+                                        }).then(() => {
+                                            load('adminEditProd');
+                                        }).catch((err)=>{
+                                            console.log(err);
+                                        });
+                                    });
+                                }).catch((err)=>{
+                                    console.log(err);
+                                });
+                        });
+                    }).catch((err)=>{
+                        console.log(err);
+                    });
+            }
+        } else {
+            load('login');
+        }
+    })
 }
 function PesqFilter() {
     let produtos = document.getElementById('produtosGrid');
@@ -82,8 +148,8 @@ function SetCar(element) {
                         Notification.style.display = 'flex';
                         let timerNotiH5 = document.getElementById('timerNoti');
                         timerNotiH5.innerHTML = `${timerNoti} S`;
-                       IntervalTimerLet = setInterval(IntervalTimer, 1000);
-                       TimeoutTimerVar = setTimeout(() => {
+                        IntervalTimerLet = setInterval(IntervalTimer, 1000);
+                        TimeoutTimerVar = setTimeout(() => {
                             clearInterval(IntervalTimerLet);
                             Notification.style.display = 'none';
                         }, 11000);

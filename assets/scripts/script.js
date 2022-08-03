@@ -31,6 +31,9 @@ function load(page) {
         case 'carrinho':
             window.location.href = `${pagename}/assets/pages/carrinho.html`;
             break;
+        case 'adminEditProd':
+            window.location.href = `${pagename}/assets/pages/adminEditProd.html`;
+            break;
         default:
             window.location.href = `${pagename}/assets/pages/home.html`;
             break;
@@ -56,15 +59,15 @@ function UserOrNot() {
     let HamUserOrNot = document.getElementById('HamUserOrNot');
     auth.onAuthStateChanged((user) => {
         if (user) {
-            HamUserOrNot.innerHTML =  `<a id="logged" class="HamMenu" onclick="load('user')"><li>User</li></a>`;
+            HamUserOrNot.innerHTML = `<a id="logged" class="HamMenu" onclick="load('user')"><li>User</li></a>`;
             UserOrNotDiv.innerHTML = `<a id="logged" class="responsivity" onclick="load('user')"><li>User</li></a>`;
             if (user.uid == 'g3FXmjoYUbgyeNg2y0l7x00PPsv2') {
-               UserOrNotDiv.innerHTML += `<a id="admin" class="responsivity" onclick="load('admin')"><li>Admin</li></a>`;
-               HamUserOrNot.innerHTML +=  `<a id="admin" class="HamMenu" onclick="load('admin')"><li>Admin</li></a>`;
+                UserOrNotDiv.innerHTML += `<a id="admin" class="responsivity" onclick="load('admin')"><li>Admin</li></a>`;
+                HamUserOrNot.innerHTML += `<a id="admin" class="HamMenu" onclick="load('admin')"><li>Admin</li></a>`;
             }
-        }else{
-           UserOrNotDiv.innerHTML = `<a id="login" class="responsivity" onclick="load('login')"><li>Entrar</li></a>`;
-           HamUserOrNot.innerHTML +=  `<a id="login" class="HamMenu" onclick="load('login')"><li>Entrar</li></a>`;
+        } else {
+            UserOrNotDiv.innerHTML = `<a id="login" class="responsivity" onclick="load('login')"><li>Entrar</li></a>`;
+            HamUserOrNot.innerHTML += `<a id="login" class="HamMenu" onclick="load('login')"><li>Entrar</li></a>`;
         }
     })
 }

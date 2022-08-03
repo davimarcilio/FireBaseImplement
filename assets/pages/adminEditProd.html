@@ -5,13 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   
     <link rel="stylesheet" href="../styles/style.css">
-     <link rel="stylesheet" href="../styles/produtos.css">
+    <link rel="stylesheet" href="../styles/adminEditProd.css">
     <title>éusguri</title>
 </head>
+
 <!-- Padrão de toda página -->
-<body  onload="UserOrNot(), SetPageProdutos()">
+
+<body onload="UserOrNot(), SetUser()">
     <header>
         <div class="top">
             <img class="icontop" src="../images/PngItem_868090.png" alt="Hang Loose Red">
@@ -25,11 +26,12 @@
                     <span class="line"></span>
                 </button>
             </ul>
-            <ul id="buttonsPage">
+            <ul id="buttonsPage" class="ulH">
                 <div id="UserOrNot"></div>
                 <a id="carrinho" class="responsivity" onclick="load('carrinho')">
                     <li>Carrinho</li>
                 </a>
+
                 <a id="produtos" class="responsivity" onclick="load('produtos')">
                     <li>Produtos</li>
                 </a>
@@ -43,39 +45,48 @@
                 </a>
                 <a id="produtos" class="HamMenu" onclick="load('produtos')">
                     <li>Produtos</li>
-                </a> 
+                </a>
             </ul>
         </div>
     </header>
     <!-- fim padrão -->
     <section>
-        <div class="filtrar">
-            <div class="searchCamp">
-            <input type="text" id="pesquisar" class="filter pesquisar" name="pesquisar" placeholder="Pesquise">
-            <img class="searchIcon" src="../images/search.svg" alt="Procurar" onclick="search()">
-            </div>
-                <select onchange="PesqFilter()" class="filter" name="filtrar" id="filtrarid">
-                    <option value="0">Todos os produtos</option>
-                </select>
-        </div>
-        <div id="produtosGrid" class="produtos"> 
-        </div>
-        <div id="Notification">
-            <h4>Item adicionado ao carrinho </h4>
-            <h5 id="timerNoti"></h5>
-            <button class="bttNoti" onclick="load('carrinho')" id="ShowCar">Ver Carrinho</button>
-            <button class="bttNoti" onclick="ContinuarProd()" id="ContComp">Continuar Comprando</button>
-        </div>
-         <div class="search0">Nada foi encontrado</div>
+        <div class="ProdData">
+            <img class="ProdFoto" src="../images/Screenshot_34.png" alt="Foto de usuario"><br>
+            <h5>Nome:</h5><input type="text" id="nomeProdEdit" class="adminEditProdForm"><br>
+            <h5>Descrição:</h5><input type="text" id="descProdEdit" class="adminEditProdForm"><br>
+            <h5>Marca:</h5><input type="text" id="marcaProdEdit" class="adminEditProdForm"><br>
+            <h5>Preço:</h5><input type="text" id="precoProdEdit" class="adminEditProdForm"><br>
+            <h5>Genero:</h5><select name="SetGen" id="SetGen">
+                <option value="Masculino">Masculinho</option>
+                <option value="Feminino">Feminino</option></select><br>
+            <h5>Tamanho:</h5><input type="text" id="tamProdEdit" class="adminEditProdForm"><br>
+            <h5>Quantidade:</h5><input type="number" id="qtdProdEdit" class="adminEditProdForm"><br>
+            <select class="SetCateg" name="SetCateg" id="SetCateg">
+                <option value="0">Todos os produtos</option>
+            </select><br>
+            <button id="SaveProd" class="bttSaveProd" onclick="ChangeProd()">Salvar</button>
+        </div>   
     </section>
-    <div id="erro">
-    </div>
+    <footer>
+        <div class="bottomnav">
+            <a class="linkedsobre" href="sobre.html">
+                <h1>Sobre Nós</h1>
+            </a>
+            <div>
+                <a class="linkedcontat" href="mailto:davimarcilio.js@gmail.com">
+                    <h5>Contate-Nos</h5>
+                </a>
+            </div>
+        </div>
+    </footer>
+    <div id="erro"></div>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
     <script src="../scripts/firebase.js"></script>
     <script src="../scripts/login.js"></script>
-    <script src="../scripts/produtos.js"></script>
+    <script src="../scripts/user.js"></script>
     <script src="../scripts/script.js"></script>
 </body>
 

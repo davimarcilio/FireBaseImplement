@@ -49,6 +49,14 @@ right: 4vh;
 .bttNoti:hover{
 background-color: rgb(255, 223, 223);
 }
+.btteditprod{
+    background-color: white;
+    border: none;
+    cursor: pointer;
+}
+.editProdIcon{
+    width: 50px;
+}
 .bttcomprar{
     padding: 15px;
     align-self: center;

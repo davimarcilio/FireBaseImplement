@@ -27,11 +27,8 @@ function logOut() {
   auth.signOut().then(() => {
     toggleButtonCorrect(0)
     setTimeout(() => {
-      ErrorCode('Deslogado com', 'Sucesso', 'Green');
-    }, 300);
-    setTimeout(() => {
-      load('home');
-    }, 3000);
+      load('home')
+    }, 1000);
   }).catch((err) => {
     toggleButtonError(0);
     setTimeout(() => {
