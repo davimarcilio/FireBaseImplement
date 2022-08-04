@@ -34,6 +34,9 @@ function load(page) {
         case 'adminEditProd':
             window.location.href = `${pagename}/assets/pages/adminEditProd.html`;
             break;
+            case 'tamanhoAdmin':
+                window.location.href = `${pagename}/assets/pages/tamanhosAdmin.html`;
+                break;
         default:
             window.location.href = `${pagename}/assets/pages/home.html`;
             break;

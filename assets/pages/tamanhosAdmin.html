@@ -6,13 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/style.css">
-    <link rel="stylesheet" href="../styles/adminEditProd.css">
+    <link rel="stylesheet" href="../styles/tamanhosAdmin.css">
     <title>éusguri</title>
 </head>
 
 <!-- Padrão de toda página -->
 
-<body onload="UserOrNot(), SetEditProd()">
+<body onload="UserOrNot(), SetTams()">
     <header>
         <div class="top">
             <img class="icontop" src="../images/PngItem_868090.png" alt="Hang Loose Red">
@@ -52,40 +52,14 @@
     <!-- fim padrão -->
     <section>
         <div id="ConfExclude">
-            <!-- <h5 id="NumberProgress">O produto será excluido em 15 S</h5>
-            <div class="container">
-                <div class="progress-bar" id="ProgressBAR"></div>
-            </div>
-            <button class="bttConfExclude" onclick="CancelTimer()">CANCELAR</button> -->
         </div>
         <div class="ProdData">
-            <img class="ProdFoto" src="" alt="Foto de usuario"><br>
-            <h5>Nome:</h5><input type="text" id="nomeProdEdit" class="adminEditProdForm"><br>
-            <h5>Descrição:</h5><input type="text" id="descProdEdit" class="adminEditProdForm"><br>
-            <h5>Marca:</h5><input type="text" id="marcaProdEdit" class="adminEditProdForm"><br>
-            <h5>Preço:</h5><input oninput="numbers(this)" type="text" id="precoProdEdit" class="adminEditProdForm"><br>
-            <h5>Genero:</h5><select name="SetGen" id="SetGen">
-                <option value="Masculino">Masculinho</option>
-                <option value="Feminino">Feminino</option>
-            </select><br>
             <h5>Tamanho:</h5><input type="text" id="tamProdEdit" class="adminEditProdForm"><br>
             <h5>Quantidade:</h5><input type="number" id="qtdProdEdit" class="adminEditProdForm"><br>
-            <select class="SetCateg" name="SetCateg" id="SetCateg">
+            <select class="TamCadastrados" name="TamCadastrados" id="TamCadastrados">
             </select><br>
-            <button class="button bttlogar" onclick="ChangeProd()">
+            <button class="button bttlogar" onclick="CreateTamProds()">
                 <span class="text">Salvar</span>
-                <img id="incorrect" class="incorrect" src="../images/wrong-svgrepo-com.svg" alt="incorrect">
-                <img id="correct" class="correct" src="../images/correct-svgrepo-com.svg" alt="Correct">
-                <i class="ri-check-line icon"></i>
-            </button>
-            <button class="button bttlogar" onclick="DeleteProd()">
-                <span class="text">Excluir</span>
-                <img id="incorrect" class="incorrect" src="../images/wrong-svgrepo-com.svg" alt="incorrect">
-                <img id="correct" class="correct" src="../images/correct-svgrepo-com.svg" alt="Correct">
-                <i class="ri-check-line icon"></i>
-            </button>
-            <button class="button bttlogar" onclick="load('tamanhoAdmin')">
-                <span class="text">Cadastrar Tamanhos</span>
                 <img id="incorrect" class="incorrect" src="../images/wrong-svgrepo-com.svg" alt="incorrect">
                 <img id="correct" class="correct" src="../images/correct-svgrepo-com.svg" alt="Correct">
                 <i class="ri-check-line icon"></i>
@@ -98,7 +72,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
     <script src="../scripts/firebase.js"></script>
     <script src="../scripts/login.js"></script>
-    <script src="../scripts/adminEditProd.js"></script>
+    <script src="../scripts/tamanhosAdmin.js"></script>
     <script src="../scripts/script.js"></script>
 </body>
 
