@@ -1,3 +1,6 @@
+var SecondsTimeLimitConfNumbers = 15;
+var TimeoutSetClear;
+var IntervalSetClear;
 function SetEditProd() {
     let nomeProdEdit = document.getElementById('nomeProdEdit');
     let descProdEdit = document.getElementById('descProdEdit');
@@ -61,18 +64,18 @@ function ChangeProd() {
                             qtd_prod: parseInt(qtdProdEdit),
                             tam_prod: tamProdEdit,
                             id_categ: SetCateg,
-                        }).then(()=>{
+                        }).then(() => {
                             toggleButtonCorrect(0);
                             setTimeout(() => {
                                 load('produtos');
                             }, 500);
-                            
-                        }).catch((err)=>{
+
+                        }).catch((err) => {
                             console.log(err);
                             toggleButtonError(0);
                         })
                     });
-                }).catch((err)=>{
+                }).catch((err) => {
                     console.log(err);
                     toggleButtonError(0);
                 })
@@ -85,36 +88,63 @@ function numbers(element) {
     element.value = element.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');
 }
 function DeleteProd() {
-   let ConfExclude = document.getElementById('ConfExclude');
-   ConfExclude.style.display = 'flex';
-   ConfExclude.innerHTML = `<h5>Você tem certeza que deseja excluir este produto?</h5>
+    let ConfExclude = document.getElementById('ConfExclude');
+    ConfExclude.style.display = 'flex';
+    ConfExclude.innerHTML = `<h5>Você tem certeza que deseja excluir este produto?</h5>
    <button onclick="ConfExcludeyes()" class="bttConfExclude">Sim</button>
    <button onclick="ConfExcludeno()" class="bttConfExclude">Não</button>`;
 }
-function ConfExcludeno(){
+function ConfExcludeno() {
     let ConfExclude = document.getElementById('ConfExclude');
-   ConfExclude.style.display = 'none';
+    ConfExclude.style.display = 'none';
+}
+function SecondsTimeLimitConf() {
+    let NumberProgress = document.getElementById('NumberProgress');
+    SecondsTimeLimitConfNumbers--;
+    NumberProgress.innerHTML = `Excluindo Produto ${SecondsTimeLimitConfNumbers} S Restantes`;
 }
 function ConfExcludeyes() {
+    SecondsTimeLimitConfNumbers = 15;
+    let ConfExclude = document.getElementById('ConfExclude');
+    ConfExclude.style.display = 'flex';
+    ConfExclude.innerHTML = ` <h5 id="NumberProgress">Excluindo Produto 15 S Restantes</h5>
+   <div class="container">
+       <div class="progress-bar" id="ProgressBAR"></div>
+   </div>
+   <button class="bttConfExclude" onclick="CancelTimer()">CANCELAR</button>`;
     auth.onAuthStateChanged((user) => {
         if (user.uid == 'g3FXmjoYUbgyeNg2y0l7x00PPsv2') {
-           db.collection('Usuários').where('uid_user', '==', user.uid).get()
-           .then((SnapShotUser)=>{
-                  SnapShotUser.forEach(docUser => {
-                    docUserData = docUser.data();
-                    db.collection('Produtos').doc(docUserData.currentEdit.prod_id_edit).delete()
-                    .then(()=>{
-                        load('produtos');
-                    }).catch((err)=>{
+            IntervalSetClear = setInterval(SecondsTimeLimitConf, 1000);
+            TimeoutSetClear = setTimeout(() => {
+                db.collection('Usuários').where('uid_user', '==', user.uid).get()
+                    .then((SnapShotUser) => {
+                        SnapShotUser.forEach(docUser => {
+                            docUserData = docUser.data();
+                            db.collection('Produtos').doc(docUserData.currentEdit.prod_id_edit).delete()
+                                .then(() => {
+                                    load('produtos');
+                                }).catch((err) => {
+                                    console.log(err);
+                                })
+                        });
+                    }).catch((err) => {
                         console.log(err);
                     })
-                  });
-           }).catch((err)=>{
-            console.log(err);
-           })
-        }else {
+            }, 15000);
+
+        } else {
             load('home');
         }
-           
+
     })
+}
+function CancelTimer() {
+    clearInterval(IntervalSetClear);
+    clearTimeout(TimeoutSetClear);
+    let ProgressBar = document.getElementById('ProgressBAR');
+    ProgressBar.style.animationPlayState = 'paused';
+    setTimeout(() => {
+        let ConfExclude = document.getElementById('ConfExclude');
+        ConfExclude.style.display = 'none';
+    }, 2000)
 }

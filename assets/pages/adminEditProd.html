@@ -52,10 +52,12 @@
     <!-- fim padrão -->
     <section>
         <div id="ConfExclude">
-            <h5>O produto será excluido em 15 S</h5>
+            <!-- <h5 id="NumberProgress">O produto será excluido em 15 S</h5>
             <div class="container">
-            <div class="progress-bar"></div>
-        </div></div>
+                <div class="progress-bar" id="ProgressBAR"></div>
+            </div>
+            <button class="bttConfExclude" onclick="CancelTimer()">CANCELAR</button> -->
+        </div>
         <div class="ProdData">
             <img class="ProdFoto" src="" alt="Foto de usuario"><br>
             <h5>Nome:</h5><input type="text" id="nomeProdEdit" class="adminEditProdForm"><br>
@@ -64,13 +66,14 @@
             <h5>Preço:</h5><input oninput="numbers(this)" type="text" id="precoProdEdit" class="adminEditProdForm"><br>
             <h5>Genero:</h5><select name="SetGen" id="SetGen">
                 <option value="Masculino">Masculinho</option>
-                <option value="Feminino">Feminino</option></select><br>
+                <option value="Feminino">Feminino</option>
+            </select><br>
             <h5>Tamanho:</h5><input type="text" id="tamProdEdit" class="adminEditProdForm"><br>
             <h5>Quantidade:</h5><input type="number" id="qtdProdEdit" class="adminEditProdForm"><br>
             <select class="SetCateg" name="SetCateg" id="SetCateg">
             </select><br>
             <button class="button bttlogar" onclick="ChangeProd()">
-                <span class="text">Logar</span>
+                <span class="text">Salvar</span>
                 <img id="incorrect" class="incorrect" src="../images/wrong-svgrepo-com.svg" alt="incorrect">
                 <img id="correct" class="correct" src="../images/correct-svgrepo-com.svg" alt="Correct">
                 <i class="ri-check-line icon"></i>
@@ -82,7 +85,7 @@
                 <i class="ri-check-line icon"></i>
             </button>
             <!-- <button id="SaveProd" class="bttSaveProd" onclick="ChangeProd()">Salvar</button> -->
-        </div>   
+        </div>
     </section>
     <div id="erro"></div>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>

@@ -40,7 +40,7 @@
 }
 #ConfExclude{
     position: fixed;
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -68,6 +68,7 @@
     color: rgb(230, 230, 230);
 }
 .container {
+    margin-top: 10px;
     width: 50%;
     height: 25px;
     background-color: #CCC;
@@ -78,6 +79,8 @@
    height: 100%;
    background-color: #0fd439;
    animation: progress-animation 15s infinite;
+   animation-timing-function: linear;
+   animation-play-state: running;
 }
 @keyframes progress-animation{
     0% { width: 0%; } 
