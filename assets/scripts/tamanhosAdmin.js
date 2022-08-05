@@ -19,7 +19,10 @@ function CreateTamProds() {
                                             quantidade: parseInt(quantidade),
                                         })
                                     }).then(() => {
-                                        // load('produtos');
+                                        toggleButtonCorrect(0);
+                                        setTimeout(()=>{
+                                            load('tamanhoAdmin');
+                                        },500);
                                     }).catch((err) => {
                                         console.log(err);
                                     })
@@ -31,18 +34,18 @@ function CreateTamProds() {
                                         })
                                     }).then(() => {
                                         db.collection('Produtos').doc(docUser.data().currentEdit.prod_id_edit).get()
-                                        .then((docProd)=>{
-                                          docProd.data().tamanhos.forEach(alltamanhosstring => {
-                                            if ((tamanho == alltamanhosstring.tamanho) && (alltamanhosstring.quantidade != quantidade)) {
-                                                db.collection('Produtos').doc(docUser.data().currentEdit.prod_id_edit).update({
-                                        tamanhos: firebase.firestore.FieldValue.arrayRemove({
-                                            tamanho: tamanho,
-                                            quantidade: alltamanhosstring.quantidade,
-                                        })
-                                       })
-                                            }
-                                          });
-                                    })
+                                            .then((docProd) => {
+                                                docProd.data().tamanhos.forEach(alltamanhosstring => {
+                                                    if ((tamanho == alltamanhosstring.tamanho) && (alltamanhosstring.quantidade != quantidade)) {
+                                                        db.collection('Produtos').doc(docUser.data().currentEdit.prod_id_edit).update({
+                                                            tamanhos: firebase.firestore.FieldValue.arrayRemove({
+                                                                tamanho: tamanho,
+                                                                quantidade: alltamanhosstring.quantidade,
+                                                            })
+                                                        })
+                                                    }
+                                                });
+                                            })
                                     }).catch((err) => {
                                         console.log(err);
                                     })
@@ -83,10 +86,21 @@ function SetTamQTDalter() {
                         db.collection('Produtos').doc(docUser.data().currentEdit.prod_id_edit).get()
                             .then((docProd) => {
                                 docProd.data().tamanhos.forEach(tamanhosProd => {
-                                 if (tamanhosProd.tamanho == TamCadastrados) {
-                                    tamanho.value = tamanhosProd.tamanho;
-                                    quantidade.value = tamanhosProd.quantidade
-                                 }
+                                    if (TamCadastrados == 0) {
+                                        tamanho.value = '';
+                                        quantidade.value = '';
+                                        tamanho.disabled = true;
+                                    }
+                                    if (TamCadastrados == 1) {
+                                        tamanho.value = '';
+                                        quantidade.value = '';
+                                        tamanho.disabled = false;
+                                    }
+                                    if (tamanhosProd.tamanho == TamCadastrados) {
+                                        tamanho.disabled = true;
+                                        tamanho.value = tamanhosProd.tamanho;
+                                        quantidade.value = tamanhosProd.quantidade;
+                                    }
                                 });
                             })
                     });

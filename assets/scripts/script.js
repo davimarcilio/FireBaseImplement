@@ -83,3 +83,40 @@ function HamMenuActive() {
         HamMenuButtons.style.display = 'none';
     }
 }
+function toggleButtonCorrect(i) {
+    let incorrectX = document.querySelectorAll('.incorrect')[i];
+    let buttonLogin = document.querySelectorAll('.button')[i];
+    let correctImg = document.querySelectorAll('.correct')[i];
+    let textButton = document.querySelectorAll('.text')[i];
+    incorrectX.style.display = 'none';
+    incorrectX.style.opacity = '0';
+    buttonLogin.style.backgroundColor = '#44c98a';
+    textButton.style.display = 'none';
+    
+    correctImg.style.display = 'inline';
+    correctImg.style.opacity = '1';
+    setTimeout(() => {
+        buttonLogin.style.backgroundColor = '#282231';
+        textButton.style.display = 'flex';
+        correctImg.style.display = 'none';
+        correctImg.style.opacity = '0';
+    }, 3000);
+}
+function toggleButtonError(i) {
+    let incorrectX = document.querySelectorAll('.incorrect')[i];
+    let buttonLogin = document.querySelectorAll('.button')[i];
+    let correctImg = document.querySelectorAll('.correct')[i];
+    let textButton = document.querySelectorAll('.text')[i];
+    correctImg.style.opacity = '0';
+    correctImg.style.display = 'none';
+    textButton.style.display = 'none';
+    buttonLogin.style.backgroundColor = 'red';
+    incorrectX.style.display = 'inline';
+    incorrectX.style.opacity = '1';
+    setTimeout(() => {
+        buttonLogin.style.backgroundColor = '#282231';
+        textButton.style.display = 'flex';
+        incorrectX.style.display = 'none';
+        incorrectX.style.opacity = '0';
+    }, 3000);
+}

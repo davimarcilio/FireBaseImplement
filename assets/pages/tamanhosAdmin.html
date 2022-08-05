@@ -54,14 +54,14 @@
         <div id="ConfExclude">
         </div>
         <div class="ProdData">
-            <h1>Alterar estoque</h1>
-            <h5>Escolha o tamanho que você deseja alterar</h5> 
-            <select onchange="SetTamQTDalter()" class="TamCadastrados" name="TamCadastrados" id="TamCadastrados">
+            <h1 class="adminEditProdForm">Alterar estoque</h1>
+            <h5 class="adminEditProdForm">Escolha o tamanho que você deseja alterar</h5> 
+            <select class="TamCadastrados adminEditProdForm" onchange="SetTamQTDalter()" name="TamCadastrados" id="TamCadastrados">
                 <option value="0">Selecione um tamanho</option>
+                <option value="1">Cadastrar novo tamanho</option>
             </select><br>
-            <h5>Tamanho:</h5><input type="text" id="tamProdEdit" class="adminEditProdForm"><br>
-            <h5>Quantidade:</h5><input type="number" id="qtdProdEdit" class="adminEditProdForm"><br>
-           
+            <h5>Tamanho:</h5><input disabled type="text" id="tamProdEdit" class="adminEditProdForm" placeholder="Tamanho"><br>
+            <h5>Quantidade:</h5><input type="number" id="qtdProdEdit" class="adminEditProdForm" placeholder="Quantidade"><br>  
             <button class="button bttlogar" onclick="CreateTamProds()">
                 <span class="text">Salvar</span>
                 <img id="incorrect" class="incorrect" src="../images/wrong-svgrepo-com.svg" alt="incorrect">
