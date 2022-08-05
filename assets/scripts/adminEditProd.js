@@ -7,8 +7,6 @@ function SetEditProd() {
     let marcaProdEdit = document.getElementById('marcaProdEdit');
     let precoProdEdit = document.getElementById('precoProdEdit');
     let SetGen = document.getElementById('SetGen');
-    let tamProdEdit = document.getElementById('tamProdEdit');
-    let qtdProdEdit = document.getElementById('qtdProdEdit');
     let SetCateg = document.getElementById('SetCateg');
     auth.onAuthStateChanged((user) => {
         if (user.uid == 'g3FXmjoYUbgyeNg2y0l7x00PPsv2') {
@@ -29,8 +27,6 @@ function SetEditProd() {
                         descProdEdit.value = docUserData.currentEdit.prod_desc_edit;
                         marcaProdEdit.value = docUserData.currentEdit.prod_marca_edit;
                         precoProdEdit.value = docUserData.currentEdit.prod_preco_edit;
-                        tamProdEdit.value = docUserData.currentEdit.prod_tamanho_edit;
-                        qtdProdEdit.value = docUserData.currentEdit.prod_qtd_edit;
                         SetGen.value = docUserData.currentEdit.prod_gen_edit;
                         SetCateg.value = docUserData.currentEdit.prod_id_categ_edit;
                     });
@@ -46,8 +42,8 @@ function ChangeProd() {
     let marcaProdEdit = document.getElementById('marcaProdEdit').value;
     let precoProdEdit = document.getElementById('precoProdEdit').value;
     let SetGen = document.getElementById('SetGen').value;
-    let tamProdEdit = document.getElementById('tamProdEdit').value;
-    let qtdProdEdit = document.getElementById('qtdProdEdit').value;
+    // let tamProdEdit = document.getElementById('tamProdEdit').value;
+    // let qtdProdEdit = document.getElementById('qtdProdEdit').value;
     let SetCateg = document.getElementById('SetCateg').value;
     auth.onAuthStateChanged((user) => {
         if (user.uid == 'g3FXmjoYUbgyeNg2y0l7x00PPsv2') {
@@ -61,8 +57,8 @@ function ChangeProd() {
                             preco_prod: parseFloat(precoProdEdit).toFixed(2),
                             gen_prod: SetGen,
                             marca_prod: marcaProdEdit.toUpperCase(),
-                            qtd_prod: parseInt(qtdProdEdit),
-                            tam_prod: tamProdEdit,
+                            // qtd_prod: parseInt(qtdProdEdit),
+                            // tam_prod: tamProdEdit,
                             id_categ: SetCateg,
                         }).then(() => {
                             toggleButtonCorrect(0);

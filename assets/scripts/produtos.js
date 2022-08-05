@@ -68,10 +68,10 @@ function EditProd(element) {
                                                 prod_desc_edit: docProd.data().desc_prod,
                                                 prod_marca_edit: docProd.data().marca_prod,
                                                 prod_preco_edit: docProd.data().preco_prod,
-                                                prod_tamanho_edit: docProd.data().tam_prod,
+                                                // prod_tamanho_edit: docProd.data().tam_prod,
                                                 prod_gen_edit: docProd.data().gen_prod,
                                                 prod_id_categ_edit: docProd.data().id_categ,
-                                                prod_qtd_edit: docProd.data().qtd_prod,
+                                                // prod_qtd_edit: docProd.data().qtd_prod,
                                             },
                                         }).then(() => {
                                             load('adminEditProd');

@@ -9,10 +9,10 @@ function CreateTamProds() {
                     SnapShotUser.forEach(docUser => {
                         db.collection('Produtos').doc(docUser.data().currentEdit.prod_id_edit).get()
                             .then((docProd) => {
-                                docProd.data().tamanhos.forEach(tamanhos => {
+                                    docProd.data().tamanhos.forEach(tamanhos => {
                                     alltamanhos.push(tamanhos.tamanho);
-                                });
-                                if (alltamanhos.every(elem => elem != tamanho)) {
+                                }); 
+                                if (alltamanhos.every(elem => elem != tamanho) ) {
                                     db.collection('Produtos').doc(docUser.data().currentEdit.prod_id_edit).update({
                                         tamanhos: firebase.firestore.FieldValue.arrayUnion({
                                             tamanho: tamanho,
@@ -50,6 +50,8 @@ function CreateTamProds() {
                                         console.log(err);
                                     })
                                 }
+                            }).catch((err)=>{
+                                console.log(err);
                             })
                     });
                 })
@@ -68,8 +70,12 @@ function SetTams() {
                                 docProd.data().tamanhos.forEach(tamanhosProd => {
                                     TamCadastrados.innerHTML += `<option value="${tamanhosProd.tamanho}">${tamanhosProd.tamanho}</option>`;
                                 });
+                            }).catch((err)=>{
+                                console.log(err);
                             })
                     });
+                }).catch((err)=>{
+                    console.log(err);
                 })
         }
     })
@@ -85,8 +91,7 @@ function SetTamQTDalter() {
                     SnapShotUser.forEach(docUser => {
                         db.collection('Produtos').doc(docUser.data().currentEdit.prod_id_edit).get()
                             .then((docProd) => {
-                                docProd.data().tamanhos.forEach(tamanhosProd => {
-                                    if (TamCadastrados == 0) {
+                                if (TamCadastrados == 0) {
                                         tamanho.value = '';
                                         quantidade.value = '';
                                         tamanho.disabled = true;
@@ -96,14 +101,20 @@ function SetTamQTDalter() {
                                         quantidade.value = '';
                                         tamanho.disabled = false;
                                     }
+                                docProd.data().tamanhos.forEach(tamanhosProd => {
+                                    
                                     if (tamanhosProd.tamanho == TamCadastrados) {
                                         tamanho.disabled = true;
                                         tamanho.value = tamanhosProd.tamanho;
                                         quantidade.value = tamanhosProd.quantidade;
                                     }
                                 });
+                            }).catch((err)=>{
+                                console.log(err);
                             })
                     });
+                }).catch((err)=>{
+                    console.log(err);
                 })
         }
     })
