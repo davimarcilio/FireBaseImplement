@@ -78,6 +78,10 @@ function TemProduto() {
     buttonsCarrinho.style.display = 'none';
     CarrinhoVazio.style.display = 'flex';
 }
+function oklimitestoque() {
+    let notestoque = document.getElementById('notestoque');
+    notestoque.style.display = 'none';
+}
 function moreItems(element) {
     auth.onAuthStateChanged((user) => {
         if (user) {
@@ -90,36 +94,51 @@ function moreItems(element) {
                                 db.collection('Produtos').where('doc_ID', '==', element.id).get()
                                     .then((SnapShotProd) => {
                                         SnapShotProd.forEach((docProd) => {
-                                            db.collection('Usuários').doc(docUser.id).update({
-                                                carrinho: firebase.firestore.FieldValue.arrayUnion({
-                                                    prod_id_car: carrinhoId_Prod.prod_id_car,
-                                                    prod_qtd_car: carrinhoId_Prod.prod_qtd_car + 1,
-                                                    prod_nome_car: docProd.data().nome_prod,
-                                                    prod_categ_id_car: docProd.data().id_categ,
-                                                    prod_marca_car: docProd.data().marca_prod,
-                                                    prod_preco_car: docProd.data().preco_prod,
-                                                    prod_tamanho_car: carrinhoId_Prod.prod_tamanho_car,
-                                                    prod_desc_car: docProd.data().desc_prod,
-                                                }),
-                                            }).catch((err) => {
-                                                console.log(err);
+                                            docProd.data().tamanhos.forEach(qtdforeachprod => {
+                                               if (qtdforeachprod.tamanho == carrinhoId_Prod.prod_tamanho_car) {
+                                                if (qtdforeachprod.quantidade <= carrinhoId_Prod.prod_qtd_car) {
+                                                    let notestoque = document.getElementById('notestoque');
+                                                    notestoque.innerHTML = `${docProd.data().nome_prod} ${docProd.data().marca_prod} Atingiu o limite em estoque, NÃO é possivel adicionar mais <button id="oklimitestoque" onclick="oklimitestoque()">OK</button>`;
+                                                    notestoque.style.display = 'flex';
+                                                    setTimeout(() => {
+                                                        notestoque.style.display = 'none';
+                                                    }, 5000);
+                                                } else {
+                                                    db.collection('Usuários').doc(docUser.id).update({
+                                                        carrinho: firebase.firestore.FieldValue.arrayUnion({
+                                                            prod_id_car: carrinhoId_Prod.prod_id_car,
+                                                            prod_qtd_car: carrinhoId_Prod.prod_qtd_car + 1,
+                                                            prod_nome_car: docProd.data().nome_prod,
+                                                            prod_categ_id_car: docProd.data().id_categ,
+                                                            prod_marca_car: docProd.data().marca_prod,
+                                                            prod_preco_car: docProd.data().preco_prod,
+                                                            prod_tamanho_car: carrinhoId_Prod.prod_tamanho_car,
+                                                            prod_desc_car: docProd.data().desc_prod,
+                                                        }),
+                                                    }).catch((err) => {
+                                                        console.log(err);
+                                                    })
+                                                    db.collection('Usuários').doc(docUser.id).update({
+                                                        carrinho: firebase.firestore.FieldValue.arrayRemove({
+                                                            prod_id_car: carrinhoId_Prod.prod_id_car,
+                                                            prod_qtd_car: carrinhoId_Prod.prod_qtd_car,
+                                                            prod_nome_car: docProd.data().nome_prod,
+                                                            prod_categ_id_car: docProd.data().id_categ,
+                                                            prod_marca_car: docProd.data().marca_prod,
+                                                            prod_preco_car: docProd.data().preco_prod,
+                                                            prod_tamanho_car: carrinhoId_Prod.prod_tamanho_car,
+                                                            prod_desc_car: docProd.data().desc_prod,
+                                                        }),
+                                                    }).then(() => {
+                                                        load('carrinho');
+                                                    }).catch((err) => {
+                                                        console.log(err);
+                                                    })
+                                                }
+                                               }
                                             })
-                                            db.collection('Usuários').doc(docUser.id).update({
-                                                carrinho: firebase.firestore.FieldValue.arrayRemove({
-                                                    prod_id_car: carrinhoId_Prod.prod_id_car,
-                                                    prod_qtd_car: carrinhoId_Prod.prod_qtd_car,
-                                                    prod_nome_car: docProd.data().nome_prod,
-                                                    prod_categ_id_car: docProd.data().id_categ,
-                                                    prod_marca_car: docProd.data().marca_prod,
-                                                    prod_preco_car: docProd.data().preco_prod,
-                                                    prod_tamanho_car: carrinhoId_Prod.prod_tamanho_car,
-                                                    prod_desc_car: docProd.data().desc_prod,
-                                                }),
-                                            }).then(() => {
-                                                load('carrinho');
-                                            }).catch((err) => {
-                                                console.log(err);
-                                            })
+                                            // console.log(carrinhoId_Prod.prod_qtd_car >= );
+                                         
                                         })
                                     })
 
