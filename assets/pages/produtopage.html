@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/produtopage.css">
+    <title>éusguri</title>
+</head>
+
+<!-- Padrão de toda página -->
+
+<body onload="UserOrNot()">
+    <header>
+        <div class="top">
+            <img class="icontop" src="../images/PngItem_868090.png" alt="Hang Loose Red">
+            <a href="/../index.html">
+                <h1 class="texttop">éusguri</h1>
+            </a>
+            <ul id="HamMenuList">
+                <button type="button" class="hamburguer" onclick="HamMenuActive()">
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                </button>
+            </ul>
+            <ul id="buttonsPage" class="ulH">
+                <div id="UserOrNot"></div>
+                <a id="carrinho" class="responsivity" onclick="load('carrinho')">
+                    <li>Carrinho</li>
+                </a>
+
+                <a id="produtos" class="responsivity" onclick="load('produtos')">
+                    <li>Produtos</li>
+                </a>
+            </ul>
+        </div>
+        <div class="HamMenuActive">
+            <ul class="HamMenuButtons">
+                <div id="HamUserOrNot"></div>
+                <a id="carrinho" class="HamMenu" onclick="load('carrinho')">
+                    <li>Carrinho</li>
+                </a>
+                <a id="produtos" class="HamMenu" onclick="load('produtos')">
+                    <li>Produtos</li>
+                </a>
+            </ul>
+        </div>
+    </header>
+    <!-- fim padrão -->
+    <section>
+        <div id="ConfExclude">
+            <!-- <h5 id="NumberProgress">O produto será excluido em 15 S</h5>
+            <div class="container">
+                <div class="progress-bar" id="ProgressBAR"></div>
+            </div>
+            <button class="bttConfExclude" onclick="CancelTimer()">CANCELAR</button> -->
+        </div>
+        <div class="ProdData">
+            <!-- <img class="ProdFoto" src="" alt="Foto de usuario"><br>
+            <h5>Nome:</h5><input type="text" id="nomeProdEdit" class="adminEditProdForm"><br>
+            <h5>Descrição:</h5><input type="text" id="descProdEdit" class="adminEditProdForm"><br>
+            <h5>Marca:</h5><input type="text" id="marcaProdEdit" class="adminEditProdForm"><br>
+            <h5>Preço:</h5><input oninput="numbers(this)" type="text" id="precoProdEdit" class="adminEditProdForm"><br>
+            <h5>Genero:</h5><select name="SetGen" id="SetGen">
+                <option value="Masculino">Masculinho</option>
+                <option value="Feminino">Feminino</option>
+            </select><br>
+            <select class="SetCateg" name="SetCateg" id="SetCateg">
+            </select><br>
+            <button class="button bttlogar" onclick="">
+                <span class="text">Salvar</span>
+                <img id="incorrect" class="incorrect" src="../images/wrong-svgrepo-com.svg" alt="incorrect">
+                <img id="correct" class="correct" src="../images/correct-svgrepo-com.svg" alt="Correct">
+                <i class="ri-check-line icon"></i>
+            </button> -->
+        </div>
+    </section>
+    <div id="erro"></div>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="../scripts/firebase.js"></script>
+    <script src="../scripts/produtopage.js"></script>
+    <script src="../scripts/script.js"></script>
+</body>
+
+</html>

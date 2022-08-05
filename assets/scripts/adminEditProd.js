@@ -42,8 +42,6 @@ function ChangeProd() {
     let marcaProdEdit = document.getElementById('marcaProdEdit').value;
     let precoProdEdit = document.getElementById('precoProdEdit').value;
     let SetGen = document.getElementById('SetGen').value;
-    // let tamProdEdit = document.getElementById('tamProdEdit').value;
-    // let qtdProdEdit = document.getElementById('qtdProdEdit').value;
     let SetCateg = document.getElementById('SetCateg').value;
     auth.onAuthStateChanged((user) => {
         if (user.uid == 'g3FXmjoYUbgyeNg2y0l7x00PPsv2') {
@@ -57,8 +55,6 @@ function ChangeProd() {
                             preco_prod: parseFloat(precoProdEdit).toFixed(2),
                             gen_prod: SetGen,
                             marca_prod: marcaProdEdit.toUpperCase(),
-                            // qtd_prod: parseInt(qtdProdEdit),
-                            // tam_prod: tamProdEdit,
                             id_categ: SetCateg,
                         }).then(() => {
                             toggleButtonCorrect(0);

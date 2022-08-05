@@ -34,9 +34,12 @@ function load(page) {
         case 'adminEditProd':
             window.location.href = `${pagename}/assets/pages/adminEditProd.html`;
             break;
-            case 'tamanhoAdmin':
-                window.location.href = `${pagename}/assets/pages/tamanhosAdmin.html`;
-                break;
+        case 'tamanhoAdmin':
+            window.location.href = `${pagename}/assets/pages/tamanhosAdmin.html`;
+            break;
+        case 'produtopage':
+            window.location.href = `${pagename}/assets/pages/produtopage.html`;
+            break;
         default:
             window.location.href = `${pagename}/assets/pages/home.html`;
             break;
@@ -92,7 +95,7 @@ function toggleButtonCorrect(i) {
     incorrectX.style.opacity = '0';
     buttonLogin.style.backgroundColor = '#44c98a';
     textButton.style.display = 'none';
-    
+
     correctImg.style.display = 'inline';
     correctImg.style.opacity = '1';
     setTimeout(() => {

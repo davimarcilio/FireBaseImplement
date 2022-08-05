@@ -22,7 +22,7 @@ function VisualizeProds(docProdData) {
            <img class="imgProd" src="" alt="Foto do produto">
            <h3 class="nomeProd" id="nomeProd">${docProdData.nome_prod} ${docProdData.marca_prod}</h3>
            <h4 class="precoProd" id="precoProd">R$${docProdData.preco_prod}</h4>
-           <button onclick="SetCar(this)" class="bttcomprar" id="${docProdData.doc_ID}" name="bttcomprar" type="button">Comprar</button>
+           <button onclick="SetPageCar(this)" class="bttcomprar" id="${docProdData.doc_ID}" name="bttcomprar" type="button">Comprar</button>
            </div>
            `;
             }
@@ -32,7 +32,7 @@ function VisualizeProds(docProdData) {
    <img class="imgProd" src="" alt="Foto do produto">
    <h3 class="nomeProd" id="nomeProd">${docProdData.nome_prod} ${docProdData.marca_prod}</h3>
    <h4 class="precoProd" id="precoProd">R$${docProdData.preco_prod}</h4>
-   <button onclick="SetCar(this)" class="bttcomprar" id="${docProdData.doc_ID}" name="bttcomprar" type="button">Comprar</button>
+   <button onclick="SetPageCar(this)" class="bttcomprar" id="${docProdData.doc_ID}" name="bttcomprar" type="button">Comprar</button>
    </div>
    `;
         }
@@ -51,6 +51,43 @@ function SetPageProdutos() {
             console.log(err);
         });
 }
+function SetPageCar(element) {
+    auth.onAuthStateChanged((user) => {
+        if (user) {
+                db.collection('Usuários').where('uid_user', '==', user.uid).get()
+                    .then((SnapShotUser) => {
+                        SnapShotUser.forEach(docUser => {
+                            db.collection('Produtos').where('doc_ID', '==', element.id).get()
+                                .then((SnapShotProd) => {
+                                    SnapShotProd.forEach(docProd => {
+                                        db.collection('Usuários').doc(docUser.id).update({
+                                            currentEdit: {
+                                                prod_id_edit: docProd.data().doc_ID,
+                                                prod_nome_edit: docProd.data().nome_prod,
+                                                prod_desc_edit: docProd.data().desc_prod,
+                                                prod_marca_edit: docProd.data().marca_prod,
+                                                prod_preco_edit: docProd.data().preco_prod,
+                                                prod_gen_edit: docProd.data().gen_prod,
+                                                prod_id_categ_edit: docProd.data().id_categ,
+                                            },
+                                        }).then(() => {
+                                            load('produtopage');
+                                        }).catch((err)=>{
+                                            console.log(err);
+                                        });
+                                    });
+                                }).catch((err)=>{
+                                    console.log(err);
+                                });
+                        });
+                    }).catch((err)=>{
+                        console.log(err);
+                    });
+        } else {
+            load('login');
+        }
+    })
+}
 function EditProd(element) {
     auth.onAuthStateChanged((user) => {
         if (user) {
@@ -68,10 +105,8 @@ function EditProd(element) {
                                                 prod_desc_edit: docProd.data().desc_prod,
                                                 prod_marca_edit: docProd.data().marca_prod,
                                                 prod_preco_edit: docProd.data().preco_prod,
-                                                // prod_tamanho_edit: docProd.data().tam_prod,
                                                 prod_gen_edit: docProd.data().gen_prod,
                                                 prod_id_categ_edit: docProd.data().id_categ,
-                                                // prod_qtd_edit: docProd.data().qtd_prod,
                                             },
                                         }).then(() => {
                                             load('adminEditProd');
