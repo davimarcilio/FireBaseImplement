@@ -57,6 +57,7 @@ function cadastro() {
                             sobrenome: sobrenome,
                             sexo: sexo,
                             nascimento: nasc,
+                            carrinho: [],
                         }).then(() => {
                             toggleButtonCorrect(0);
                             setTimeout(() => {

@@ -1,4 +1,3 @@
-
 function VisualizeProds(docProdData) {
     let produtos = document.getElementById('produtosGrid');
     auth.onAuthStateChanged((user) => {
@@ -7,7 +6,7 @@ function VisualizeProds(docProdData) {
                 produtos.innerHTML +=
                     `<div class="produto" id="produto">
            <img class="imgProd" src="" alt="Foto do produto">
-           <h3 class="nomeProd" id="nomeProd">${docProdData.nome_prod} ${docProdData.marca_prod}</h3>
+           <h3 class="nomeProd" id="nomeProd">${docProdData.nome_categ} ${docProdData.nome_prod} ${docProdData.marca_prod}</h3>
            <h4 class="precoProd" id="precoProd">R$${docProdData.preco_prod}</h4>
            <button onclick="EditProd(this)" class="btteditprod" id="${docProdData.doc_ID}" name="btteditprod" type="button">
            <img class="editProdIcon" src="../images/editProd.svg" alt="iconeditprod">
@@ -18,7 +17,7 @@ function VisualizeProds(docProdData) {
                 produtos.innerHTML +=
                     `<div class="produto" id="produto">
            <img class="imgProd" src="" alt="Foto do produto">
-           <h3 class="nomeProd" id="nomeProd">${docProdData.nome_prod} ${docProdData.marca_prod}</h3>
+           <h3 class="nomeProd" id="nomeProd">${docProdData.nome_categ} ${docProdData.nome_prod} ${docProdData.marca_prod}</h3>
            <h4 class="precoProd" id="precoProd">R$${docProdData.preco_prod}</h4>
            <button onclick="SetPageCar(this)" class="bttcomprar" id="${docProdData.doc_ID}" name="bttcomprar" type="button">Comprar</button>
            </div>
@@ -28,7 +27,7 @@ function VisualizeProds(docProdData) {
             produtos.innerHTML +=
                 `<div class="produto" id="produto">
    <img class="imgProd" src="" alt="Foto do produto">
-   <h3 class="nomeProd" id="nomeProd">${docProdData.nome_prod} ${docProdData.marca_prod}</h3>
+   <h3 class="nomeProd" id="nomeProd">${docProdData.nome_categ} ${docProdData.nome_prod} ${docProdData.marca_prod}</h3>
    <h4 class="precoProd" id="precoProd">R$${docProdData.preco_prod}</h4>
    <button onclick="SetPageCar(this)" class="bttcomprar" id="${docProdData.doc_ID}" name="bttcomprar" type="button">Comprar</button>
    </div>

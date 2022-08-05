@@ -112,6 +112,7 @@ function SetCar(element) {
                                                     carrinho: firebase.firestore.FieldValue.arrayRemove({
                                                         prod_id_car: element.id,
                                                         prod_qtd_car: 1,
+                                                        prod_categ_id_car: docProd.data().id_categ,
                                                         prod_nome_car: docProd.data().nome_prod,
                                                         prod_marca_car: docProd.data().marca_prod,
                                                         prod_preco_car: docProd.data().preco_prod,
@@ -127,6 +128,7 @@ function SetCar(element) {
                                                 carrinho: firebase.firestore.FieldValue.arrayUnion({
                                                     prod_id_car: element.id,
                                                     prod_qtd_car: 1,
+                                                    prod_categ_id_car: docProd.data().id_categ,
                                                     prod_nome_car: docProd.data().nome_prod,
                                                     prod_marca_car: docProd.data().marca_prod,
                                                     prod_preco_car: docProd.data().preco_prod,

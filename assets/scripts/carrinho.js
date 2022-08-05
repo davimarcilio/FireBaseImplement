@@ -25,6 +25,7 @@ function SetCarrinho() {
                                             prod_id_car: carrinhoId_Prod.prod_id_car,
                                             prod_qtd_car: carrinhoId_Prod.prod_qtd_car,
                                             prod_nome_car: carrinhoId_Prod.prod_nome_car,
+                                            prod_categ_id_car: carrinhoId_Prod.prod_categ_id_car,
                                             prod_marca_car: carrinhoId_Prod.prod_marca_car,
                                             prod_preco_car: carrinhoId_Prod.prod_preco_car,
                                             prod_tamanho_car: carrinhoId_Prod.prod_tamanho_car,
@@ -35,11 +36,15 @@ function SetCarrinho() {
                                         console.log(err);
                                     });
                                 } else {
-                                    produtos.innerHTML += `
+                                    db.collection('Categorias').where('doc_ID', '==', carrinhoId_Prod.prod_categ_id_car).get()
+                                    .then((SnapShotCateg)=>{
+                                        SnapShotCateg.forEach(docCateg => {
+                                            produtos.innerHTML += `
                                       <div class="produto" id="produto">
                                       <img class="imgProd prodItem" src="" alt="Foto do produto">
-                                      <h3 class="nomeProd prodItem" id="nomeProd">${carrinhoId_Prod.prod_nome_car} ${carrinhoId_Prod.prod_marca_car}</h3>
+                                      <h3 class="nomeProd prodItem" id="nomeProd">${docCateg.data().nome_categ} ${carrinhoId_Prod.prod_nome_car} ${carrinhoId_Prod.prod_marca_car}</h3>
                                       <p class="quantidade prodItem" id="qtdProd">Quantidade ${carrinhoId_Prod.prod_qtd_car} </p>
+                                      <p>Tamanho ${carrinhoId_Prod.prod_tamanho_car}</p>
                                       <h4 class="precoProd prodItem" id="precoProd">R$ ${carrinhoId_Prod.prod_preco_car}</h4>
                                        <div class="buttons prodItem">
                                        <button id="${carrinhoId_Prod.prod_id_car}" onclick="moreItems(this)" class="buttonClass" name="moreItems">
@@ -51,6 +56,9 @@ function SetCarrinho() {
                                        </div>
                                        </div>
                                     `;
+                                        });
+                                    })
+                                    
                                 }
                             });
                         });
@@ -87,9 +95,10 @@ function moreItems(element) {
                                                     prod_id_car: carrinhoId_Prod.prod_id_car,
                                                     prod_qtd_car: carrinhoId_Prod.prod_qtd_car + 1,
                                                     prod_nome_car: docProd.data().nome_prod,
+                                                    prod_categ_id_car: docProd.data().id_categ,
                                                     prod_marca_car: docProd.data().marca_prod,
                                                     prod_preco_car: docProd.data().preco_prod,
-                                                    prod_tamanho_car: docProd.data().tam_prod,
+                                                    prod_tamanho_car: carrinhoId_Prod.prod_tamanho_car,
                                                     prod_desc_car: docProd.data().desc_prod,
                                                 }),
                                             }).catch((err) => {
@@ -100,9 +109,10 @@ function moreItems(element) {
                                                     prod_id_car: carrinhoId_Prod.prod_id_car,
                                                     prod_qtd_car: carrinhoId_Prod.prod_qtd_car,
                                                     prod_nome_car: docProd.data().nome_prod,
+                                                    prod_categ_id_car: docProd.data().id_categ,
                                                     prod_marca_car: docProd.data().marca_prod,
                                                     prod_preco_car: docProd.data().preco_prod,
-                                                    prod_tamanho_car: docProd.data().tam_prod,
+                                                    prod_tamanho_car: carrinhoId_Prod.prod_tamanho_car,
                                                     prod_desc_car: docProd.data().desc_prod,
                                                 }),
                                             }).then(() => {
@@ -143,9 +153,10 @@ function lessItems(element) {
                                                     prod_id_car: carrinhoId_Prod.prod_id_car,
                                                     prod_qtd_car: carrinhoId_Prod.prod_qtd_car - 1,
                                                     prod_nome_car: docProd.data().nome_prod,
+                                                    prod_categ_id_car: docProd.data().id_categ,
                                                     prod_marca_car: docProd.data().marca_prod,
                                                     prod_preco_car: docProd.data().preco_prod,
-                                                    prod_tamanho_car: docProd.data().tam_prod,
+                                                    prod_tamanho_car: carrinhoId_Prod.prod_tamanho_car,
                                                     prod_desc_car: docProd.data().desc_prod,
                                                 }),
                                             }).catch((err) => {
@@ -156,9 +167,10 @@ function lessItems(element) {
                                                     prod_id_car: carrinhoId_Prod.prod_id_car,
                                                     prod_qtd_car: carrinhoId_Prod.prod_qtd_car,
                                                     prod_nome_car: docProd.data().nome_prod,
+                                                    prod_categ_id_car: docProd.data().id_categ,
                                                     prod_marca_car: docProd.data().marca_prod,
                                                     prod_preco_car: docProd.data().preco_prod,
-                                                    prod_tamanho_car: docProd.data().tam_prod,
+                                                    prod_tamanho_car: carrinhoId_Prod.prod_tamanho_car,
                                                     prod_desc_car: docProd.data().desc_prod,
                                                 }),
                                             }).then(() => {

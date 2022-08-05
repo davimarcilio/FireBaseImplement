@@ -43,6 +43,9 @@ function cadastrarProd() {
     // let qtdProd = parseInt(document.getElementById('qtdProd').value);
     // let tamProd = document.getElementById('tamProd').value;
     let categProd = document.getElementById('Categoria').value;
+    db.collection('Categorias').where('doc_ID', '==', categProd).get()
+    .then((SnapShotCateg)=>{
+SnapShotCateg.forEach(docCateg => {
     if (categProd != '0') {
         db.collection('Produtos').add({
             nome_prod: nomeProd,
@@ -53,6 +56,7 @@ function cadastrarProd() {
             // qtd_prod: qtdProd,
             // tam_prod: tamProd,
             id_categ: categProd,
+            nome_categ: docCateg.data().nome_categ,
             tamanhos: [],
         }).then((doc) => {
             db.collection('Produtos').doc(doc.id).update({
@@ -120,6 +124,9 @@ function cadastrarProd() {
             document.getElementById('nomeProd').focus();
         }, 3000);
     }
+});
+    })
+   
 }
 function numbers(element) {
     element.value = element.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');
