@@ -19,36 +19,7 @@ justify-content: center;
     margin-right: 5px;
     margin-left: 5px;
 }
-#Notification{
-    display: none;
-    background-color: rgb(56, 4, 4);
-    padding: 20px;
-    border-top-left-radius: 13px;
-    border-bottom-left-radius: 13px;
-    border: solid 1px black;
-    flex-direction: column;
-    color: white;
-    position: absolute;
-    right: 0;
-    width: 40%;
-    top: 11vh;
-}
-#timerNoti{
-position: absolute;
-right: 4vh;
-}
-.bttNoti{
-    padding: 5px;
-    margin-top: 10px;
-    border-radius: 5px;
-    background-color: aliceblue;
-    font-weight: 900;
-    transition: all .5s;
-    cursor: pointer;
-}
-.bttNoti:hover{
-background-color: rgb(255, 223, 223);
-}
+
 .btteditprod{
     background-color: white;
     border: none;
