@@ -1,0 +1,106 @@
+.ProdData{
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    position: static;
+    flex-direction: column;
+    justify-content: space-around;
+    gap:45px ;
+    width: calc(50% - 50px);
+    margin-top: 20px;
+    float: right;
+    margin-right: 17px;
+    height: calc(82vmin - 54px);
+    padding-top: 20px;
+    padding-bottom: 30px;
+    padding-left: 25px;
+    padding-right: 25px;
+    border: 2px solid gray;
+}
+.ProdFoto{
+    margin-top: 20px;
+    margin-left: 20px;
+    display: flex;
+    float: left;
+    background-color: red;
+    width: calc(50% - 50px);
+    height: 82vmin;
+}
+#AllTams{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 5px;
+}
+.tamanho{
+    font-family: 'Press Start 2P', sans-serif;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid red;
+    border-radius: 100%;
+    transition: all .5s;
+}
+.bttcomprar{
+    padding: 15px;
+    align-self: center;
+    border: none;
+    background-color: rgb(71, 5, 5);
+    color: whitesmoke;
+    font-weight: 900;
+    border-radius: 10px;
+    width: 80%;
+    cursor: pointer;
+    transition: all .5s;
+}
+.bttcomprar:hover{
+    background-color: rgb(122, 9, 9);
+}
+#DescProd{
+    font-family: 'Roboto', sans-serif;
+    position: static;
+    float: left;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    width: calc(100% - 80px);
+    line-height: 25px;
+    padding: 20px;
+    border: 2px solid gray;
+}
+#Notification{
+    display: none;
+    background-color: rgb(56, 4, 4);
+    padding: 20px;
+    border-top-left-radius: 13px;
+    border-bottom-left-radius: 13px;
+    border: solid 1px black;
+    flex-direction: column;
+    color: white;
+    position: absolute;
+    right: 0;
+    width: 40%;
+    top: 11vh;
+}
+#timerNoti{
+position: absolute;
+right: 4vh;
+}
+.bttNoti{
+    padding: 5px;
+    margin-top: 10px;
+    border-radius: 5px;
+    background-color: aliceblue;
+    font-weight: 900;
+    transition: all .5s;
+    cursor: pointer;
+}
+.bttNoti:hover{
+background-color: rgb(255, 223, 223);
+}
+.descrição{
+    font-family: 'Press Start 2P', sans-serif;
+    color: gray;
+}

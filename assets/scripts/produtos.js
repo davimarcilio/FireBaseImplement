@@ -1,6 +1,4 @@
-var timerNoti = 10;
-var IntervalTimerLet;
-var TimeoutTimerVar;
+
 function VisualizeProds(docProdData) {
     let produtos = document.getElementById('produtosGrid');
     auth.onAuthStateChanged((user) => {
@@ -154,54 +152,7 @@ function PesqFilter() {
         })
     }
 }
-function SetCar(element) {
-    timerNoti = 10;
-    clearInterval(IntervalTimerLet);
-    clearTimeout(TimeoutTimerVar);
-    auth.onAuthStateChanged((user) => {
-        if (user) {
-            db.collection('Usuários').where('uid_user', '==', user.uid).get()
-                .then((Snapshot) => {
-                    Snapshot.forEach((doc) => {
-                        db.collection('Produtos').where('doc_ID', '==', element.id).get()
-                            .then((SnapShotProd) => {
-                                SnapShotProd.forEach((docProd) => {
-                                    db.collection('Usuários').doc(doc.id).update({
-                                        carrinho: firebase.firestore.FieldValue.arrayUnion({
-                                            prod_id_car: element.id,
-                                            prod_qtd_car: 1,
-                                            prod_nome_car: docProd.data().nome_prod,
-                                            prod_marca_car: docProd.data().marca_prod,
-                                            prod_preco_car: docProd.data().preco_prod,
-                                            prod_tamanho_car: docProd.data().tam_prod,
-                                            prod_desc_car: docProd.data().desc_prod,
-                                        }),
-                                    })
-                                })
-                            })
-                        let Notification = document.getElementById('Notification');
-                        Notification.style.display = 'flex';
-                        let timerNotiH5 = document.getElementById('timerNoti');
-                        timerNotiH5.innerHTML = `${timerNoti} S`;
-                        IntervalTimerLet = setInterval(IntervalTimer, 1000);
-                        TimeoutTimerVar = setTimeout(() => {
-                            clearInterval(IntervalTimerLet);
-                            Notification.style.display = 'none';
-                        }, 11000);
-                    });
-                }).catch((err) => {
-                    ErrorCode('Erro', err, 'Red');
-                })
-        } else {
-            load('login');
-        }
-    })
-}
-function IntervalTimer() {
-    let timerNotiH5 = document.getElementById('timerNoti');
-    timerNotiH5.innerHTML = `${timerNoti} S`;
-    timerNoti--;
-}
+
 function search() {
     let produtos = document.getElementById('produtosGrid');
     let pesqInput = document.getElementById('pesquisar').value.toUpperCase();
@@ -241,10 +192,4 @@ function search() {
         }).catch((err) => {
             console.log(err);
         })
-}
-function ContinuarProd() {
-    let Notification = document.getElementById('Notification');
-    clearInterval(IntervalTimerLet);
-    clearTimeout(TimeoutTimerVar);
-    Notification.style.display = 'none';
 }

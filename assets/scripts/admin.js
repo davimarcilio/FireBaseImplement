@@ -14,6 +14,9 @@ function cadastrarCateg() {
         nome_categ: nomeCateg,
         desc_categ: descCateg,
     }).then((doc) => {
+        db.collection('Categorias').doc(doc.id).update({
+            doc_ID: doc.id,
+        })
         toggleButtonCorrect(0);
         setTimeout(() => {
             ErrorCode('Categoria Criada', 'Com Sucesso', 'Green');

@@ -12,7 +12,7 @@
 
 <!-- Padrão de toda página -->
 
-<body onload="UserOrNot()">
+<body onload="UserOrNot(), SetThisPage()">
     <header>
         <div class="top">
             <img class="icontop" src="../images/PngItem_868090.png" alt="Hang Loose Red">
@@ -57,25 +57,32 @@
                 <div class="progress-bar" id="ProgressBAR"></div>
             </div>
             <button class="bttConfExclude" onclick="CancelTimer()">CANCELAR</button> -->
+        </div> 
+        <img class="ProdFoto" src="" alt="Foto do produto">
+        <div id="ProdData" class="ProdData">
+            <!-- <h3>Categoria, Nome do produto, Marca</h3>
+            <h4>Genero</h4>
+            <h4>Marca</h4>
+            <h2>R$100</h2>
+            <h6>Quantidade 10</h6>
+             <div id="AllTams">
+                <div class="tamanho" onclick="SelectTam()">44</div>
+                <div class="tamanho">43</div>
+                <div class="tamanho">42</div>
+                <div class="tamanho">41</div>
+                <div class="tamanho">40</div>
+                <div class="tamanho">39</div>
+            </div> -->
+            <!-- <button onclick="SetCar(this)" class="bttcomprar" id="">Comprar</button> -->
         </div>
-        <div class="ProdData">
-            <!-- <img class="ProdFoto" src="" alt="Foto de usuario"><br>
-            <h5>Nome:</h5><input type="text" id="nomeProdEdit" class="adminEditProdForm"><br>
-            <h5>Descrição:</h5><input type="text" id="descProdEdit" class="adminEditProdForm"><br>
-            <h5>Marca:</h5><input type="text" id="marcaProdEdit" class="adminEditProdForm"><br>
-            <h5>Preço:</h5><input oninput="numbers(this)" type="text" id="precoProdEdit" class="adminEditProdForm"><br>
-            <h5>Genero:</h5><select name="SetGen" id="SetGen">
-                <option value="Masculino">Masculinho</option>
-                <option value="Feminino">Feminino</option>
-            </select><br>
-            <select class="SetCateg" name="SetCateg" id="SetCateg">
-            </select><br>
-            <button class="button bttlogar" onclick="">
-                <span class="text">Salvar</span>
-                <img id="incorrect" class="incorrect" src="../images/wrong-svgrepo-com.svg" alt="incorrect">
-                <img id="correct" class="correct" src="../images/correct-svgrepo-com.svg" alt="Correct">
-                <i class="ri-check-line icon"></i>
-            </button> -->
+        <div id="DescProd">
+            <h6 class="descrição">Descrição:</h6>
+        </div>
+        <div id="Notification">
+            <h4>Item adicionado ao carrinho </h4>
+            <h5 id="timerNoti"></h5>
+            <button class="bttNoti" onclick="load('carrinho')" id="ShowCar">Ver Carrinho</button>
+            <button class="bttNoti" onclick="ContinuarProd()" id="ContComp">Continuar Comprando</button>
         </div>
     </section>
     <div id="erro"></div>
