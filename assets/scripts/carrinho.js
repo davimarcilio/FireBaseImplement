@@ -1,4 +1,5 @@
 var prodsincar = [];
+var totalcarrinhopreco = 0;
 function SetCarrinho() {
     let produtos = document.getElementById('produtosGrid');
     auth.onAuthStateChanged((user) => {
@@ -45,7 +46,9 @@ function SetCarrinho() {
                                                     qtd: carrinhoId_Prod.prod_qtd_car,
                                                     tamanho: carrinhoId_Prod.prod_tamanho_car,
                                                 });
-                                                console.log(prodsincar);
+                                                totalcarrinhopreco += parseFloat(carrinhoId_Prod.prod_preco_car);
+                                                let totalcarrinhoedit = document.getElementById('TotalCarrinho');
+                                                totalcarrinhoedit.innerHTML = `Total: R$ ${totalcarrinhopreco}`
                                                 produtos.innerHTML += `
                                       <div class="produto" id="produto">
                                       <img class="imgProd prodItem" src="" alt="Foto do produto">
@@ -216,7 +219,6 @@ function lessItems(element) {
     });
 }
 function FinalizarCompra() {
-    // attribute = element.getAttribute('data-tamanho');
     auth.onAuthStateChanged((user) => {
         if (user) {
             prodsincar.forEach(ProdnoCarrinho => {
@@ -236,16 +238,30 @@ function FinalizarCompra() {
                                             quantidade: tamanhosProd.quantidade,
                                         }),
                                     }).then(() => {
-                                      db.collection('Usuários').where('uid_user', '==', user.uid).get()
-                                      .then((SnapShotUser)=>{
-                                        SnapShotUser.forEach(docUser => {
-                                            db.collection('Usuários').doc(docUser.id).update({
-                                                carrinho: [],
-                                            }).then(()=>{
-                                                load('carrinho');
+                                        db.collection('Usuários').where('uid_user', '==', user.uid).get()
+                                            .then((SnapShotUser) => {
+                                                console.log('Aqui Passou');
+                                                SnapShotUser.forEach(docUser => {
+                                                    console.log('Aqui Passou2');
+                                                    console.log(prodsincar);
+                                                    console.log(ProdnoCarrinho);
+                                                    console.log(prodsincar);
+                                                    db.collection('Usuários').doc(docUser.id).update({
+                                                        carrinho: [],
+                                                        compras: firebase.firestore.FieldValue.arrayUnion({
+                                                            prods: prodsincar,
+                                                            // valor: ,
+                                                        })
+                                                        // currentCompra: {
+                                                        //     id_prod: prodsincar.id,
+                                                        //     qtd_comprado: prodsincar.qtd,
+                                                        //     tamanho_comprado: prodsincar.tamanho,
+                                                        // },
+                                                    }).then(() => {
+                                                        load('carrinho');
+                                                    })
+                                                });
                                             })
-                                        });
-                                      })
                                     })
                                 })
                             }
