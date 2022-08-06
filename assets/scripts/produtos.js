@@ -14,6 +14,15 @@ function VisualizeProds(docProdData) {
            </div>
            `;
             } else {
+                // console.log(docProdData.tamanhos);
+                console.log(docProdData.tamanhos.quantidade <= 0);
+                // docProdData.tamanhos.forEach(testes => {
+                //     console.log(testes);
+                //        console.log(testes.every(testes => {
+                //   return  testes.quantidade <= 0;
+                // }));
+                // });
+             
                 produtos.innerHTML +=
                     `<div class="produto" id="produto">
            <img class="imgProd" src="" alt="Foto do produto">
@@ -24,6 +33,9 @@ function VisualizeProds(docProdData) {
            `;
             }
         } else {
+            // console.log(docProdData.tamanhos.every(tamanhos => {
+            //     tamanhos.quantidade <= 0;
+            // }));
             produtos.innerHTML +=
                 `<div class="produto" id="produto">
    <img class="imgProd" src="" alt="Foto do produto">

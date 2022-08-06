@@ -55,6 +55,17 @@
     cursor: pointer;
     transition: all .5s;
 }
+.bttfaltaestoque{
+    padding: 15px;
+    align-self: center;
+    border: none;
+    display: none;
+    background-color: gray;
+    color: whitesmoke;
+    font-weight: 900;
+    border-radius: 10px;
+    width: 80%;
+}
 .bttcomprar:hover{
     background-color: rgb(122, 9, 9);
 }

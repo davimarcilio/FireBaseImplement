@@ -23,9 +23,10 @@ function SetThisPage() {
                         <h6 id="Quantidade"></h6>
                         <div id="AllTams"></div>
                         <button onclick="SetCar(this)" class="bttcomprar" id="${prodVisibility.prod_id_edit}">Comprar</button>
+                        <button class="bttfaltaestoque" id="Semestoque">Sem Estoque</button>
                         `
-                        let DescProd = document.getElementById('DescProd');
-                        DescProd.innerHTML += `<p>${prodVisibility.prod_desc_edit}</p>`
+                                    let DescProd = document.getElementById('DescProd');
+                                    DescProd.innerHTML += `<p>${prodVisibility.prod_desc_edit}</p>`
                                     db.collection('Produtos').where('doc_ID', '==', prodVisibility.prod_id_edit).get()
                                         .then((SnapShotProd) => {
                                             SnapShotProd.forEach(docProd => {
@@ -38,7 +39,7 @@ function SetThisPage() {
                                                 console.log();
                                                 allTamsarray.sort()
                                                 allTamsarray.forEach(alltamsarraysorted => {
-                                                    
+
                                                     let AllTams = document.getElementById('AllTams');
                                                     AllTams.innerHTML += `
                                                    <div class="tamanho" id="${alltamsarraysorted}" onclick="SelectTam(this)"><h5> ${alltamsarraysorted} </h5></div>`;
@@ -77,9 +78,18 @@ function SelectTam(element) {
                                 SnapShotProd.forEach(docProd => {
                                     docProd.data().tamanhos.forEach(docProdTam => {
                                         if (tamanhoSelected == docProdTam.tamanho) {
+                                            let idBtt = document.getElementById(prodVisibility.prod_id_edit);
+                                            let faltaestoquebtt = document.getElementById('Semestoque');
                                             let quantidadeh6 = document.getElementById('Quantidade');
-                                            quantidadeh6.innerHTML = `
-                                                         Quantidade ${docProdTam.quantidade}`
+                                            if (docProdTam.quantidade <= 0) {
+                                                idBtt.style.display = 'none';
+                                                faltaestoquebtt.style.display = 'block';
+                                                quantidadeh6.innerHTML = `Sem Estoque!`
+                                            } else {
+                                                idBtt.style.display = 'block';
+                                                faltaestoquebtt.style.display = 'none';
+                                                quantidadeh6.innerHTML = `Quantidade ${docProdTam.quantidade}`
+                                            }
                                         }
                                     });
                                 });
@@ -108,37 +118,37 @@ function SetCar(element) {
                                 .then((SnapShotProd) => {
                                     SnapShotProd.forEach((docProd) => {
                                         db.collection('Usuários').doc(doc.id).get()
-                                        .then((docUserTamDelete) => {
-                                            docUserTamDelete.data().carrinho.forEach(filtredcar => {
+                                            .then((docUserTamDelete) => {
+                                                docUserTamDelete.data().carrinho.forEach(filtredcar => {
+                                                    db.collection('Usuários').doc(doc.id).update({
+                                                        carrinho: firebase.firestore.FieldValue.arrayRemove({
+                                                            prod_id_car: element.id,
+                                                            prod_qtd_car: 1,
+                                                            prod_categ_id_car: docProd.data().id_categ,
+                                                            prod_nome_car: docProd.data().nome_prod,
+                                                            prod_marca_car: docProd.data().marca_prod,
+                                                            prod_preco_car: docProd.data().preco_prod,
+                                                            prod_tamanho_car: filtredcar.prod_tamanho_car,
+                                                            prod_desc_car: docProd.data().desc_prod,
+                                                        }),
+                                                    });
+                                                });
+
+                                            })
+                                            .then(() => {
                                                 db.collection('Usuários').doc(doc.id).update({
-                                                    carrinho: firebase.firestore.FieldValue.arrayRemove({
+                                                    carrinho: firebase.firestore.FieldValue.arrayUnion({
                                                         prod_id_car: element.id,
                                                         prod_qtd_car: 1,
                                                         prod_categ_id_car: docProd.data().id_categ,
                                                         prod_nome_car: docProd.data().nome_prod,
                                                         prod_marca_car: docProd.data().marca_prod,
                                                         prod_preco_car: docProd.data().preco_prod,
-                                                        prod_tamanho_car: filtredcar.prod_tamanho_car,
+                                                        prod_tamanho_car: tamanhoSelected,
                                                         prod_desc_car: docProd.data().desc_prod,
                                                     }),
-                                                });
-                                            });
-
-                                        })
-                                        .then(() => {
-                                            db.collection('Usuários').doc(doc.id).update({
-                                                carrinho: firebase.firestore.FieldValue.arrayUnion({
-                                                    prod_id_car: element.id,
-                                                    prod_qtd_car: 1,
-                                                    prod_categ_id_car: docProd.data().id_categ,
-                                                    prod_nome_car: docProd.data().nome_prod,
-                                                    prod_marca_car: docProd.data().marca_prod,
-                                                    prod_preco_car: docProd.data().preco_prod,
-                                                    prod_tamanho_car: tamanhoSelected,
-                                                    prod_desc_car: docProd.data().desc_prod,
-                                                }),
+                                                })
                                             })
-                                        })
                                     })
                                 })
                             let Notification = document.getElementById('Notification');
