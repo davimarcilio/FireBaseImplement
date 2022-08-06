@@ -240,23 +240,17 @@ function FinalizarCompra() {
                                     }).then(() => {
                                         db.collection('Usuários').where('uid_user', '==', user.uid).get()
                                             .then((SnapShotUser) => {
-                                                console.log('Aqui Passou');
                                                 SnapShotUser.forEach(docUser => {
-                                                    console.log('Aqui Passou2');
-                                                    console.log(prodsincar);
-                                                    console.log(ProdnoCarrinho);
-                                                    console.log(prodsincar);
                                                     db.collection('Usuários').doc(docUser.id).update({
                                                         carrinho: [],
                                                         compras: firebase.firestore.FieldValue.arrayUnion({
                                                             prods: prodsincar,
-                                                            // valor: ,
-                                                        })
-                                                        // currentCompra: {
-                                                        //     id_prod: prodsincar.id,
-                                                        //     qtd_comprado: prodsincar.qtd,
-                                                        //     tamanho_comprado: prodsincar.tamanho,
-                                                        // },
+                                                            valor: totalcarrinhopreco,
+                                                        }),
+                                                        currentCompra: {
+                                                            prods: prodsincar,
+                                                            valor: totalcarrinhopreco,
+                                                        },
                                                     }).then(() => {
                                                         load('carrinho');
                                                     })
