@@ -42,6 +42,12 @@ function CreateTamProds() {
                                                                 tamanho: tamanho,
                                                                 quantidade: alltamanhosstring.quantidade,
                                                             })
+                                                        }).then(()=>{
+                                                            toggleButtonCorrect(0);
+                                                            setInterval(() => {
+                                                               load('tamanhoAdmin'); 
+                                                            }, 500);
+                                                            
                                                         })
                                                     }
                                                 });
