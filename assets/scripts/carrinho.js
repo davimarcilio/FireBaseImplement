@@ -1,3 +1,4 @@
+var prodsincar = [];
 function SetCarrinho() {
     let produtos = document.getElementById('produtosGrid');
     auth.onAuthStateChanged((user) => {
@@ -39,6 +40,12 @@ function SetCarrinho() {
                                     db.collection('Categorias').where('doc_ID', '==', carrinhoId_Prod.prod_categ_id_car).get()
                                         .then((SnapShotCateg) => {
                                             SnapShotCateg.forEach(docCateg => {
+                                                prodsincar.push({
+                                                    id: carrinhoId_Prod.prod_id_car,
+                                                    qtd: carrinhoId_Prod.prod_qtd_car,
+                                                    tamanho: carrinhoId_Prod.prod_tamanho_car,
+                                                });
+                                                console.log(prodsincar);
                                                 produtos.innerHTML += `
                                       <div class="produto" id="produto">
                                       <img class="imgProd prodItem" src="" alt="Foto do produto">
@@ -58,7 +65,6 @@ function SetCarrinho() {
                                     `;
                                             });
                                         })
-
                                 }
                             });
                         });
@@ -139,13 +145,9 @@ function moreItems(element) {
                                                 } else {
                                                 }
                                             })
-                                            // console.log(carrinhoId_Prod.prod_qtd_car >= );
-
                                         })
                                     })
-
                             }
-
                         });
                     })
                 }).catch((err) => {
@@ -202,16 +204,61 @@ function lessItems(element) {
                                             })
                                         })
                                     })
-
                             }
                         });
                     })
                 }).catch((err) => {
                     console.log(err);
-
                 })
         } else {
+            load('home');
+        }
+    });
+}
+function FinalizarCompra() {
+    // attribute = element.getAttribute('data-tamanho');
+    auth.onAuthStateChanged((user) => {
+        if (user) {
+            prodsincar.forEach(ProdnoCarrinho => {
+                db.collection('Produtos').doc(ProdnoCarrinho.id).get()
+                    .then((docProd) => {
+                        docProd.data().tamanhos.forEach(tamanhosProd => {
+                            if (tamanhosProd.tamanho == ProdnoCarrinho.tamanho) {
+                                db.collection('Produtos').doc(ProdnoCarrinho.id).update({
+                                    tamanhos: firebase.firestore.FieldValue.arrayUnion({
+                                        tamanho: ProdnoCarrinho.tamanho,
+                                        quantidade: tamanhosProd.quantidade - ProdnoCarrinho.qtd,
+                                    }),
+                                }).then(() => {
+                                    db.collection('Produtos').doc(ProdnoCarrinho.id).update({
+                                        tamanhos: firebase.firestore.FieldValue.arrayRemove({
+                                            tamanho: ProdnoCarrinho.tamanho,
+                                            quantidade: tamanhosProd.quantidade,
+                                        }),
+                                    }).then(() => {
+                                      db.collection('Usuários').where('uid_user', '==', user.uid).get()
+                                      .then((SnapShotUser)=>{
+                                        SnapShotUser.forEach(docUser => {
+                                            db.collection('Usuários').doc(docUser.id).update({
+                                                carrinho: [],
+                                            }).then(()=>{
+                                                load('carrinho');
+                                            })
+                                        });
+                                      })
+                                    })
+                                })
+                            }
 
+                        });
+
+
+
+
+                    })
+
+            })
+        } else {
             load('home');
         }
     });
