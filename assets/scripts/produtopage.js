@@ -35,8 +35,10 @@ function SetThisPage() {
                                                          Selecione um tamanho`
                                                     allTamsarray.push(docProdTam.tamanho);
                                                 });
+                                                console.log();
                                                 allTamsarray.sort()
                                                 allTamsarray.forEach(alltamsarraysorted => {
+                                                    
                                                     let AllTams = document.getElementById('AllTams');
                                                     AllTams.innerHTML += `
                                                    <div class="tamanho" id="${alltamsarraysorted}" onclick="SelectTam(this)"><h5> ${alltamsarraysorted} </h5></div>`;
