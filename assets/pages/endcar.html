@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/">
+    <title>éusguri</title>
+</head>
+<!-- Padrão de toda página -->
+
+<body onload="UserOrNot()">
+    <header>
+        <div class="top">
+            <img class="icontop" src="../images/PngItem_868090.png" alt="Hang Loose Red">
+            <a href="/../index.html">
+                <h1 class="texttop">éusguri</h1>
+            </a>
+            <ul id="HamMenuList">
+                <button type="button" class="hamburguer" onclick="HamMenuActive()">
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                </button>
+            </ul>
+            <ul id="buttonsPage">
+                <div id="UserOrNot"></div>
+                <a id="carrinho" class="responsivity" onclick="load('carrinho')">
+                    <li>Carrinho</li>
+                </a>
+                <a id="produtos" class="responsivity" onclick="load('produtos')">
+                    <li>Produtos</li>
+                </a>
+            </ul>
+        </div>
+        <div class="HamMenuActive">
+            <ul class="HamMenuButtons">
+                <div id="HamUserOrNot"></div>
+                <a id="carrinho" class="HamMenu" onclick="load('carrinho')">
+                    <li>Carrinho</li>
+                </a>
+                <a id="produtos" class="HamMenu" onclick="load('produtos')">
+                    <li>Produtos</li>
+                </a> 
+            </ul>
+        </div>
+    </header>
+    <!-- fim padrão -->
+    <section>
+        <div id="Total">R$100</div>
+        <div id="buttons">
+         <button>Pagar com pix</button>
+        </div>
+    </section>
+    <div id="erro">
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="../scripts/firebase.js"></script>
+    <script src="../scripts/script.js"></script>
+</body>
+
+</html>
