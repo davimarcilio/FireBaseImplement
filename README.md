@@ -34,6 +34,18 @@
 <br>
 
 ![Screenshot_48](https://user-images.githubusercontent.com/104699555/183303788-5e3149a7-022e-4382-a813-203ad56a8470.png)
+
+<br>
+
+<p>Após criar a conta ele já loga automaticamente, logo no menu ja da de ver a diferença, o botão entrar desaparece e o botão user aparece.</p>
+
+<br>
+
+![Screenshot_50](https://user-images.githubusercontent.com/104699555/183322588-33b8510d-8659-406c-8462-94d33f6b475e.png)
+
+<br>
+
+<p>Ao clicar no botão produtos aparece todos os produtos existentes na loja, os produtos estão sem foto porque eu não utilizei firebase storage para colocar as fotos nos produtos.</p>
 <!-- <hr> -->
 <!-- <br> -->
 <!-- <h2>📷Veja:</h2> -->
