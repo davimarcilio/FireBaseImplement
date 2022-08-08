@@ -259,14 +259,8 @@ function FinalizarCompra() {
                                     })
                                 })
                             }
-
                         });
-
-
-
-
                     })
-
             })
         } else {
             load('home');
